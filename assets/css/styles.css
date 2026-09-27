@@ -116,7 +116,7 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .tabs--top { display: none; }
 .tabs--bottom {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-  display: grid; grid-template-columns: repeat(3, 1fr);
+  display: grid; grid-template-columns: repeat(4, 1fr);
   height: calc(var(--bottombar-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--surface); border-top: 1px solid var(--border);
@@ -192,6 +192,14 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .datebox__day { font-size: 22px; font-weight: 800; line-height: 1; }
 .datebox__month { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
 .mode { font-size: 12px; font-weight: 600; }
+
+.new { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; color: var(--surface); background: var(--accent); padding: 1px 7px; border-radius: 999px; }
+.new[hidden] { display: none; }
+.also { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
+.also[hidden] { display: none; }
+.also a { color: var(--brand); font-weight: 600; }
+.month { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 10px 0 -2px; grid-column: 1 / -1; }
+.month:first-child { margin-top: 0; }
 
 .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 .skeleton { height: 120px; border-radius: var(--radius); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; }

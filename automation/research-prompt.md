@@ -10,9 +10,15 @@ Industrial e Intelectual en España. Trabajas en el repositorio `carlosmunozmagr
 
 ## Objetivo de cada ejecución
 
-1. Buscar noticias publicadas en los **últimos 3 días** y eventos de los **próximos 90 días**.
-2. Añadir solo lo nuevo y relevante a `data/noticias.json` y `data/eventos.json`.
-3. Validar, hacer commit y push a `main` (esto publica la web automáticamente).
+1. **Leer primero lo que ya hay** en `data/noticias.json` y `data/eventos.json` (sobre todo lo de las
+   últimas semanas) para no investigar lo que ya está publicado.
+2. Buscar noticias publicadas en los **últimos 3 días** y eventos de los **próximos 90 días**.
+3. Escribir los candidatos en `entrantes.json` (en la raíz; está en `.gitignore`) y **fusionarlos**
+   con `node scripts/merge.mjs`. Nunca edites a mano los ficheros de `data/` para añadir elementos.
+4. Validar, hacer commit y push a `main` (esto publica la web automáticamente).
+
+**Nunca borres nada.** Lo antiguo no se elimina: la web mueve sola al **Historial** las noticias de
+más de 30 días y los eventos ya celebrados.
 
 ## Fuentes prioritarias
 
@@ -37,11 +43,34 @@ Usa WebSearch con consultas en español e inglés, por ejemplo: `OEPM noticias <
   normativa europea con impacto directo en España. Descarta noticias genéricas de otros países.
 - **Verificación**: no inventes nada. Cada elemento debe tener URL real de la fuente original y fecha
   confirmada. Si no puedes confirmar la fecha exacta, **no lo añadas**.
-- **Sin duplicados**: antes de añadir, comprueba que no exista ya (mismo tema, misma fuente o URL).
+- **Sin duplicados** (ver sección siguiente).
 - **Calidad sobre cantidad**: entre 0 y 8 noticias por ejecución. Un día sin novedades es válido.
 - Marca `"destacado": true` como mucho en 1 noticia por semana (lo más importante: cambios normativos,
   sentencias clave, grandes cifras de la OEPM/EUIPO).
 - Resúmenes en español neutro, 1-3 frases (20-600 caracteres), informativos y sin opinión.
+
+## Cómo evitar duplicados
+
+El script `merge.mjs` detecta automáticamente los casos claros (misma URL aunque cambien parámetros
+`utm_…`, o titulares muy parecidos con fechas cercanas) y los resuelve así:
+
+- **Noticia repetida en otro medio** → no crea una tarjeta nueva: añade el medio a `otras_fuentes`
+  de la noticia existente (en la web aparece como "También en: …").
+- **Evento ya existente** → no lo duplica: actualiza los campos que hayan cambiado (fecha si se ha
+  aplazado, hora, ciudad, enlace de inscripción) y marca `modificado`.
+
+Tu trabajo es cubrir lo que el script no puede ver:
+
+1. Si una noticia candidata trata **el mismo hecho** que una existente pero con otras palabras (o en
+   otro idioma), añade `"mismo_que": "<id existente>"` al candidato. Se guardará como fuente adicional.
+2. Si es una **continuación** con información nueva real (p. ej. primero "se aprueba el proyecto de
+   ley" y semanas después "se publica en el BOE"), sí es una noticia nueva.
+3. Prefiere siempre la fuente original (OEPM, EUIPO, BOE, tribunal) como `url` principal; los medios
+   que la recogen van como fuentes adicionales.
+4. Lanza primero `node scripts/merge.mjs --dry-run` y revisa el informe: si algo se ha fusionado mal
+   o se ha colado un duplicado, corrige `entrantes.json` y repite.
+5. `node scripts/validate.mjs` falla si quedan posibles duplicados en los datos. No lo ignores:
+   fusiónalos (mueve uno a `otras_fuentes` del otro) antes de publicar.
 
 ## Formato
 
@@ -57,7 +86,8 @@ Noticia (`data/noticias.json` → `items`):
   "url": "https://…",
   "categoria": "marcas | patentes | disenos | derechos-autor | indicaciones-geograficas | litigios | normativa | institucional",
   "etiquetas": ["…"],
-  "destacado": false
+  "destacado": false,
+  "mismo_que": "(opcional) id de una noticia existente sobre el mismo hecho"
 }
 ```
 
@@ -80,19 +110,23 @@ Evento (`data/eventos.json` → `items`):
 }
 ```
 
-El `id` empieza por la fecha de la noticia o de inicio del evento. Actualiza el campo `actualizado`
-de cada fichero con la fecha-hora UTC actual (ISO 8601) si has cambiado ese fichero.
+El `id` empieza por la fecha de la noticia o de inicio del evento. Los campos `anadido`, `modificado`,
+`otras_fuentes` y `actualizado` los rellena `merge.mjs`; no los escribas tú.
 
 ## Mantenimiento
 
-- Si un evento existente ha cambiado (fecha, modalidad, URL de inscripción), corrígelo.
-- Borra noticias con más de **12 meses** y eventos terminados hace más de **6 meses**.
+- Si un evento existente ha cambiado (fecha, modalidad, URL de inscripción), mételo en
+  `entrantes.json` con los datos nuevos: el merge lo actualizará en lugar de duplicarlo.
+- Si detectas un error en un elemento existente (enlace roto, categoría incorrecta), corrígelo
+  directamente en `data/`, sin borrarlo.
 
 ## Publicación
 
 ```bash
 git fetch origin main && git checkout main && git pull origin main
-# … editar data/*.json …
+# … escribir entrantes.json con { "noticias": [...], "eventos": [...] } …
+node scripts/merge.mjs --dry-run   # revisar el informe
+node scripts/merge.mjs             # fusiona en data/*.json
 node scripts/validate.mjs          # debe terminar sin errores
 git add data/
 git commit -m "Actualización diaria: N noticias, M eventos (AAAA-MM-DD)"
@@ -102,5 +136,5 @@ git push origin main
 Si no hay cambios, no hagas commit. Si el push a `main` es rechazado, sube los cambios a una rama
 `actualizacion/AAAA-MM-DD` y abre un Pull Request hacia `main` con el resumen.
 
-Al terminar, responde con un resumen breve: qué has añadido (títulos + fuente), qué has descartado
-y por qué, y cualquier fuente que no hayas podido consultar.
+Al terminar, responde con un resumen breve: qué has añadido (títulos + fuente), qué se ha fusionado
+como duplicado, qué eventos se han actualizado y cualquier fuente que no hayas podido consultar.

@@ -20,7 +20,12 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **Móvil primero**: barra de pestañas inferior, chips de categoría deslizables, instalable en la
   pantalla de inicio (PWA) y funciona sin conexión con la última versión descargada.
 - **Escritorio**: navegación superior, rejilla de noticias y columna lateral con próximos eventos.
-- Búsqueda, filtros por categoría, eventos próximos/pasados, “+ Calendario” (.ics), guardados
+- **Historial**: nada se borra. Las noticias de más de 30 días y los eventos ya celebrados pasan
+  solos a la sección Historial, agrupados por mes.
+- **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en
+  `entrantes.json` y `scripts/merge.mjs` los fusiona. La misma noticia en otro medio se añade como
+  “También en: …”; un evento ya conocido se actualiza (fecha, hora, enlace) en vez de repetirse.
+- Búsqueda, filtros por categoría, etiqueta “Nuevo”, “+ Calendario” (.ics), guardados
   (en el navegador), compartir, modo claro/oscuro.
 
 ## Estructura
@@ -30,7 +35,10 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 | `index.html`, `assets/` | La web app |
 | `manifest.webmanifest`, `sw.js` | PWA (instalable + offline) |
 | `data/noticias.json`, `data/eventos.json` | Contenido |
-| `scripts/validate.mjs` | Validación del formato de los datos (`node scripts/validate.mjs`) |
+| `scripts/merge.mjs` | Fusiona candidatos con los datos existentes, sin borrar y sin duplicar |
+| `scripts/lib/dedup.mjs` | Reglas de detección de duplicados (URL normalizada + parecido de titulares) |
+| `scripts/validate.mjs` | Validación del formato y de posibles duplicados |
+| `tests/` | Tests del fusionado (`node --test tests/*.test.mjs`) |
 | `automation/research-prompt.md` | Instrucciones de la tarea programada de research |
 | `.github/workflows/deploy.yml` | Valida en cada PR/push y publica `main` en GitHub Pages |
 
@@ -49,7 +57,9 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 
 ```bash
 python3 -m http.server 8000   # y abrir http://localhost:8000
+node scripts/merge.mjs entrantes.json --dry-run   # simular una fusión
 node scripts/validate.mjs
+node --test tests/*.test.mjs
 ```
 
 ## Categorías

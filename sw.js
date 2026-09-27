@@ -1,5 +1,5 @@
 // Service worker: estáticos stale-while-revalidate, datos network-first (con respaldo offline).
-const VERSION = 'v1';
+const VERSION = 'v2';
 const STATIC = `ipes-static-${VERSION}`;
 const DATA = 'ipes-data';
 const ASSETS = [

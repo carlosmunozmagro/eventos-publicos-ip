@@ -12,7 +12,9 @@
     'institucional': 'Institucional',
   };
   const MODALIDAD = { presencial: 'Presencial', online: 'Online', hibrido: 'Híbrido' };
-  const TITULOS = { noticias: 'Noticias', eventos: 'Eventos', guardados: 'Guardados' };
+  const TITULOS = { noticias: 'Noticias', eventos: 'Eventos', historial: 'Historial', guardados: 'Guardados' };
+  const DIAS_ACTUALIDAD = 30;   // noticias más antiguas pasan al Historial
+  const DIAS_NUEVO = 2;         // etiqueta "Nuevo" para lo añadido recientemente
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -20,7 +22,7 @@
   const state = {
     view: 'noticias',
     categoria: null,
-    when: 'proximos',
+    hist: 'noticias',
     q: '',
     noticias: [],
     eventos: [],
@@ -42,17 +44,20 @@
 
   // ---------- fechas ----------
   const hoy = () => new Date().toISOString().slice(0, 10);
+  const haceDias = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
   const parseDate = (s) => new Date(s + 'T12:00:00');
   const fmtLargo = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
   const fmtCorto = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short' });
   const fmtMes = new Intl.DateTimeFormat('es-ES', { month: 'short' });
+  const fmtMesAnio = new Intl.DateTimeFormat('es-ES', { month: 'long', year: 'numeric' });
 
   function relativo(fecha) {
     const d = Math.round((parseDate(hoy()) - parseDate(fecha)) / 864e5);
     if (d === 0) return 'Hoy';
     if (d === 1) return 'Ayer';
     if (d > 1 && d < 7) return `Hace ${d} días`;
-    return fmtCorto.format(parseDate(fecha));
+    const f = parseDate(fecha);
+    return f.getFullYear() === new Date().getFullYear() ? fmtCorto.format(f) : fmtLargo.format(f).replace(/^[^,]+,\s*/, '');
   }
 
   function rangoEvento(e) {
@@ -83,6 +88,20 @@
   }
 
   const esPasado = (e) => (e.fecha_fin || e.fecha_inicio) < hoy();
+  const esActual = (n) => n.fecha >= haceDias(DIAS_ACTUALIDAD);
+  const esNuevo = (i) => i.anadido && i.anadido >= haceDias(DIAS_NUEVO);
+
+  // Elementos de cada vista antes de aplicar búsqueda y categoría
+  function base(view = state.view) {
+    if (view === 'noticias') return state.noticias.filter(esActual);
+    if (view === 'eventos') return state.eventos.filter((e) => !esPasado(e));
+    if (view === 'historial') {
+      return state.hist === 'eventos'
+        ? state.eventos.filter(esPasado).reverse()
+        : state.noticias.filter((n) => !esActual(n));
+    }
+    return [...state.eventos, ...state.noticias].filter((i) => state.guardados.has(i.id));
+  }
 
   // ---------- render ----------
   function badge(el, cat) {
@@ -108,8 +127,19 @@
     const t = $('time', node);
     t.dateTime = n.fecha; t.textContent = relativo(n.fecha); t.title = fmtLargo.format(parseDate(n.fecha));
     $('.source', node).textContent = n.fuente;
+    if (esNuevo(n)) $('.new', node).hidden = false;
     const a = $('.card__title a', node); a.href = n.url; a.textContent = n.titulo;
     $('.card__body', node).textContent = n.resumen;
+    if (n.otras_fuentes?.length) {
+      const p = $('.also', node);
+      p.hidden = false;
+      p.append('También en: ');
+      n.otras_fuentes.forEach((f, i) => {
+        const l = document.createElement('a');
+        l.href = f.url; l.target = '_blank'; l.rel = 'noopener'; l.textContent = f.fuente;
+        p.append(...(i ? [', ', l] : [l]));
+      });
+    }
     const ul = $('.tags', node);
     (n.etiquetas || []).slice(0, 4).forEach((tag) => { const li = document.createElement('li'); li.textContent = tag; ul.append(li); });
     saveBtn($('.save', node), n.id);
@@ -120,6 +150,7 @@
   function cardEvento(e) {
     const node = $('#tpl-event').content.firstElementChild.cloneNode(true);
     if (esPasado(e)) node.classList.add('card--past');
+    if (esNuevo(e)) $('.new', node).hidden = false;
     const d = parseDate(e.fecha_inicio);
     $('.datebox__day', node).textContent = d.getDate();
     $('.datebox__month', node).textContent = fmtMes.format(d).replace('.', '');
@@ -136,8 +167,7 @@
   }
 
   function renderChips() {
-    const base = state.view === 'eventos' ? state.eventos : state.view === 'noticias' ? state.noticias : [...state.noticias, ...state.eventos];
-    const presentes = new Set(base.map((i) => i.categoria));
+    const presentes = new Set(base().map((i) => i.categoria));
     const wrap = $('#chips');
     wrap.replaceChildren();
     const mk = (val, label) => {
@@ -173,33 +203,45 @@
     document.body.dataset.view = state.view;
     $('#view-title').textContent = TITULOS[state.view];
     $$('[data-view]').forEach((a) => (a.dataset.view === state.view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
-    $('#when').hidden = state.view !== 'eventos';
-    $$('#when button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.when === state.when)));
+    $('#when').hidden = state.view !== 'historial';
+    $$('#when button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.hist === state.hist)));
 
     renderChips();
     const list = $('#list');
     list.className = 'list';
-    let nodes = [];
+    const items = filtrar(base());
+    const card = (i) => ('fecha_inicio' in i ? cardEvento(i) : cardNoticia(i));
+    let nodes;
 
-    if (state.view === 'noticias') {
-      list.classList.add('list--news');
-      nodes = filtrar(state.noticias).map(cardNoticia);
-    } else if (state.view === 'eventos') {
-      let evs = filtrar(state.eventos).filter((e) => (state.when === 'pasados' ? esPasado(e) : !esPasado(e)));
-      if (state.when === 'pasados') evs = evs.reverse();
-      nodes = evs.map(cardEvento);
+    if (state.view === 'historial') {
+      // agrupado por mes, del más reciente al más antiguo
+      nodes = [];
+      let mes = null;
+      for (const i of items) {
+        const m = (i.fecha || i.fecha_inicio).slice(0, 7);
+        if (m !== mes) {
+          mes = m;
+          const h = document.createElement('h2');
+          h.className = 'month';
+          h.textContent = fmtMesAnio.format(parseDate(m + '-01'));
+          nodes.push(h);
+        }
+        nodes.push(card(i));
+      }
     } else {
-      const n = filtrar(state.noticias).filter((i) => state.guardados.has(i.id)).map(cardNoticia);
-      const e = filtrar(state.eventos).filter((i) => state.guardados.has(i.id)).map(cardEvento);
-      nodes = [...e, ...n];
+      if (state.view === 'noticias') list.classList.add('list--news');
+      nodes = items.map(card);
     }
 
     list.replaceChildren(...nodes);
     const empty = $('#empty');
     empty.hidden = nodes.length > 0;
-    empty.textContent = state.view === 'guardados' && !state.q && !state.categoria
-      ? 'Aún no has guardado nada. Pulsa el marcador en cualquier noticia o evento.'
-      : 'No hay resultados con estos filtros.';
+    const sinFiltros = !state.q && !state.categoria;
+    empty.textContent = !sinFiltros ? 'No hay resultados con estos filtros.'
+      : state.view === 'guardados' ? 'Aún no has guardado nada. Pulsa el marcador en cualquier noticia o evento.'
+      : state.view === 'historial' ? 'Todavía no hay nada en el historial.'
+      : state.view === 'eventos' ? 'No hay eventos próximos. Consulta los pasados en el Historial.'
+      : `No hay noticias de los últimos ${DIAS_ACTUALIDAD} días. Consulta el Historial.`;
     renderAside();
   }
 
@@ -266,7 +308,7 @@
     $('#list').innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
     let t;
     $('#q').addEventListener('input', (ev) => { clearTimeout(t); t = setTimeout(() => { state.q = ev.target.value; render(); }, 120); });
-    $$('#when button').forEach((b) => (b.onclick = () => { state.when = b.dataset.when; render(); }));
+    $$('#when button').forEach((b) => (b.onclick = () => { state.hist = b.dataset.hist; render(); }));
     window.addEventListener('hashchange', fromHash);
 
     try {
