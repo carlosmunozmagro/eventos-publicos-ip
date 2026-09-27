@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-27T08:00:00Z",
+  "actualizado": "2026-09-27T08:51:07Z",
   "items": [
     {
       "id": "2026-09-24-euipo-primera-solicitud-intervencion-ig-artesanal",
@@ -15,6 +15,68 @@
         "IG artesanales"
       ],
       "destacado": true
+    },
+    {
+      "etiquetas": [
+        "EUIPO",
+        "DesignEuropa",
+        "diseño comunitario"
+      ],
+      "destacado": false,
+      "id": "2026-09-22-designeuropa-awards-2026-ljubljana",
+      "titulo": "Los DesignEuropa Awards de la EUIPO celebran su 10.º aniversario en Liubliana",
+      "resumen": "La EUIPO entregó el 22 de septiembre en Liubliana los DesignEuropa Awards 2026, que premian diseños registrados en la oficina con sede en Alicante. La edición de 2027 se celebrará en Praga.",
+      "fecha": "2026-09-22",
+      "fuente": "BIG SEE",
+      "url": "https://bigsee.eu/designeuropa-awards-2026-celebrate-a-decade-of-european-design-in-ljubljana/",
+      "categoria": "disenos",
+      "anadido": "2026-09-27"
+    },
+    {
+      "etiquetas": [
+        "Tribunal Supremo",
+        "competencia desleal",
+        "diseño",
+        "imitación"
+      ],
+      "destacado": false,
+      "id": "2026-09-19-supremo-ale-hop-mr-wonderful",
+      "titulo": "El Supremo da la razón a Ale-Hop frente a Mr. Wonderful y descarta la imitación desleal",
+      "resumen": "La Sala de lo Civil del Tribunal Supremo desestima el recurso de Mr. Wonderful y confirma que Ale-Hop no incurrió en competencia desleal por imitación: no hay riesgo de confusión porque marcas y presentación de los productos son distintas, pese a la cercanía estética de algunos diseños.",
+      "fecha": "2026-09-19",
+      "fuente": "Infobae",
+      "url": "https://www.infobae.com/espana/2026/09/19/el-tribunal-supremo-pone-fin-a-la-guerra-cuqui-la-justicia-vuelve-a-dar-la-razon-a-ale-hop-frente-a-mr-wonderful-y-descarta-la-competencia-desleal/",
+      "categoria": "litigios",
+      "anadido": "2026-09-27",
+      "otras_fuentes": [
+        {
+          "fuente": "Lawyerpress",
+          "url": "https://www.lawyerpress.com/2026/09/24/el-supremo-avala-a-ale-hop-frente-a-mr-wonderful-y-fija-los-limites-de-la-imitacion-comercial/"
+        }
+      ]
+    },
+    {
+      "etiquetas": [
+        "BOE",
+        "subvenciones",
+        "Andema",
+        "falsificaciones"
+      ],
+      "destacado": false,
+      "id": "2026-09-10-rd-725-2026-subvenciones-propiedad-industrial",
+      "titulo": "El BOE publica el Real Decreto 725/2026 de subvenciones directas en materia de propiedad industrial",
+      "resumen": "El Real Decreto 725/2026, de 9 de septiembre, concede 275.000 euros de forma directa: 150.000 a Andema para sensibilización y lucha contra las falsificaciones y 125.000 a la Fundación Foro de Marcas Renombradas Españolas.",
+      "fecha": "2026-09-10",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-18903",
+      "categoria": "normativa",
+      "anadido": "2026-09-27",
+      "otras_fuentes": [
+        {
+          "fuente": "Forbes España",
+          "url": "https://forbes.es/ultima-hora/1014616/industria-aprueba-325-millones-en-ayudas-directas-para-reforzar-la-seguridad-y-la-propiedad-industrial/"
+        }
+      ]
     }
   ]
 }
