@@ -141,6 +141,7 @@ validar('data/eventos.json', (e, at) => {
     }
     if (it.estado != null && !ESTADOS.includes(it.estado)) errores.push(`${at}: estado debe ser ${ESTADOS.join('/')}`);
     if (it.tipo === 'adjudicacion' && !texto(it.adjudicatario)) errores.push(`${at}: las adjudicaciones necesitan adjudicatario`);
+    if (it.importe_adjudicado != null && !(typeof it.importe_adjudicado === 'number' && it.importe_adjudicado >= 0)) errores.push(`${at}: importe_adjudicado debe ser un número (euros)`);
     if (['licitacion', 'convocatoria', 'premio'].includes(it.tipo) && !it.fecha_limite && !it.estado) {
       errores.push(`${at}: indica fecha_limite o, si no se conoce, "estado"`);
     }

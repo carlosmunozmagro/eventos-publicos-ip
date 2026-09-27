@@ -13,7 +13,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="PONS IP News">
-  <link rel="stylesheet" href="assets/css/styles.css?v=8">
+  <link rel="stylesheet" href="assets/css/styles.css?v=9">
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
@@ -54,12 +54,19 @@
     <main id="main" tabindex="-1">
       <div class="view-head">
         <h1 id="view-title">Noticias</h1>
-        <p id="updated" class="muted"></p>
+        <div class="view-head__meta">
+          <p id="updated" class="muted"></p>
+          <button class="icon-btn icon-btn--sm" id="refresh" type="button" aria-label="Actualizar datos" title="Actualizar datos">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 1 7.75 6h-2.1A6 6 0 1 0 18 14h2.08A8 8 0 1 1 12 4Zm5 1h4v4h-4l1.6-1.6A7 7 0 0 0 17 6.1V5Z"/></svg>
+          </button>
+        </div>
       </div>
+      <p id="offline" class="offline" role="status" hidden>Sin conexión · estás viendo los últimos datos guardados</p>
 
       <p id="view-intro" class="view-intro muted" hidden></p>
       <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por categoría"></div>
       <div class="chips" id="chips-desp" role="toolbar" aria-label="Filtrar por despacho" hidden></div>
+      <section id="insight" class="insight" hidden></section>
       <div class="segmented" id="when" role="tablist" aria-label="Tipo de contenido" hidden>
         <button type="button" role="tab" data-hist="noticias" aria-selected="true">Noticias anteriores</button>
         <button type="button" role="tab" data-hist="eventos" aria-selected="false">Eventos pasados</button>
@@ -224,6 +231,6 @@
     </article>
   </template>
 
-  <script src="assets/js/app.js?v=8" defer></script>
+  <script src="assets/js/app.js?v=9" defer></script>
 </body>
 </html>

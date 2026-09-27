@@ -35,6 +35,14 @@
 
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  // Crea un elemento con texto seguro (nunca innerHTML con datos)
+  const el = (tag, props = {}, ...hijos) => {
+    const n = Object.assign(document.createElement(tag), props);
+    n.append(...hijos.filter((h) => h != null && h !== false));
+    return n;
+  };
+  const eur = new Intl.NumberFormat('es-ES', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
+  const plano = (s) => String(s || '').toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '');
 
   const state = {
     view: 'noticias',
@@ -43,6 +51,7 @@
     tipo: null,
     despacho: null,
     tipoConcurso: null,
+    cifrasAbiertas: false,
     q: '',
     noticias: [],
     eventos: [],
@@ -118,11 +127,11 @@
     return c.fecha_limite && c.fecha_limite >= hoy() ? 'abierta' : 'cerrada';
   }
 
-  const texto = (o) => [o.titulo, o.resumen, o.descripcion, o.fuente, o.organizador, o.organismo, o.adjudicatario, o.ciudad, o.lugar, ...(o.etiquetas || [])]
-    .filter(Boolean).join(' ').toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '');
+  const texto = (o) => plano([o.titulo, o.resumen, o.descripcion, o.fuente, o.organizador, o.organismo, o.adjudicatario, o.ciudad, o.lugar, ...(o.etiquetas || [])]
+    .filter(Boolean).join(' '));
 
   function filtrar(items) {
-    const q = state.q.toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '').trim();
+    const q = plano(state.q).trim();
     const pasa = state.view === 'competencia'
       ? (i) => (!state.tipo || i.tipo === state.tipo) && (!state.despacho || i.despacho === state.despacho)
       : state.view === 'concursos'
@@ -339,6 +348,131 @@
     });
   }
 
+  // ---------- resúmenes (ficha de despacho, cifras, adjudicatarios) ----------
+  const hace90 = () => haceDias(90);
+
+  // Contratos públicos ganados por un despacho: sus elementos "adjudicacion" cruzados con Concursos por URL
+  function contratosDe(id) {
+    return state.competencia.filter((c) => c.despacho === id && c.tipo === 'adjudicacion')
+      .map((c) => state.concursos.find((k) => k.url === c.url) || c);
+  }
+
+  function stat(valor, etiqueta) {
+    return el('li', {}, el('strong', { textContent: valor }), el('span', { textContent: etiqueta }));
+  }
+
+  function fichaDespacho(box) {
+    const d = state.despachos.get(state.despacho);
+    if (!d) return;
+    const items = state.competencia.filter((c) => c.despacho === d.id);
+    const cuenta = (t) => items.filter((c) => c.tipo === t).length;
+    const contratos = contratosDe(d.id);
+    const importe = contratos.reduce((s, k) => s + (k.importe_adjudicado || 0), 0);
+    const ultima = items[0]?.fecha;
+    box.append(
+      el('div', { className: 'ficha' },
+        el('div', { className: 'ficha__head' },
+          el('h2', { textContent: d.nombre }),
+          el('a', { href: d.web, target: '_blank', rel: 'noopener', className: 'ficha__web', textContent: new URL(d.web).hostname.replace(/^www\./, '') + ' ↗' })),
+        el('p', { className: 'ficha__perfil', textContent: [d.sede, d.perfil].filter(Boolean).join(' · ') }),
+        el('ul', { className: 'stats' },
+          stat(items.length, 'publicaciones'),
+          stat(items.filter((c) => c.fecha >= hace90()).length, 'últimos 90 días'),
+          stat(cuenta('evento'), 'eventos'),
+          stat(cuenta('reconocimiento'), 'premios y rankings'),
+          stat(contratos.length ? `${contratos.length} · ${eur.format(importe)}` : '0', 'contratos públicos')),
+        el('p', { className: 'ficha__nota muted', textContent: [
+          ultima ? 'Última actividad: ' + relativo(ultima).toLocaleLowerCase('es') : 'Sin actividad registrada todavía',
+          d.fuente_seguimiento ? null : 'su web no permite el seguimiento automático; se busca en prensa y buscadores',
+        ].filter(Boolean).join(' · ') })));
+    box.hidden = false;
+  }
+
+  function cifrasCompetencia(box) {
+    const filas = [...state.despachos.values()].map((d) => {
+      const items = state.competencia.filter((c) => c.despacho === d.id);
+      const contratos = contratosDe(d.id);
+      return { d, recientes: items.filter((c) => c.fecha >= hace90()).length, total: items.length,
+        premios: items.filter((c) => c.tipo === 'reconocimiento').length,
+        contratos: contratos.length, importe: contratos.reduce((s, k) => s + (k.importe_adjudicado || 0), 0) };
+    }).sort((a, b) => b.recientes - a.recientes || b.total - a.total || a.d.nombre.localeCompare(b.d.nombre, 'es'));
+    const tabla = el('table', { className: 'tabla' },
+      el('thead', {}, el('tr', {}, ...['Despacho', '90 d', 'Total', 'Premios', 'Contr.'].map((t) => el('th', { scope: 'col', textContent: t })))),
+      el('tbody', {}, ...filas.map((f) => {
+        const b = el('button', { type: 'button', className: 'link', textContent: f.d.nombre, onclick: () => { state.despacho = f.d.id; render(); } });
+        return el('tr', {},
+          el('th', { scope: 'row' }, b),
+          el('td', { textContent: f.recientes || '–' }), el('td', { textContent: f.total || '–' }),
+          el('td', { textContent: f.premios || '–' }),
+          el('td', { textContent: f.contratos || '–', title: f.contratos ? eur.format(f.importe) : '' }));
+      })));
+    const det = el('details', { className: 'insight__details', open: state.cifrasAbiertas },
+      el('summary', { textContent: 'Ver cifras de la competencia' }),
+      el('div', { className: 'tabla-wrap' }, tabla),
+      el('p', { className: 'muted insight__nota', textContent: '«90 d»: publicaciones de los últimos 90 días. «Contr.»: contratos públicos adjudicados (BOE). Toca un despacho para ver su ficha con los importes.' }));
+    det.addEventListener('toggle', () => { state.cifrasAbiertas = det.open; });
+    box.append(det);
+    box.hidden = false;
+  }
+
+  function quienGana(box) {
+    const adj = state.concursos.filter((k) => k.tipo === 'adjudicacion' && k.adjudicatario);
+    if (!adj.length) return;
+    const porEmpresa = new Map();
+    for (const k of adj) {
+      const r = porEmpresa.get(k.adjudicatario) || { nombre: k.adjudicatario, n: 0, importe: 0, organismos: [] };
+      r.n++; r.importe += k.importe_adjudicado || 0; r.organismos.push(k.organismo.replace(/\s*\(.*\)$/, ''));
+      porEmpresa.set(k.adjudicatario, r);
+    }
+    const competidores = new Set(state.competencia.filter((c) => c.tipo === 'adjudicacion')
+      .map((c) => state.concursos.find((k) => k.url === c.url)?.adjudicatario).filter(Boolean));
+    const filas = [...porEmpresa.values()].sort((a, b) => b.importe - a.importe);
+    const desde = adj.map((k) => k.fecha).sort()[0].slice(0, 4);
+    const tabla = el('table', { className: 'tabla' },
+      el('thead', {}, el('tr', {}, ...['Adjudicatario', 'Nº', 'Importe'].map((t) => el('th', { scope: 'col', textContent: t })))),
+      el('tbody', {}, ...filas.map((f) => el('tr', {},
+        el('th', { scope: 'row' }, f.nombre, competidores.has(f.nombre) ? el('span', { className: 'tag-comp', textContent: 'competidor' }) : null,
+          el('small', { className: 'tabla__sub', textContent: f.organismos.join(' · ') })),
+        el('td', { textContent: f.n }), el('td', { textContent: f.importe ? eur.format(f.importe) : '–' })))));
+    box.append(el('details', { className: 'insight__details' },
+      el('summary', { textContent: `¿Quién gana los contratos de PI? · ${adj.length} adjudicaciones desde ${desde}` }),
+      el('div', { className: 'tabla-wrap' }, tabla),
+      el('p', { className: 'muted insight__nota', textContent: 'Adjudicaciones de servicios de propiedad industrial e intelectual publicadas en el BOE (CPV 70332300 y 79120000).' })));
+    box.hidden = false;
+  }
+
+  function renderInsight() {
+    const box = $('#insight');
+    box.replaceChildren();
+    box.hidden = true;
+    if (state.view === 'competencia') (state.despacho ? fichaDespacho : cifrasCompetencia)(box);
+    else if (state.view === 'concursos' && (!state.tipoConcurso || state.tipoConcurso === 'adjudicacion')) quienGana(box);
+  }
+
+  // Búsqueda: con texto en el buscador se busca en todas las secciones a la vez
+  function renderBusqueda(q) {
+    $('#view-title').textContent = `Resultados para «${q}»`;
+    for (const id of ['#chips', '#chips-desp', '#when', '#view-intro', '#insight']) $(id).hidden = true;
+    const qq = plano(q);
+    const grupos = [
+      ['Noticias', state.noticias], ['Competencia', state.competencia],
+      ['Concursos y licitaciones', state.concursos], ['Eventos', [...state.eventos].reverse()],
+    ].map(([t, lista]) => [t, lista.filter((i) => texto(i).includes(qq))]).filter(([, l]) => l.length);
+    const nodes = [];
+    for (const [t, lista] of grupos) {
+      nodes.push(el('h2', { className: 'month' }, t + ' ', el('span', { className: 'month__count', textContent: lista.length })));
+      nodes.push(...lista.map(tarjeta));
+    }
+    $('#list').className = 'list';
+    $('#list').replaceChildren(...nodes);
+    const empty = $('#empty');
+    empty.hidden = nodes.length > 0;
+    empty.textContent = `No hay resultados para «${q}» en ninguna sección.`;
+    renderAside();
+  }
+
+  const tarjeta = (i) => ('despacho' in i ? cardCompetencia(i) : 'organismo' in i ? cardConcurso(i) : 'fecha_inicio' in i ? cardEvento(i) : cardNoticia(i));
+
   function renderAsideConcursos() {
     const ol = $('#aside-plazos');
     ol.replaceChildren();
@@ -408,8 +542,11 @@
 
   function render() {
     document.body.dataset.view = state.view;
-    $('#view-title').textContent = TITULOS[state.view];
     $$('[data-view]').forEach((a) => (a.dataset.view === state.view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
+    const q = state.q.trim();
+    if (q) return renderBusqueda(q);
+    $('#view-title').textContent = TITULOS[state.view];
+    $('#chips').hidden = false;
     $('#when').hidden = state.view !== 'historial';
     const intro = $('#view-intro');
     const intros = {
@@ -421,10 +558,11 @@
     $$('#when button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.hist === state.hist)));
 
     renderChips();
+    renderInsight();
     const list = $('#list');
     list.className = 'list';
     const items = filtrar(base());
-    const card = (i) => ('despacho' in i ? cardCompetencia(i) : 'organismo' in i ? cardConcurso(i) : 'fecha_inicio' in i ? cardEvento(i) : cardNoticia(i));
+    const card = tarjeta;
     const cabecera = (texto, n) => {
       const h = document.createElement('h2');
       h.className = 'month';
@@ -522,6 +660,7 @@
   function fromHash() {
     const v = location.hash.slice(1);
     state.view = TITULOS[v] ? v : 'noticias';
+    if (state.q) { state.q = ''; $('#q').value = ''; }   // cambiar de pestaña sale de la búsqueda
     render();
     window.scrollTo({ top: 0 });
   }
@@ -539,6 +678,33 @@
     };
   }
 
+  function pintarActualizado() {
+    if (!state.actualizado) return;
+    $('#updated').textContent = 'Actualizado: ' + new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.actualizado));
+  }
+
+  async function refrescar() {
+    const btn = $('#refresh');
+    btn.disabled = true; btn.classList.add('girando');
+    try {
+      await cargar();
+      pintarActualizado();
+      render();
+      toast(navigator.onLine ? 'Datos actualizados' : 'Sin conexión: se muestran los datos guardados');
+    } catch {
+      toast('No se ha podido actualizar. Revisa tu conexión.');
+    } finally {
+      btn.disabled = false; btn.classList.remove('girando');
+    }
+  }
+
+  function vigilarConexion() {
+    const pintar = () => { $('#offline').hidden = navigator.onLine; };
+    window.addEventListener('online', () => { pintar(); refrescar(); });
+    window.addEventListener('offline', pintar);
+    pintar();
+  }
+
   async function init() {
     initTheme();
     $('#list').innerHTML = '<div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div>';
@@ -546,12 +712,12 @@
     $('#q').addEventListener('input', (ev) => { clearTimeout(t); t = setTimeout(() => { state.q = ev.target.value; render(); }, 120); });
     $$('#when button').forEach((b) => (b.onclick = () => { state.hist = b.dataset.hist; render(); }));
     window.addEventListener('hashchange', fromHash);
+    $('#refresh').onclick = refrescar;
+    vigilarConexion();
 
     try {
       await cargar();
-      if (state.actualizado) {
-        $('#updated').textContent = 'Actualizado: ' + new Intl.DateTimeFormat('es-ES', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(state.actualizado));
-      }
+      pintarActualizado();
       fromHash();
     } catch (err) {
       console.error(err);
