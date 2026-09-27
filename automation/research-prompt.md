@@ -54,6 +54,15 @@ Descarta los eventos que no traten de propiedad industrial o intelectual aunque 
 
 Nota: `euipo.europa.eu` rechaza las descargas automáticas (403); consúltala con WebSearch.
 
+## Sentencias
+
+Las sentencias y resoluciones relevantes van en **Noticias** con `"categoria": "litigios"`. Revisa: Tribunal
+Supremo (Sala 1.ª, marcas, patentes, competencia desleal), Audiencia Provincial de Alicante (Tribunal de Marcas
+de la UE), Audiencias de Madrid y Barcelona (secciones de lo mercantil), TJUE y Tribunal General (curia.europa.eu),
+Tribunal Unificado de Patentes (división local de Madrid) y resoluciones de la EUIPO/OEPM con interés práctico.
+Resumen en 1-3 frases: partes, qué se decide y por qué importa. `url` = la resolución o la nota oficial
+(CENDOJ, curia); la prensa jurídica que la comenta va como fuente adicional.
+
 ## Criterios editoriales
 
 - **Relevancia para España**: organismos españoles, EUIPO, empresas o tribunales españoles, o
@@ -146,13 +155,16 @@ Fuentes y método:
   «propiedad industrial», «propiedad intelectual», «patentes», «marcas de/del», «protección registral»,
   «transferencia de tecnología», «vigilancia tecnológica» y la OEPM. Abre el anuncio
   (`https://www.boe.es/diario_boe/txt.php?id=BOE-B-…`) para sacar plazo, importe, CPV y adjudicatario.
-  CPV clave: **70332300** (servicios relacionados con la propiedad industrial) y 79110000 (asesoría jurídica).
+  CPV clave: **70332300** (servicios relacionados con la propiedad industrial), **79120000** (asesoramiento
+  sobre patentes y derechos de autor) y 79110000 (asesoría jurídica).
   Descarta falsos positivos («marca comercial» de equipos, pólizas, mantenimiento de edificios).
 - **Plataforma de Contratación del Sector Público** (contrataciondelestado.es) y **TED**
   (ted.europa.eu / api.ted.europa.eu, CPV 70332300): si el acceso de red lo permite. Si no, WebSearch.
 - **EUIPO, EPO y OEPM**: páginas de contratación, ayudas (Fondo para Pymes, subvenciones OEPM) y premios.
 
-Tipos: `licitacion`, `convocatoria` (ayudas/subvenciones), `premio`, `adjudicacion`. Si un plazo se amplía o
+Tipos: `licitacion`, `convocatoria` (ayudas/subvenciones), `premio`, `adjudicacion`. En las adjudicaciones
+rellena siempre `importe_adjudicado` (número en euros, sin IVA si el anuncio lo distingue): la web suma los
+importes en «¿Quién gana los contratos de PI?» y en la ficha de cada despacho. Si un plazo se amplía o
 se adjudica un contrato ya registrado, vuelve a meterlo en `entrantes.json` con los datos nuevos: el merge lo
 actualiza. Si el adjudicatario es un despacho de `competencia.json → despachos`, añade también un elemento
 de competencia con `"tipo": "adjudicacion"`.
@@ -171,6 +183,7 @@ de competencia con `"tipo": "adjudicacion"`.
   "estado": "(opcional, solo si no hay fecha_limite) abierta | cerrada",
   "importe": "(opcional) texto, p. ej. «95.041,32 € (valor estimado)»",
   "adjudicatario": "(adjudicaciones) …", "ofertas": 4, "fecha_adjudicacion": "AAAA-MM-DD",
+  "importe_adjudicado": 13040,
   "fuente": "BOE | EUIPO | OEPM | PLACSP | TED",
   "url": "https://… (el anuncio oficial)",
   "categoria": "(opcional) misma lista que noticias"

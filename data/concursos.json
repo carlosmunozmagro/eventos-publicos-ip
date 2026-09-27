@@ -16,7 +16,8 @@
       "fecha_adjudicacion": "2026-08-25",
       "fuente": "BOE",
       "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-28182",
-      "categoria": "marcas"
+      "categoria": "marcas",
+      "importe_adjudicado": 13040
     },
     {
       "id": "2026-07-17-bsc-asesoramiento-transferencia-tecnologia",
@@ -88,6 +89,57 @@
       "fuente": "EUIPO",
       "url": "https://www.euipo.europa.eu/es/sme-corner/sme-fund/2026",
       "categoria": "marcas"
+    },
+    {
+      "id": "2025-09-03-ciemat-tramitacion-patentes",
+      "tipo": "adjudicacion",
+      "titulo": "Gestión de la tramitación de las patentes y otros títulos de propiedad industrial e intelectual del CIEMAT",
+      "resumen": "El CIEMAT adjudica la tramitación de su cartera de patentes y otros títulos (CPV 79120000) entre 3 ofertas; el adjudicatario es una empresa de traducción e interpretación.",
+      "organismo": "Centro de Investigaciones Energéticas, Medioambientales y Tecnológicas (CIEMAT)",
+      "ambito": "España",
+      "lugar": "Madrid",
+      "fecha": "2025-09-03",
+      "importe": "69.726,19 €",
+      "importe_adjudicado": 69726.19,
+      "adjudicatario": "Seprotec, Traducción e Interpretación, S.L.U.",
+      "ofertas": 3,
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-31446",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2025-04-09-turespana-marcas-signos",
+      "tipo": "adjudicacion",
+      "titulo": "Gestión y defensa de los derechos de propiedad industrial de logotipos, marcas y signos distintivos de Turespaña",
+      "resumen": "El Instituto de Turismo de España adjudica por procedimiento abierto la gestión y defensa de sus marcas, logotipos y signos distintivos, entre 6 ofertas.",
+      "organismo": "Instituto de Turismo de España (Turespaña)",
+      "ambito": "España",
+      "lugar": "Madrid",
+      "fecha": "2025-04-09",
+      "importe": "2.690,00 € (oferta seleccionada)",
+      "importe_adjudicado": 2690,
+      "adjudicatario": "Iberpatent, S.L.",
+      "ofertas": 6,
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2025-13042",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2024-12-02-inta-gestion-integral-pi",
+      "tipo": "adjudicacion",
+      "titulo": "Gestión integral (protección y transferencia) de los derechos de propiedad industrial e intelectual del INTA",
+      "resumen": "El Instituto Nacional de Técnica Aeroespacial adjudica la gestión integral de su cartera de propiedad industrial e intelectual (CPV 79120000, asesoramiento sobre patentes y derechos de autor) entre 7 ofertas.",
+      "organismo": "Instituto Nacional de Técnica Aeroespacial (INTA)",
+      "ambito": "España",
+      "lugar": "Torrejón de Ardoz",
+      "fecha": "2024-12-02",
+      "importe": "400.000,00 €",
+      "importe_adjudicado": 400000,
+      "adjudicatario": "TRBL SW & IP Services, S.L.",
+      "ofertas": 7,
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2024-44211",
+      "categoria": "patentes"
     }
   ]
 }

@@ -27,9 +27,13 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
   “También en: …”; un evento ya conocido se actualiza (fecha, hora, enlace) en vez de repetirse.
 - **Noticias por fecha** (la más reciente primero), con su categoría indicada en cada tarjeta.
 - **Concursos y licitaciones**: licitaciones públicas, ayudas y premios de PI con su plazo (primero las
-  abiertas), importe y adjudicatario; botón para añadir el fin de plazo al calendario.
+  abiertas), importe y adjudicatario; botón para añadir el fin de plazo al calendario. Plegable «¿Quién gana los contratos
+  de PI?» con adjudicatarios, número de contratos e importes (BOE desde 2024).
 - **Competencia**: actividad pública de los despachos competidores (artículos, eventos, premios y
-  rankings, movimientos corporativos), filtrable por tipo y por despacho, con su agenda de eventos.
+  rankings, contratos públicos, movimientos corporativos), filtrable por tipo y por despacho, con su agenda de
+  eventos. «Ver cifras» compara a todos los despachos; al elegir uno se muestra su ficha.
+- **Búsqueda global**: al escribir en el buscador se busca en todas las secciones a la vez.
+- **Actualizar** (↻ junto a la fecha) y aviso cuando no hay conexión.
 - Búsqueda, filtros por categoría, etiqueta “Nuevo”, “+ Calendario” (.ics), guardados
   (en el navegador), compartir, modo claro/oscuro.
 
