@@ -1,0 +1,61 @@
+{
+  "actualizado": "2026-09-27T08:00:00Z",
+  "items": [
+    {
+      "id": "2026-09-28-oepm-pi-sector-alimentario",
+      "titulo": "La Propiedad Industrial aplicada al sector alimentario",
+      "descripcion": "Formación online organizada por Food for Life-Spain y la OEPM, dirigida a startups y pymes del sector alimentario.",
+      "fecha_inicio": "2026-09-28",
+      "fecha_fin": "2026-09-28",
+      "hora": null,
+      "modalidad": "online",
+      "ciudad": null,
+      "organizador": "OEPM · Food for Life-Spain",
+      "url": "https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/",
+      "categoria": "marcas",
+      "gratuito": true
+    },
+    {
+      "id": "2026-09-29-oepm-indice-mundial-innovacion",
+      "titulo": "Presentación del Índice Mundial de Innovación 2026",
+      "descripcion": "Presentación en España del Global Innovation Index 2026 de la OMPI.",
+      "fecha_inicio": "2026-09-29",
+      "fecha_fin": "2026-09-29",
+      "hora": null,
+      "modalidad": "presencial",
+      "ciudad": "Madrid",
+      "organizador": "OEPM · OMPI",
+      "url": "https://www.oepm.es/es/detalle-evento/29-9-2026-Presentacion-del-Indice-Mundial-de-Innovacion-2026/",
+      "categoria": "institucional",
+      "gratuito": null
+    },
+    {
+      "id": "2026-09-30-oepm-sistema-madrid-pymes",
+      "titulo": "El Sistema de Madrid para las pymes: una forma sencilla de proteger las marcas en los mercados",
+      "descripcion": "Sesión sobre el registro internacional de marcas mediante el Sistema de Madrid, orientada a pymes.",
+      "fecha_inicio": "2026-09-30",
+      "fecha_fin": "2026-09-30",
+      "hora": null,
+      "modalidad": "online",
+      "ciudad": null,
+      "organizador": "OEPM · OMPI",
+      "url": "https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/",
+      "categoria": "marcas",
+      "gratuito": true
+    },
+    {
+      "id": "2026-09-30-isif-26-feria-innovacion",
+      "titulo": "ISIF'26 – Feria Internacional de Innovación",
+      "descripcion": "Feria internacional de invenciones e innovación con participación difundida por la OEPM.",
+      "fecha_inicio": "2026-09-30",
+      "fecha_fin": "2026-10-04",
+      "hora": null,
+      "modalidad": "presencial",
+      "ciudad": null,
+      "organizador": "ISIF",
+      "url": "https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/",
+      "categoria": "patentes",
+      "gratuito": null
+    }
+  ]
+}

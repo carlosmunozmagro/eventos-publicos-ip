@@ -1,0 +1,21 @@
+{
+  "name": "IP España · Noticias y eventos de Propiedad Intelectual",
+  "short_name": "IP España",
+  "description": "Noticias y agenda de eventos de Propiedad Industrial e Intelectual en España.",
+  "lang": "es",
+  "start_url": "./#noticias",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#0f3d5e",
+  "icons": [
+    { "src": "assets/icons/icon.svg", "sizes": "any", "type": "image/svg+xml" },
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Eventos", "url": "./#eventos" },
+    { "name": "Guardados", "url": "./#guardados" }
+  ]
+}

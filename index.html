@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>IP España · Noticias y eventos de Propiedad Intelectual</title>
+  <meta name="description" content="Las noticias más relevantes y la agenda de eventos de Propiedad Industrial e Intelectual en España, actualizadas a diario.">
+  <meta name="theme-color" content="#0f3d5e" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b1620" media="(prefers-color-scheme: dark)">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="IP España">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Saltar al contenido</a>
+
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#noticias" aria-label="IP España, inicio">
+        <img src="assets/icons/icon.svg" alt="" width="32" height="32">
+        <span class="brand__text"><strong>IP España</strong><small>Propiedad Intelectual e Industrial</small></span>
+      </a>
+
+      <nav class="tabs tabs--top" aria-label="Secciones">
+        <a href="#noticias" data-view="noticias">Noticias</a>
+        <a href="#eventos" data-view="eventos">Eventos</a>
+        <a href="#guardados" data-view="guardados">Guardados</a>
+      </nav>
+
+      <div class="search">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M10.5 3a7.5 7.5 0 0 1 5.96 12.05l4.25 4.24-1.42 1.42-4.24-4.25A7.5 7.5 0 1 1 10.5 3Zm0 2a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z"/></svg>
+        <input id="q" type="search" placeholder="Buscar marcas, patentes, OEPM…" autocomplete="off" aria-label="Buscar">
+      </div>
+
+      <button class="icon-btn" id="theme" type="button" aria-label="Cambiar tema">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <main id="main" tabindex="-1">
+      <div class="view-head">
+        <h1 id="view-title">Noticias</h1>
+        <p id="updated" class="muted"></p>
+      </div>
+
+      <div class="chips" id="chips" role="toolbar" aria-label="Filtrar por categoría"></div>
+      <div class="segmented" id="when" role="tablist" aria-label="Periodo" hidden>
+        <button type="button" role="tab" data-when="proximos" aria-selected="true">Próximos</button>
+        <button type="button" role="tab" data-when="pasados" aria-selected="false">Pasados</button>
+      </div>
+
+      <div id="list" class="list" aria-live="polite"></div>
+      <p id="empty" class="empty" hidden>No hay resultados con estos filtros.</p>
+    </main>
+
+    <aside class="aside" aria-label="Próximos eventos">
+      <section class="panel">
+        <h2>Próximos eventos</h2>
+        <ol id="aside-events" class="mini-list"></ol>
+        <a class="panel__more" href="#eventos">Ver agenda completa →</a>
+      </section>
+      <section class="panel panel--muted">
+        <h2>Sobre esta web</h2>
+        <p>Selección diaria de noticias y eventos de propiedad industrial e intelectual en España: OEPM, EUIPO, tribunales, normativa y sector.</p>
+        <p class="muted">Cada elemento enlaza a su fuente original.</p>
+      </section>
+    </aside>
+  </div>
+
+  <nav class="tabs tabs--bottom" aria-label="Secciones">
+    <a href="#noticias" data-view="noticias">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V4Zm15 4h2v10a2 2 0 0 1-2 2V8ZM7 7v3h7V7H7Zm0 5v2h7v-2H7Zm0 4v1h7v-1H7Z"/></svg>
+      <span>Noticias</span>
+    </a>
+    <a href="#eventos" data-view="eventos">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2ZM5 9v10h14V9H5Zm2 2h4v4H7v-4Z"/></svg>
+      <span>Eventos</span>
+    </a>
+    <a href="#guardados" data-view="guardados">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+      <span>Guardados</span>
+    </a>
+  </nav>
+
+  <template id="tpl-news">
+    <article class="card">
+      <div class="card__meta">
+        <span class="badge"></span>
+        <time></time>
+        <span class="source"></span>
+      </div>
+      <h3 class="card__title"><a target="_blank" rel="noopener"></a></h3>
+      <p class="card__body"></p>
+      <div class="card__foot">
+        <ul class="tags"></ul>
+        <div class="actions">
+          <button type="button" class="icon-btn save" aria-pressed="false" aria-label="Guardar">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+          </button>
+          <button type="button" class="icon-btn share" aria-label="Compartir">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1Z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <template id="tpl-event">
+    <article class="card card--event">
+      <div class="datebox"><span class="datebox__day"></span><span class="datebox__month"></span></div>
+      <div class="card__main">
+        <div class="card__meta">
+          <span class="badge"></span>
+          <span class="mode"></span>
+        </div>
+        <h3 class="card__title"><a target="_blank" rel="noopener"></a></h3>
+        <p class="card__when muted"></p>
+        <p class="card__body"></p>
+        <div class="card__foot">
+          <span class="source"></span>
+          <div class="actions">
+            <button type="button" class="btn ics">+ Calendario</button>
+            <button type="button" class="icon-btn save" aria-pressed="false" aria-label="Guardar">
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="assets/js/app.js" defer></script>
+</body>
+</html>
