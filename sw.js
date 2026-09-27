@@ -3,7 +3,7 @@
 //  - CSS/JS/imágenes: stale-while-revalidate. index.html los pide con ?v=VERSION, así un HTML nuevo nunca
 //    se combina con CSS/JS antiguos. Al publicar cambios en CSS/JS sube VERSION aquí y el ?v= de index.html.
 //  - data/*.json: red primero (con respaldo offline).
-const VERSION = 'v7';
+const VERSION = 'v8';
 const STATIC = `ipes-static-${VERSION}`;
 const DATA = 'ipes-data';
 const ASSETS = [

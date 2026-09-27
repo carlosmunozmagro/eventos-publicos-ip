@@ -66,8 +66,10 @@
   }
 
   // ---------- fechas ----------
-  const hoy = () => new Date().toISOString().slice(0, 10);
-  const haceDias = (n) => new Date(Date.now() - n * 864e5).toISOString().slice(0, 10);
+  // Fechas AAAA-MM-DD en hora local (toISOString usaría UTC: de 0 a 2 h en España aún sería "ayer")
+  const isoLocal = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const hoy = () => isoLocal(new Date());
+  const haceDias = (n) => { const d = new Date(); d.setDate(d.getDate() - n); return isoLocal(d); };
   const parseDate = (s) => new Date(s + 'T12:00:00');
   const fmtLargo = new Intl.DateTimeFormat('es-ES', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
   const fmtCorto = new Intl.DateTimeFormat('es-ES', { day: 'numeric', month: 'short' });
@@ -107,7 +109,7 @@
     state.competencia = c.items.map((i) => ({ ...i, fuente: state.despachos.get(i.despacho)?.nombre || i.despacho }))
       .sort((a, b) => b.fecha.localeCompare(a.fecha));
     state.concursos = k.items.map((i) => ({ ...i, estado: estadoConcurso(i) }));
-    state.actualizado = [n.actualizado, e.actualizado].filter(Boolean).sort().pop();
+    state.actualizado = [n.actualizado, e.actualizado, c.actualizado, k.actualizado].filter(Boolean).sort().pop();
   }
 
   function estadoConcurso(c) {
@@ -144,7 +146,11 @@
     }
     if (view === 'competencia') return state.competencia;
     if (view === 'concursos') return state.concursos;
-    return [...state.eventos, ...state.noticias, ...state.competencia, ...state.concursos].filter((i) => state.guardados.has(i.id));
+    // guardados: lo más reciente primero, sea del tipo que sea
+    const fecha = (i) => i.fecha || i.fecha_inicio;
+    return [...state.eventos, ...state.noticias, ...state.competencia, ...state.concursos]
+      .filter((i) => state.guardados.has(i.id))
+      .sort((a, b) => fecha(b).localeCompare(fecha(a)));
   }
 
   // ---------- render ----------
@@ -255,7 +261,7 @@
     const dato = (k, v) => { if (!v) return; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dl.append(dt, dd); };
     if (c.fecha_limite) {
       const quedan = Math.round((parseDate(c.fecha_limite) - parseDate(hoy())) / 864e5);
-      const extra = c.estado !== 'abierta' ? '' : quedan === 0 ? ' · termina hoy' : ` · quedan ${quedan} días`;
+      const extra = c.estado !== 'abierta' ? '' : quedan === 0 ? ' · termina hoy' : quedan === 1 ? ' · queda 1 día' : ` · quedan ${quedan} días`;
       dato('Plazo', fmtLargo.format(parseDate(c.fecha_limite)) + extra);
       if (c.estado === 'abierta' && quedan <= 15) node.classList.add('card--urgente');
     }
