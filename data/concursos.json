@@ -1,0 +1,93 @@
+{
+  "actualizado": "2026-09-27T10:30:00Z",
+  "items": [
+    {
+      "id": "2026-08-31-aeboe-gestion-cartera-marcas",
+      "tipo": "adjudicacion",
+      "titulo": "Asesoramiento integral, gestión de la cartera y protección registral de las marcas de la AEBOE",
+      "resumen": "La Agencia Estatal BOE adjudica por procedimiento abierto simplificado, con el precio como único criterio, la gestión de su cartera de marcas (CPV 70332300, servicios relacionados con la propiedad industrial).",
+      "organismo": "Agencia Estatal Boletín Oficial del Estado",
+      "ambito": "España",
+      "lugar": "Madrid",
+      "fecha": "2026-08-31",
+      "importe": "13.040,00 € (oferta más cara: 17.050,00 €)",
+      "adjudicatario": "ISERN Patentes y Marcas",
+      "ofertas": 4,
+      "fecha_adjudicacion": "2026-08-25",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-28182",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-07-17-bsc-asesoramiento-transferencia-tecnologia",
+      "tipo": "licitacion",
+      "titulo": "Asesoramiento legal especializado en transferencia de tecnología del Barcelona Supercomputing Center",
+      "resumen": "Servicio integral de asesoramiento legal en transferencia de tecnología para el BSC-CNS (CPV 79110000), por procedimiento abierto con presentación electrónica de ofertas.",
+      "organismo": "Barcelona Supercomputing Center (BSC-CNS)",
+      "ambito": "España",
+      "lugar": "Barcelona",
+      "fecha": "2026-07-17",
+      "fecha_limite": "2026-08-10",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-24435",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-04-27-oepm-campana-falsificaciones",
+      "tipo": "licitacion",
+      "titulo": "Creatividad y producción de la campaña de la OEPM contra las falsificaciones",
+      "resumen": "Contenidos para la campaña institucional de concienciación sobre las falsificaciones y sus consecuencias sociales y económicas. Adjudicación: 70 % criterios de juicio de valor y 30 % precio; ejecución en 40 días.",
+      "organismo": "Oficina Española de Patentes y Marcas (OEPM)",
+      "ambito": "España",
+      "lugar": "Madrid",
+      "fecha": "2026-04-27",
+      "fecha_limite": "2026-05-21",
+      "importe": "95.041,32 € (valor estimado)",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-13179",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-03-24-oepm-subvenciones-patentes-2026",
+      "tipo": "convocatoria",
+      "titulo": "Subvenciones de la OEPM 2026 para solicitudes de patentes y modelos de utilidad",
+      "resumen": "Dos programas: tasas de patentes en el exterior (europea, PCT y nacionales extranjeras) y solicitudes españolas para pymes y personas físicas. El plazo se amplió 14 días naturales (BOE-B-2026-12465).",
+      "organismo": "Oficina Española de Patentes y Marcas (OEPM)",
+      "ambito": "España",
+      "fecha": "2026-03-24",
+      "fecha_limite": "2026-05-08",
+      "importe": "5.300.000 € (5 M€ exterior, 0,3 M€ nacional)",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-9164",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-02-10-oepm-premios-mejor-invencion",
+      "tipo": "premio",
+      "titulo": "V Premios a la mejor invención protegida mediante derechos de propiedad industrial",
+      "resumen": "La OEPM premia a inventores de patentes y modelos de utilidad nacionales concedidos en 2024; las candidaturas pueden presentarlas el inventor u otra persona física o jurídica. Plazo ampliado 14 días (BOE-B-2026-6619).",
+      "organismo": "Oficina Española de Patentes y Marcas (OEPM)",
+      "ambito": "España",
+      "fecha": "2026-02-10",
+      "importe": "Mejor Patente: 4.000 € (más categorías)",
+      "estado": "cerrada",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-3831",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-02-02-euipo-fondo-pymes-2026",
+      "tipo": "convocatoria",
+      "titulo": "Fondo para Pymes 2026 «Ideas Powered for Business» de la EUIPO",
+      "resumen": "Bonos para que las pymes de la UE reduzcan hasta un 75 % las tasas de marcas, diseños, patentes y variedades vegetales, y hasta un 90 % el diagnóstico IP Scan. Se concede por orden de llegada hasta agotar fondos.",
+      "organismo": "EUIPO",
+      "ambito": "UE",
+      "fecha": "2026-02-02",
+      "fecha_limite": "2026-12-04",
+      "importe": "Hasta el 75 % de las tasas (90 % en IP Scan)",
+      "fuente": "EUIPO",
+      "url": "https://www.euipo.europa.eu/es/sme-corner/sme-fund/2026",
+      "categoria": "marcas"
+    }
+  ]
+}

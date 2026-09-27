@@ -1,0 +1,496 @@
+{
+  "actualizado": "2026-09-27T10:30:00Z",
+  "despachos": [
+    {
+      "id": "elzaburu",
+      "nombre": "Elzaburu",
+      "web": "https://elzaburu.com/",
+      "sede": "Madrid",
+      "perfil": "Despacho histórico (1865) de propiedad industrial e intelectual; muy activo en su blog y en financiación de la innovación.",
+      "fuente_seguimiento": "https://elzaburu.com/wp-json/wp/v2/posts"
+    },
+    {
+      "id": "clarke-modet",
+      "nombre": "Clarke Modet",
+      "web": "https://www.clarkemodet.com/",
+      "sede": "Madrid",
+      "perfil": "Grupo fundado en 1879 con fuerte presencia en Iberoamérica y gran volumen de marcas ante la EUIPO.",
+      "fuente_seguimiento": null
+    },
+    {
+      "id": "abg-ip",
+      "nombre": "ABG IP",
+      "web": "https://abg-ip.com/",
+      "sede": "Madrid",
+      "perfil": "Referente en patentes: Financial Times lo sitúa como líder en España. Oficinas en Madrid, Barcelona, Bilbao, Valencia y Granada.",
+      "fuente_seguimiento": "https://abg-ip.com/wp-json/wp/v2/posts"
+    },
+    {
+      "id": "ungria",
+      "nombre": "Ungría",
+      "web": "https://www.ungria.com/",
+      "sede": "Madrid",
+      "perfil": "Despacho clásico de patentes y marcas con foco internacional (Latinoamérica, Oriente Medio).",
+      "fuente_seguimiento": "https://www.ungria.com/en/news"
+    },
+    {
+      "id": "balder",
+      "nombre": "Balder IP Law",
+      "web": "https://www.balderip.com/",
+      "sede": "Madrid",
+      "perfil": "Despacho joven (2013) con gran volumen de solicitudes ante la EUIPO y oficinas en expansión (Santander).",
+      "fuente_seguimiento": "https://www.balderip.com/latest-insights"
+    },
+    {
+      "id": "herrero",
+      "nombre": "Herrero & Asociados",
+      "web": "https://www.herrero.es/",
+      "sede": "Madrid",
+      "perfil": "Marcas, patentes y derecho digital.",
+      "fuente_seguimiento": null
+    },
+    {
+      "id": "curell-sunol",
+      "nombre": "Curell Suñol",
+      "web": "https://curell.com/",
+      "sede": "Barcelona",
+      "perfil": "Despacho barcelonés desde 1946; publica su agenda de congresos y ponencias.",
+      "fuente_seguimiento": "https://curell.com/wp-json/wp/v2/posts"
+    },
+    {
+      "id": "isern",
+      "nombre": "ISERN",
+      "web": "https://isern.com/",
+      "sede": "Barcelona",
+      "perfil": "Patentes y marcas con intensa actividad en marcas europeas y contenidos divulgativos.",
+      "fuente_seguimiento": "https://isern.com/wp-json/wp/v2/posts"
+    },
+    {
+      "id": "zbm",
+      "nombre": "ZBM Patents & Trademarks",
+      "web": "https://www.zbm-patents.eu/",
+      "sede": "Barcelona",
+      "perfil": "Especialista en patentes (2003) bien posicionado en rankings europeos.",
+      "fuente_seguimiento": "https://www.zbm-patents.eu/wp-json/wp/v2/posts"
+    },
+    {
+      "id": "grau-angulo",
+      "nombre": "Grau & Angulo",
+      "web": "https://www.grauangulo.com/",
+      "sede": "Barcelona",
+      "perfil": "Boutique muy recomendada en litigios de propiedad industrial.",
+      "fuente_seguimiento": null
+    },
+    {
+      "id": "tecnopatent",
+      "nombre": "TecnoPatent",
+      "web": "https://tecnopatent.com/",
+      "sede": "Valencia",
+      "perfil": "Entre los 10 despachos líderes en registro de marcas en 2025; blog orientado a pymes y emprendedores.",
+      "fuente_seguimiento": "https://tecnopatent.com/wp-json/wp/v2/posts"
+    }
+  ],
+  "items": [
+    {
+      "id": "2026-09-24-elzaburu-ig-joyeria-cordoba",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "“Joyería de Córdoba”: la primera indicación geográfica española de productos artesanales e industriales",
+      "resumen": "Elzaburu analiza el reconocimiento de “Joyería de Córdoba” como primera IG española de productos artesanales e industriales bajo el nuevo reglamento europeo.",
+      "fecha": "2026-09-24",
+      "url": "https://elzaburu.com/joyeria-cordoba-primera-indicacion-geografica-espanola-productos-artesanales-industriales/",
+      "categoria": "indicaciones-geograficas"
+    },
+    {
+      "id": "2026-09-23-ungria-eau-clase-33",
+      "despacho": "ungria",
+      "tipo": "articulo",
+      "titulo": "Emiratos Árabes Unidos ya admite marcas de bebidas alcohólicas en la clase 33",
+      "resumen": "Ungría informa de que EAU acepta desde ahora solicitudes en la clase 33 de Niza, antes vetada por razones de orden público.",
+      "fecha": "2026-09-23",
+      "url": "https://www.ungria.com/en/news/head/item/1713",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-09-22-elzaburu-100-aceptacion-imv",
+      "despacho": "elzaburu",
+      "tipo": "reconocimiento",
+      "titulo": "Elzaburu alcanza un 100 % de aceptación en los Informes Motivados Vinculantes de su área de Financiación de la Innovación",
+      "resumen": "Figura por primera vez como entidad consultora en la Memoria de Informes Motivados del Ministerio de Ciencia, con un 100 % de aceptación en los IMV gestionados.",
+      "fecha": "2026-09-22",
+      "url": "https://elzaburu.com/100-por-100-aceptacion-imv-financiacion-innovacion/"
+    },
+    {
+      "id": "2026-09-17-elzaburu-musica-audiovisual",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Usar música en una producción audiovisual: qué derechos entran en juego",
+      "resumen": "Artículo divulgativo sobre los distintos derechos (autor, editoriales, fonogramas) que intervienen al sincronizar música en series, publicidad o contenidos digitales.",
+      "fecha": "2026-09-17",
+      "url": "https://elzaburu.com/usar-musica-produccion-audiovisual-derechos/",
+      "categoria": "derechos-autor"
+    },
+    {
+      "id": "2026-09-16-isern-marques-lisboa",
+      "despacho": "isern",
+      "tipo": "evento",
+      "titulo": "ISERN asiste a la 40.ª conferencia anual de MARQUES en Lisboa",
+      "resumen": "Del 22 al 25 de septiembre, con la evolución de las marcas comerciales como eje central.",
+      "fecha": "2026-09-16",
+      "url": "https://isern.com/isern-asiste-a-la-conferencia-anual-de-marques/",
+      "fecha_evento": "2026-09-22",
+      "ciudad": "Lisboa"
+    },
+    {
+      "id": "2026-09-15-isern-aippi-hamburgo",
+      "despacho": "isern",
+      "tipo": "evento",
+      "titulo": "ISERN asistirá al Congreso Mundial de AIPPI 2026 en Hamburgo",
+      "resumen": "El equipo, encabezado por su socio director, acudirá al congreso del 7 al 10 de octubre.",
+      "fecha": "2026-09-15",
+      "url": "https://isern.com/isern-asistira-al-congreso-mundial-de-aippi/",
+      "fecha_evento": "2026-10-07",
+      "ciudad": "Hamburgo"
+    },
+    {
+      "id": "2026-09-15-abg-oficina-granada",
+      "despacho": "abg-ip",
+      "tipo": "corporativo",
+      "titulo": "ABG IP abre oficina en Granada, la quinta en España",
+      "resumen": "ABG Intellectual Property se expande a Andalucía con una oficina en Granada, tras Madrid (2003), Barcelona (2007), Bilbao (2015) y Valencia (2024).",
+      "fecha": "2026-09-15",
+      "url": "https://abg-ip.com/ip-firm-andalusia-granada/"
+    },
+    {
+      "id": "2026-09-10-elzaburu-patente-unitaria-100000",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Más de 100.000 patentes europeas con efecto unitario: radiografía de la Patente Unitaria tres años después",
+      "resumen": "Análisis de los datos de la EPO tras superar las 100.000 peticiones de efecto unitario desde junio de 2023.",
+      "fecha": "2026-09-10",
+      "url": "https://elzaburu.com/100000-patentes-unitarias-europeas-efecto-unitario-analisis-via-proteccion/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-09-09-ungria-modelo-utilidad",
+      "despacho": "ungria",
+      "tipo": "articulo",
+      "titulo": "Cómo registrar un modelo de utilidad en España",
+      "resumen": "Guía sobre requisitos y procedimiento del modelo de utilidad, con protección de hasta diez años.",
+      "fecha": "2026-09-09",
+      "url": "https://www.ungria.com/en/news/head/item/1709",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-09-09-tecnopatent-top10-marcas-2025",
+      "despacho": "tecnopatent",
+      "tipo": "reconocimiento",
+      "titulo": "TecnoPatent, entre los 10 despachos líderes en registro de marcas en 2025",
+      "resumen": "Según el análisis de CincoDías sobre solicitudes representadas ante la OEPM y la EUIPO en 2025.",
+      "fecha": "2026-09-09",
+      "url": "https://tecnopatent.com/tecnopatent-entre-los-10-despachos-lideres-en-registro-de-marcas-en-2025/"
+    },
+    {
+      "id": "2026-09-08-ungria-marca-argentina",
+      "despacho": "ungria",
+      "tipo": "articulo",
+      "titulo": "Cómo registrar una marca en Argentina ante el INPI",
+      "resumen": "Guía práctica para proteger una marca en Argentina como puerta de entrada a Latinoamérica.",
+      "fecha": "2026-09-08",
+      "url": "https://www.ungria.com/en/news/head/item/1711",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-09-03-ungria-brasil-fast-track-h04",
+      "despacho": "ungria",
+      "tipo": "articulo",
+      "titulo": "Brasil limita las solicitudes de examen acelerado de patentes en el campo H04",
+      "resumen": "La Ordenanza n.º 07 del BRPTO fija desde el 1 de septiembre un máximo de 3 peticiones fast-track al mes por solicitante en telecomunicaciones (H04).",
+      "fecha": "2026-09-03",
+      "url": "https://www.ungria.com/en/news/head/item/1706",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-09-03-elzaburu-prueba-uso-oposicion",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Prueba de uso en marcas: clave en los procedimientos de oposición",
+      "resumen": "Repaso de cómo la prueba de uso, introducida en España en 2019, condiciona la estrategia en oposiciones ante la OEPM y la EUIPO.",
+      "fecha": "2026-09-03",
+      "url": "https://elzaburu.com/prueba-uso-marca-procedimiento-oposicion/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-09-01-elzaburu-nombre-pais-marca",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "De Brasil a Australia: ¿se puede registrar el nombre de un país como marca?",
+      "resumen": "A partir del caso de una marca brasileña de cereales llamada AUSTRALIA, explica cuándo es registrable el nombre de un país.",
+      "fecha": "2026-09-01",
+      "url": "https://elzaburu.com/se-puede-registrar-nombre-pais-marca-caso-australia-brasil/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-09-01-curell-ecta-oporto",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Reunión de Otoño de ECTA en Oporto",
+      "resumen": "Los socios Mercè Hernández y Emil Edissonov asistirán a la reunión de comités y órganos de gobierno de ECTA.",
+      "fecha": "2026-09-01",
+      "url": "https://curell.com/15-16-octubre-2026-reunion-de-otono-de-ecta-oporto-portugal/",
+      "fecha_evento": "2026-10-15",
+      "ciudad": "Oporto"
+    },
+    {
+      "id": "2026-08-31-isern-contrato-marcas-aeboe",
+      "despacho": "isern",
+      "tipo": "adjudicacion",
+      "titulo": "ISERN gana el contrato de gestión de la cartera de marcas del BOE",
+      "resumen": "La Agencia Estatal BOE adjudica a ISERN su servicio de marcas por 13.040 € frente a otras tres ofertas (la más cara, 17.050 €), con el precio como único criterio.",
+      "fecha": "2026-08-31",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-28182",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-08-28-tecnopatent-perdida-marca",
+      "despacho": "tecnopatent",
+      "tipo": "articulo",
+      "titulo": "Pérdida de una marca: principales causas y consecuencias",
+      "resumen": "Repaso de las causas de caducidad y nulidad que pueden hacer perder un registro de marca.",
+      "fecha": "2026-08-28",
+      "url": "https://tecnopatent.com/perdida-de-una-marca/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-08-20-elzaburu-diseno-falsificaciones",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Diseño industrial y falsificaciones: por qué proteger la apariencia de un producto es una decisión estratégica",
+      "resumen": "Apoyándose en un informe de la EUIPO, defiende el registro del diseño industrial como herramienta frente a las falsificaciones.",
+      "fecha": "2026-08-20",
+      "url": "https://elzaburu.com/diseno-industrial-falsificaciones-proteger-apariencia-producto/",
+      "categoria": "disenos"
+    },
+    {
+      "id": "2026-08-13-tecnopatent-naming",
+      "despacho": "tecnopatent",
+      "tipo": "articulo",
+      "titulo": "Asesoramiento legal para naming: elige un nombre que puedas proteger",
+      "resumen": "Artículo orientado a emprendedores sobre cómo elegir un nombre de marca registrable.",
+      "fecha": "2026-08-13",
+      "url": "https://tecnopatent.com/asesoramiento-legal-para-naming-elige-un-nombre-que-puedas-proteger/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-08-06-elzaburu-ciberocupacion-udrp",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Ciberocupación y nombres de dominio: nueva vía acelerada para proteger una marca en Internet",
+      "resumen": "Explica la nueva vía acelerada de resolución de controversias UDRP frente a la ciberocupación de dominios.",
+      "fecha": "2026-08-06",
+      "url": "https://elzaburu.com/ciberocupacion-nombres-dominio-via-acelerada-resolucion-controversias-udrp/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-08-04-isern-foodtech-patentes",
+      "despacho": "isern",
+      "tipo": "articulo",
+      "titulo": "Nuevos alimentos y patentes: insectos, cultivo celular y foodtech",
+      "resumen": "Artículo sobre la protección por patente de innovaciones foodtech: proteínas de insectos, carne cultivada y nuevos alimentos.",
+      "fecha": "2026-08-04",
+      "url": "https://isern.com/nuevos-alimentos-patentes-insectos-cultivo-celular/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-08-04-elzaburu-baterias-patentes",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Baterías y patentes: la carrera tecnológica que definirá la transición energética",
+      "resumen": "Panorama de la actividad de patentes en almacenamiento de energía y baterías.",
+      "fecha": "2026-08-04",
+      "url": "https://elzaburu.com/baterias-patentes-carrera-tecnologica-transicion-energetica/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-07-23-elzaburu-oepm-cdti-descuento",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "La OEPM aplicará un 30 % de descuento en informes tecnológicos de patentes para beneficiarios de ayudas CDTI",
+      "resumen": "Resume el convenio OEPM–CDTI para impulsar la propiedad industrial en proyectos de I+D+i, con descuentos en informes tecnológicos.",
+      "fecha": "2026-07-23",
+      "url": "https://elzaburu.com/convenio-oepm-cdti-descuento-informes-tecnologicos-patentes/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-07-21-elzaburu-euipo-lux-rosalia",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "La EUIPO deniega la marca LUX de Rosalía por falta de carácter distintivo",
+      "resumen": "Comenta la denegación de la marca de la UE LUX solicitada por Rosalía, basada en la percepción del público de habla rumana.",
+      "fecha": "2026-07-21",
+      "url": "https://elzaburu.com/euipo-deniega-marca-lux-rosalia/",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-07-07-elzaburu-disenos-oepm-2025",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Diseños industriales: el activo de propiedad industrial que más crece en España según el informe OEPM 2025",
+      "resumen": "Según «La OEPM en Cifras 2025», las solicitudes de diseños industriales crecieron un 14,8 %, el mayor aumento entre las modalidades.",
+      "fecha": "2026-07-07",
+      "url": "https://elzaburu.com/diseno-industrial-propiedad-industrial-crece-espana-informe-oepm-2025/",
+      "categoria": "disenos"
+    },
+    {
+      "id": "2026-07-07-abg-ip-perspectives-catalunya-v",
+      "despacho": "abg-ip",
+      "tipo": "evento",
+      "titulo": "IP Perspectives Catalunya V",
+      "resumen": "Jornada propia de ABG IP en el Hotel Seventy Barcelona, de 9:30 a 16:00. Entrada libre previo registro.",
+      "fecha": "2026-07-07",
+      "url": "https://abg-ip.com/es/events/ip-perspectives-catalunya-v/",
+      "fecha_evento": "2026-11-11",
+      "ciudad": "Barcelona",
+      "organiza": true
+    },
+    {
+      "id": "2026-07-06-zbm-innomed-2026",
+      "despacho": "zbm",
+      "tipo": "corporativo",
+      "titulo": "ZBM patrocina de nuevo los Premios Innomed 2026",
+      "resumen": "Laura Artigas representó al despacho en los premios a la innovación sanitaria celebrados el 18 de junio.",
+      "fecha": "2026-07-06",
+      "url": "https://www.zbm-patents.eu/celebrando-la-innovacion-en-el-sector-sanitario-con-innomed-2026/"
+    },
+    {
+      "id": "2026-07-03-abg-20-anos-curso-patentes",
+      "despacho": "abg-ip",
+      "tipo": "corporativo",
+      "titulo": "20 años del Curso de Derecho de Patentes Europeo en la EOI",
+      "resumen": "ABG celebra el 20.º aniversario del curso que imparte en la Escuela de Organización Industrial con instituciones, tutores y antiguos alumnos.",
+      "fecha": "2026-07-03",
+      "url": "https://abg-ip.com/patent-law-course-in-spain/"
+    },
+    {
+      "id": "2026-07-02-zbm-ip-stars-2026",
+      "despacho": "zbm",
+      "tipo": "reconocimiento",
+      "titulo": "ZBM, Top Tier Firm en IP STARS 2026 de Managing IP",
+      "resumen": "ZBM Patents & Trademarks vuelve a figurar como Top Tier Firm en las clasificaciones IP STARS 2026.",
+      "fecha": "2026-07-02",
+      "url": "https://www.zbm-patents.eu/zbm-entre-los-ip-stars-2026-de-managing-ip-2/"
+    },
+    {
+      "id": "2026-06-19-curell-ptmg-praga",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "PTMG Autumn Conference en Praga",
+      "resumen": "Curell Suñol asistirá a la conferencia de otoño de PTMG, del 7 al 10 de octubre.",
+      "fecha": "2026-06-19",
+      "url": "https://curell.com/7-10-octubre-2026-ptmg-autumn-conference-praga-republica-checa/",
+      "fecha_evento": "2026-10-07",
+      "ciudad": "Praga"
+    },
+    {
+      "id": "2026-06-18-isern-patentes-biotecnologia",
+      "despacho": "isern",
+      "tipo": "articulo",
+      "titulo": "Patentes en biotecnología: qué son, marco legal y casos clave",
+      "resumen": "Guía divulgativa sobre patentabilidad de invenciones biotecnológicas y casos relevantes.",
+      "fecha": "2026-06-18",
+      "url": "https://isern.com/patentes-biotecnologia-que-son-marco-legal-casos-clave/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-06-17-tecnopatent-ia-patentes",
+      "despacho": "tecnopatent",
+      "tipo": "articulo",
+      "titulo": "¿Le has contado tu invento a la IA? Puede que hayas puesto en riesgo tu futura patente",
+      "resumen": "Advierte del riesgo de divulgación y pérdida de novedad al usar asistentes de IA con invenciones no protegidas.",
+      "fecha": "2026-06-17",
+      "url": "https://tecnopatent.com/riesgos-de-la-inteligencia-artificial-en-las-patentes/",
+      "categoria": "patentes"
+    },
+    {
+      "id": "2026-06-16-abg-financial-times-2026",
+      "despacho": "abg-ip",
+      "tipo": "reconocimiento",
+      "titulo": "Financial Times sitúa a ABG IP como líder europeo en patentes",
+      "resumen": "En el ranking «Europe's Leading Patent Law Firms», ABG obtiene la máxima distinción en todas las áreas técnicas analizadas.",
+      "fecha": "2026-06-16",
+      "url": "https://abg-ip.com/spanish-leading-patent-firm-in-europe/"
+    },
+    {
+      "id": "2026-06-05-zbm-best-law-firms-2027",
+      "despacho": "zbm",
+      "tipo": "reconocimiento",
+      "titulo": "ZBM, reconocido en Best Law Firms – Spain 2027",
+      "resumen": "El despacho aparece en varias áreas de práctica de la segunda edición de la clasificación Best Law Firms – España.",
+      "fecha": "2026-06-05",
+      "url": "https://www.zbm-patents.eu/zbm-en-los-premios-2027-best-law-firms-spain-awards/"
+    },
+    {
+      "id": "2026-06-02-zbm-iam-patent-1000",
+      "despacho": "zbm",
+      "tipo": "reconocimiento",
+      "titulo": "ZBM, de nuevo en IAM Patent 1000",
+      "resumen": "ZBM vuelve a ser reconocido en IAM Patent 1000; días después destaca a Anna Barlocci y Montserrat Jané entre los profesionales clasificados ante la EPO.",
+      "fecha": "2026-06-02",
+      "url": "https://www.zbm-patents.eu/rankings-2026-iam-patent-1000-2/"
+    },
+    {
+      "id": "2026-06-01-abg-iam-patent-1000",
+      "despacho": "abg-ip",
+      "tipo": "reconocimiento",
+      "titulo": "IAM Patent 1000: ABG mantiene el Gold en prosecución de patentes en España",
+      "resumen": "ABG conserva la máxima distinción (Gold) en prosecución de patentes y Bronze en litigios en IAM Patent 1000.",
+      "fecha": "2026-06-01",
+      "url": "https://abg-ip.com/iam-patent-1000-highlights-abg-intellectual-propertys-distinctive-strategy-driven-patent-practice/"
+    },
+    {
+      "id": "2026-05-29-abg-ip-perspectives-euskadi-ix",
+      "despacho": "abg-ip",
+      "tipo": "evento",
+      "titulo": "IP Perspectives Euskadi IX",
+      "resumen": "Jornada propia de ABG IP en la B Accelerator Tower de Bilbao, de 9:30 a 15:00. Entrada libre previo registro.",
+      "fecha": "2026-05-29",
+      "url": "https://abg-ip.com/es/events/ip-perspectives-euskadi-ix/",
+      "fecha_evento": "2026-10-22",
+      "ciudad": "Bilbao",
+      "organiza": true
+    },
+    {
+      "id": "2026-05-26-curell-mesa-redonda-cgpj",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Mesa redonda en el Curso de especialización en Propiedad Industrial (CGPJ)",
+      "resumen": "Emil Edissonov moderará la mesa «Conceptos normativos del derecho de marcas y jurisprudencia destacada del TJUE».",
+      "fecha": "2026-05-26",
+      "url": "https://curell.com/30-septiembre-2026-mesa-redonda-curso-de-especializacion-propiedad-industrial-icab-barcelona/",
+      "fecha_evento": "2026-09-30",
+      "ciudad": "Barcelona"
+    },
+    {
+      "id": "2026-05-26-curell-innovacion-bajo-control",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Conferencia «Innovación bajo control» (ACCIÓ)",
+      "resumen": "El socio Emil Edissonov será ponente en esta conferencia de ACCIÓ sobre contratos para proteger la propiedad intelectual e industrial y su titularidad.",
+      "fecha": "2026-05-26",
+      "url": "https://curell.com/6-octubre-2026-conferencia-innovacion-bajo-control-contratos-para-proteger-la-propiedad-intelectual-e-industrial-y-su-titularidad-barcelona/",
+      "fecha_evento": "2026-10-06",
+      "ciudad": "Barcelona"
+    },
+    {
+      "id": "2026-05-26-curell-aippi-hamburgo",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Congreso Mundial de AIPPI en Hamburgo",
+      "resumen": "Curell Suñol asistirá al AIPPI World Congress 2026, del 7 al 10 de octubre.",
+      "fecha": "2026-05-26",
+      "url": "https://curell.com/7-10-octubre-2026-aippi-world-congress-hamburgo-alemania/",
+      "fecha_evento": "2026-10-07",
+      "ciudad": "Hamburgo"
+    }
+  ]
+}

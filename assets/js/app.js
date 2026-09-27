@@ -12,7 +12,24 @@
     'institucional': 'Institucional',
   };
   const MODALIDAD = { presencial: 'Presencial', online: 'Online', hibrido: 'Híbrido' };
-  const TITULOS = { noticias: 'Noticias', eventos: 'Eventos', historial: 'Historial', guardados: 'Guardados' };
+  const TIPOS = {
+    'evento': 'Evento',
+    'reconocimiento': 'Premio / ranking',
+    'adjudicacion': 'Contrato público',
+    'corporativo': 'Movimiento',
+    'articulo': 'Artículo',
+  };
+  const TIPOS_CONCURSO = {
+    'licitacion': 'Licitación',
+    'convocatoria': 'Ayuda / subvención',
+    'premio': 'Premio / concurso',
+    'adjudicacion': 'Adjudicación',
+  };
+  const ESTADOS = { abierta: 'Plazo abierto', adjudicada: 'Adjudicadas', cerrada: 'Cerradas' };
+  const TITULOS = {
+    noticias: 'Noticias', competencia: 'Competencia', concursos: 'Concursos y licitaciones',
+    eventos: 'Eventos', historial: 'Historial', guardados: 'Guardados',
+  };
   const DIAS_ACTUALIDAD = 30;   // noticias más antiguas pasan al Historial
   const DIAS_NUEVO = 2;         // etiqueta "Nuevo" para lo añadido recientemente
 
@@ -23,9 +40,15 @@
     view: 'noticias',
     categoria: null,
     hist: 'noticias',
+    tipo: null,
+    despacho: null,
+    tipoConcurso: null,
     q: '',
     noticias: [],
     eventos: [],
+    competencia: [],
+    despachos: new Map(),
+    concursos: [],
     actualizado: null,
     guardados: new Set(store('guardados', [])),
   };
@@ -70,21 +93,40 @@
 
   // ---------- datos ----------
   async function cargar() {
-    const [n, e] = await Promise.all([
-      fetch('data/noticias.json', { cache: 'no-cache' }).then((r) => r.json()),
-      fetch('data/eventos.json', { cache: 'no-cache' }).then((r) => r.json()),
+    const json = (url) => fetch(url, { cache: 'no-cache' }).then((r) => r.json());
+    const [n, e, c, k] = await Promise.all([
+      json('data/noticias.json'),
+      json('data/eventos.json'),
+      json('data/competencia.json').catch(() => ({ despachos: [], items: [] })),   // secciones opcionales
+      json('data/concursos.json').catch(() => ({ items: [] })),
     ]);
     state.noticias = n.items.slice().sort((a, b) => b.fecha.localeCompare(a.fecha));
     state.eventos = e.items.slice().sort((a, b) => a.fecha_inicio.localeCompare(b.fecha_inicio));
+    state.despachos = new Map(c.despachos.map((d) => [d.id, d]));
+    // "fuente" (solo en memoria) permite buscar por nombre de despacho
+    state.competencia = c.items.map((i) => ({ ...i, fuente: state.despachos.get(i.despacho)?.nombre || i.despacho }))
+      .sort((a, b) => b.fecha.localeCompare(a.fecha));
+    state.concursos = k.items.map((i) => ({ ...i, estado: estadoConcurso(i) }));
     state.actualizado = [n.actualizado, e.actualizado].filter(Boolean).sort().pop();
   }
 
-  const texto = (o) => [o.titulo, o.resumen, o.descripcion, o.fuente, o.organizador, o.ciudad, ...(o.etiquetas || [])]
+  function estadoConcurso(c) {
+    if (c.estado) return c.estado;
+    if (c.tipo === 'adjudicacion') return 'adjudicada';
+    return c.fecha_limite && c.fecha_limite >= hoy() ? 'abierta' : 'cerrada';
+  }
+
+  const texto = (o) => [o.titulo, o.resumen, o.descripcion, o.fuente, o.organizador, o.organismo, o.adjudicatario, o.ciudad, o.lugar, ...(o.etiquetas || [])]
     .filter(Boolean).join(' ').toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '');
 
   function filtrar(items) {
     const q = state.q.toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '').trim();
-    return items.filter((i) => (!state.categoria || i.categoria === state.categoria) && (!q || texto(i).includes(q)));
+    const pasa = state.view === 'competencia'
+      ? (i) => (!state.tipo || i.tipo === state.tipo) && (!state.despacho || i.despacho === state.despacho)
+      : state.view === 'concursos'
+        ? (i) => !state.tipoConcurso || i.tipo === state.tipoConcurso
+        : (i) => !state.categoria || i.categoria === state.categoria;
+    return items.filter((i) => pasa(i) && (!q || texto(i).includes(q)));
   }
 
   const esPasado = (e) => (e.fecha_fin || e.fecha_inicio) < hoy();
@@ -100,7 +142,9 @@
         ? state.eventos.filter(esPasado).reverse()
         : state.noticias.filter((n) => !esActual(n));
     }
-    return [...state.eventos, ...state.noticias].filter((i) => state.guardados.has(i.id));
+    if (view === 'competencia') return state.competencia;
+    if (view === 'concursos') return state.concursos;
+    return [...state.eventos, ...state.noticias, ...state.competencia, ...state.concursos].filter((i) => state.guardados.has(i.id));
   }
 
   // ---------- render ----------
@@ -166,7 +210,76 @@
     return node;
   }
 
+  function cardCompetencia(c) {
+    const node = $('#tpl-comp').content.firstElementChild.cloneNode(true);
+    const desp = state.despachos.get(c.despacho);
+    const b = $('.badge', node);
+    b.textContent = TIPOS[c.tipo] || c.tipo;
+    b.style.setProperty('--c', `var(--c-t-${c.tipo}, var(--c-institucional))`);
+    const t = $('time', node);
+    t.dateTime = c.fecha; t.textContent = relativo(c.fecha); t.title = 'Publicado el ' + fmtLargo.format(parseDate(c.fecha));
+    $('.firm', node).textContent = c.fuente;
+    if (esNuevo(c)) $('.new', node).hidden = false;
+    const a = $('.card__title a', node); a.href = c.url; a.textContent = c.titulo;
+    if (c.fecha_evento) {
+      const w = $('.card__when', node);
+      w.hidden = false;
+      w.textContent = [
+        (c.organiza ? 'Organiza · ' : '') + fmtLargo.format(parseDate(c.fecha_evento)),
+        c.ciudad,
+        c.fecha_evento < hoy() ? 'Celebrado' : null,
+      ].filter(Boolean).join(' · ');
+    }
+    $('.card__body', node).textContent = c.resumen;
+    const web = $('.firm-web', node);
+    if (desp) { web.href = desp.web; web.textContent = new URL(desp.web).hostname.replace(/^www\./, ''); } else web.remove();
+    saveBtn($('.save', node), c.id);
+    $('.share', node).onclick = () => compartir(c.titulo, c.url);
+    return node;
+  }
+
+  function cardConcurso(c) {
+    const node = $('#tpl-tender').content.firstElementChild.cloneNode(true);
+    node.classList.add('card--' + c.estado);
+    const b = $('.badge', node);
+    b.textContent = TIPOS_CONCURSO[c.tipo] || c.tipo;
+    b.style.setProperty('--c', `var(--c-k-${c.tipo}, var(--c-institucional))`);
+    const est = $('.estado', node);
+    est.textContent = { abierta: 'Abierta', adjudicada: 'Adjudicada', cerrada: 'Cerrada' }[c.estado];
+    est.dataset.estado = c.estado;
+    $('.firm', node).textContent = c.organismo;
+    if (esNuevo(c)) $('.new', node).hidden = false;
+    const a = $('.card__title a', node); a.href = c.url; a.textContent = c.titulo;
+
+    const dl = $('.facts', node);
+    const dato = (k, v) => { if (!v) return; const dt = document.createElement('dt'); dt.textContent = k; const dd = document.createElement('dd'); dd.textContent = v; dl.append(dt, dd); };
+    if (c.fecha_limite) {
+      const quedan = Math.round((parseDate(c.fecha_limite) - parseDate(hoy())) / 864e5);
+      const extra = c.estado !== 'abierta' ? '' : quedan === 0 ? ' · termina hoy' : ` · quedan ${quedan} días`;
+      dato('Plazo', fmtLargo.format(parseDate(c.fecha_limite)) + extra);
+      if (c.estado === 'abierta' && quedan <= 15) node.classList.add('card--urgente');
+    }
+    dato('Importe', c.importe);
+    if (c.adjudicatario) dato('Adjudicatario', c.adjudicatario + (c.ofertas ? ` (${c.ofertas} ofertas)` : ''));
+    dato('Ámbito', [c.lugar, c.ambito].filter(Boolean).join(' · '));
+
+    $('.card__body', node).textContent = c.resumen;
+    $('.source', node).textContent = `${c.fuente} · ${relativo(c.fecha)}`;
+    if (c.estado === 'abierta' && c.fecha_limite) {
+      const ics = $('.ics', node);
+      ics.hidden = false;
+      ics.onclick = () => descargarICS({ id: c.id, titulo: 'Fin de plazo: ' + c.titulo, fecha_inicio: c.fecha_limite, descripcion: c.organismo, url: c.url });
+    }
+    saveBtn($('.save', node), c.id);
+    $('.share', node).onclick = () => compartir(c.titulo, c.url);
+    return node;
+  }
+
   function renderChips() {
+    if (state.view === 'competencia') return renderChipsCompetencia();
+    if (state.view === 'concursos') return renderChipsConcursos();
+    $('#chips-desp').hidden = true;
+    $('#chips').setAttribute('aria-label', 'Filtrar por categoría');
     const presentes = new Set(base().map((i) => i.categoria));
     const wrap = $('#chips');
     wrap.replaceChildren();
@@ -182,7 +295,95 @@
     if (state.categoria && !presentes.has(state.categoria)) state.categoria = null;
   }
 
+  // Dos filas: tipo de actividad y despacho (con número de publicaciones)
+  function renderChipsCompetencia() {
+    const fila = (wrap, label, opciones, clave) => {
+      wrap.replaceChildren();
+      wrap.setAttribute('aria-label', label);
+      for (const [val, txt] of opciones) {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip'; b.textContent = txt;
+        b.setAttribute('aria-pressed', String(state[clave] === val));
+        b.onclick = () => { state[clave] = val; render(); };
+        wrap.append(b);
+      }
+    };
+    const tipos = new Set(state.competencia.map((i) => i.tipo));
+    const cuenta = {};
+    state.competencia.forEach((i) => { cuenta[i.despacho] = (cuenta[i.despacho] || 0) + 1; });
+    fila($('#chips'), 'Filtrar por tipo de actividad', [[null, 'Toda la actividad'], ...Object.entries(TIPOS).filter(([k]) => tipos.has(k))], 'tipo');
+    const desp = [...state.despachos.values()].filter((d) => cuenta[d.id])
+      .sort((a, b) => cuenta[b.id] - cuenta[a.id] || a.nombre.localeCompare(b.nombre, 'es'));
+    fila($('#chips-desp'), 'Filtrar por despacho', [[null, 'Todos los despachos'], ...desp.map((d) => [d.id, `${d.nombre} · ${cuenta[d.id]}`])], 'despacho');
+    $('#chips-desp').hidden = false;
+  }
+
+  function renderChipsConcursos() {
+    $('#chips-desp').hidden = true;
+    const wrap = $('#chips');
+    wrap.replaceChildren();
+    wrap.setAttribute('aria-label', 'Filtrar por tipo');
+    const presentes = new Set(state.concursos.map((c) => c.tipo));
+    [[null, 'Todo'], ...Object.entries(TIPOS_CONCURSO).filter(([k]) => presentes.has(k))].forEach(([val, txt]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = txt;
+      b.setAttribute('aria-pressed', String(state.tipoConcurso === val));
+      b.onclick = () => { state.tipoConcurso = val; render(); };
+      wrap.append(b);
+    });
+  }
+
+  function renderAsideConcursos() {
+    const ol = $('#aside-plazos');
+    ol.replaceChildren();
+    const abiertas = state.concursos.filter((c) => c.estado === 'abierta' && c.fecha_limite)
+      .sort((a, b) => a.fecha_limite.localeCompare(b.fecha_limite));
+    if (!abiertas.length) ol.innerHTML = '<li class="muted">No hay plazos abiertos ahora mismo.</li>';
+    abiertas.forEach((c) => {
+      const d = parseDate(c.fecha_limite);
+      const li = document.createElement('li');
+      li.innerHTML = '<div class="datebox"><span class="datebox__day"></span><span class="datebox__month"></span></div><div><a target="_blank" rel="noopener"></a><small></small></div>';
+      $('.datebox__day', li).textContent = d.getDate();
+      $('.datebox__month', li).textContent = fmtMes.format(d).replace('.', '');
+      const a = $('a', li); a.href = c.url; a.textContent = c.titulo;
+      $('small', li).textContent = [TIPOS_CONCURSO[c.tipo], c.organismo].join(' · ');
+      ol.append(li);
+    });
+  }
+
+  function renderAsideCompetencia() {
+    const ol = $('#aside-comp-events');
+    ol.replaceChildren();
+    const prox = state.competencia.filter((c) => c.fecha_evento && c.fecha_evento >= hoy())
+      .sort((a, b) => a.fecha_evento.localeCompare(b.fecha_evento)).slice(0, 6);
+    if (!prox.length) ol.innerHTML = '<li class="muted">Sin eventos próximos.</li>';
+    prox.forEach((c) => {
+      const d = parseDate(c.fecha_evento);
+      const li = document.createElement('li');
+      li.innerHTML = '<div class="datebox"><span class="datebox__day"></span><span class="datebox__month"></span></div><div><a target="_blank" rel="noopener"></a><small></small></div>';
+      $('.datebox__day', li).textContent = d.getDate();
+      $('.datebox__month', li).textContent = fmtMes.format(d).replace('.', '');
+      const a = $('a', li); a.href = c.url; a.textContent = c.titulo;
+      $('small', li).textContent = [c.fuente, c.ciudad].filter(Boolean).join(' · ');
+      ol.append(li);
+    });
+
+    const ul = $('#aside-despachos');
+    ul.replaceChildren();
+    const ultima = {};
+    state.competencia.forEach((c) => { if (!ultima[c.despacho] || c.fecha > ultima[c.despacho]) ultima[c.despacho] = c.fecha; });
+    [...state.despachos.values()].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es')).forEach((d) => {
+      const li = document.createElement('li');
+      li.innerHTML = '<a target="_blank" rel="noopener"></a><small></small>';
+      const a = $('a', li); a.href = d.web; a.textContent = d.nombre; a.title = d.perfil || '';
+      $('small', li).textContent = [d.sede, ultima[d.id] ? 'última actividad ' + relativo(ultima[d.id]).toLocaleLowerCase('es') : 'sin actividad registrada'].filter(Boolean).join(' · ');
+      ul.append(li);
+    });
+  }
+
   function renderAside() {
+    if (state.view === 'competencia') return renderAsideCompetencia();
+    if (state.view === 'concursos') return renderAsideConcursos();
     const ol = $('#aside-events');
     ol.replaceChildren();
     const prox = state.eventos.filter((e) => !esPasado(e)).slice(0, 5);
@@ -204,16 +405,47 @@
     $('#view-title').textContent = TITULOS[state.view];
     $$('[data-view]').forEach((a) => (a.dataset.view === state.view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
     $('#when').hidden = state.view !== 'historial';
+    const intro = $('#view-intro');
+    const intros = {
+      competencia: `Actividad pública de ${state.despachos.size} despachos competidores: publicaciones, eventos, premios, contratos públicos y movimientos corporativos.`,
+      concursos: 'Licitaciones públicas, ayudas y premios relacionados con la propiedad industrial e intelectual, y a quién se adjudican los contratos.',
+    };
+    intro.hidden = !intros[state.view];
+    intro.textContent = intros[state.view] || '';
     $$('#when button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.hist === state.hist)));
 
     renderChips();
     const list = $('#list');
     list.className = 'list';
     const items = filtrar(base());
-    const card = (i) => ('fecha_inicio' in i ? cardEvento(i) : cardNoticia(i));
+    const card = (i) => ('despacho' in i ? cardCompetencia(i) : 'organismo' in i ? cardConcurso(i) : 'fecha_inicio' in i ? cardEvento(i) : cardNoticia(i));
+    const cabecera = (texto, n) => {
+      const h = document.createElement('h2');
+      h.className = 'month';
+      h.textContent = texto;
+      if (n != null) { const c = document.createElement('span'); c.className = 'month__count'; c.textContent = n; h.append(' ', c); }
+      return h;
+    };
     let nodes;
 
-    if (state.view === 'historial') {
+    if (state.view === 'noticias') {
+      // agrupadas por categoría (en el orden de CATEGORIAS), cada grupo de la más reciente a la más antigua
+      list.classList.add('list--news');
+      nodes = [];
+      for (const [k, v] of Object.entries(CATEGORIAS)) {
+        const grupo = items.filter((i) => i.categoria === k);
+        if (grupo.length) nodes.push(cabecera(v, grupo.length), ...grupo.map(card));
+      }
+    } else if (state.view === 'concursos') {
+      // abiertas primero (por plazo más próximo), luego adjudicadas y cerradas (más recientes primero)
+      nodes = [];
+      for (const [estado, titulo] of Object.entries(ESTADOS)) {
+        const grupo = items.filter((i) => i.estado === estado);
+        if (estado === 'abierta') grupo.sort((a, b) => (a.fecha_limite || '9').localeCompare(b.fecha_limite || '9'));
+        else grupo.sort((a, b) => b.fecha.localeCompare(a.fecha));
+        if (grupo.length) nodes.push(cabecera(titulo, grupo.length), ...grupo.map(card));
+      }
+    } else if (state.view === 'historial' || state.view === 'competencia') {
       // agrupado por mes, del más reciente al más antiguo
       nodes = [];
       let mes = null;
@@ -229,17 +461,19 @@
         nodes.push(card(i));
       }
     } else {
-      if (state.view === 'noticias') list.classList.add('list--news');
       nodes = items.map(card);
     }
 
     list.replaceChildren(...nodes);
     const empty = $('#empty');
     empty.hidden = nodes.length > 0;
-    const sinFiltros = !state.q && !state.categoria;
+    const sinFiltros = !state.q && (state.view === 'competencia' ? !state.tipo && !state.despacho
+      : state.view === 'concursos' ? !state.tipoConcurso : !state.categoria);
     empty.textContent = !sinFiltros ? 'No hay resultados con estos filtros.'
       : state.view === 'guardados' ? 'Aún no has guardado nada. Pulsa el marcador en cualquier noticia o evento.'
       : state.view === 'historial' ? 'Todavía no hay nada en el historial.'
+      : state.view === 'competencia' ? 'Todavía no hay actividad registrada de la competencia.'
+      : state.view === 'concursos' ? 'Todavía no hay concursos ni licitaciones registrados.'
       : state.view === 'eventos' ? 'No hay eventos próximos. Consulta los pasados en el Historial.'
       : `No hay noticias de los últimos ${DIAS_ACTUALIDAD} días. Consulta el Historial.`;
     renderAside();

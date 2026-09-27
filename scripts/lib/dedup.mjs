@@ -69,3 +69,15 @@ export function eventoDuplicado(a, b) {
   if (sim >= 0.85 && dias(a.fecha_inicio, b.fecha_inicio) <= 21) return true;
   return cerca && sim >= UMBRAL_EVENTO;
 }
+
+/** ¿Es la misma publicación de un competidor? Mismo enlace, o mismo despacho con titular muy parecido. */
+export function actividadDuplicada(a, b) {
+  if (normalizarUrl(a.url) === normalizarUrl(b.url)) return true;
+  return a.despacho === b.despacho && similitud(a.titulo, b.titulo) >= UMBRAL_NOTICIA && dias(a.fecha, b.fecha) <= 10;
+}
+
+/** ¿Es el mismo concurso? Mismo enlace, o mismo organismo y tipo con título muy parecido en ±30 días. */
+export function concursoDuplicado(a, b) {
+  if (normalizarUrl(a.url) === normalizarUrl(b.url)) return true;
+  return a.organismo === b.organismo && a.tipo === b.tipo && similitud(a.titulo, b.titulo) >= UMBRAL_NOTICIA && dias(a.fecha, b.fecha) <= 30;
+}

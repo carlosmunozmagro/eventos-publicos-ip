@@ -10,9 +10,10 @@ Industrial e Intelectual en España. Trabajas en el repositorio `carlosmunozmagr
 
 ## Objetivo de cada ejecución
 
-1. **Leer primero lo que ya hay** en `data/noticias.json` y `data/eventos.json` (sobre todo lo de las
-   últimas semanas) para no investigar lo que ya está publicado.
-2. Buscar noticias publicadas en los **últimos 3 días** y eventos de los **próximos 90 días**.
+1. **Leer primero lo que ya hay** en `data/noticias.json`, `data/eventos.json`, `data/competencia.json` y `data/concursos.json`
+   (sobre todo lo de las últimas semanas) para no investigar lo que ya está publicado.
+2. Buscar noticias publicadas en los **últimos 3 días** y eventos de los **próximos 90 días**, y revisar
+   la **actividad de la competencia** y los **concursos y licitaciones** (ver sus secciones).
 3. Escribir los candidatos en `entrantes.json` (en la raíz; está en `.gitignore`) y **fusionarlos**
    con `node scripts/merge.mjs`. Nunca edites a mano los ficheros de `data/` para añadir elementos.
 4. Validar, hacer commit y push a `main` (esto publica la web automáticamente).
@@ -88,6 +89,94 @@ Tu trabajo es cubrir lo que el script no puede ver:
 5. `node scripts/validate.mjs` falla si quedan posibles duplicados en los datos. No lo ignores:
    fusiónalos (mueve uno a `otras_fuentes` del otro) antes de publicar.
 
+## Seguimiento de la competencia
+
+`data/competencia.json` → `despachos` es la lista de despachos competidores de PONS IP que se siguen.
+Para cada uno, busca lo publicado desde su última actividad registrada:
+
+- Si tiene `fuente_seguimiento` terminada en `/wp-json/wp/v2/posts` (WordPress), consúltala con
+  `curl -s "<fuente>?per_page=20&after=<AAAA-MM-DD>T00:00:00&_fields=date,link,title,excerpt"`: da fecha
+  exacta, enlace y extracto. En webs multilingües quédate con la versión en español (ignora `/en/`, `/ca/`).
+- Si es una página de noticias (Ungría, Balder), ábrela y confirma la fecha en cada artículo. Si la
+  fecha no es fiable (p. ej. varias noticias con la misma marca de tiempo de migración), no la añadas.
+- Si `fuente_seguimiento` es `null` (Clarke Modet, Herrero & Asociados, Grau & Angulo: su web bloquea el
+  acceso automático), usa WebSearch (`"Clarke Modet" propiedad industrial <mes> <año>`, notas de prensa,
+  LinkedIn, prensa jurídica) y confírmalo con al menos dos resultados.
+
+Qué registrar (`tipo`):
+
+| tipo | Ejemplos |
+|---|---|
+| `evento` | Jornadas propias, ponencias, asistencia a congresos (INTA, ECTA, AIPPI, MARQUES…). Requiere `fecha_evento`; `organiza: true` si lo organiza el despacho |
+| `reconocimiento` | Rankings (IAM, WTR, Managing IP, Financial Times, Chambers, Legal 500), premios |
+| `corporativo` | Nuevas oficinas, fichajes de socios, acreditaciones, fusiones, patrocinios |
+| `articulo` | Posts del blog y newsletters. Solo los que aporten algo: análisis de sentencias, cambios normativos, datos de mercado; no las guías genéricas repetidas |
+
+Formato de cada elemento (`items`):
+
+```json
+{
+  "id": "AAAA-MM-DD-despacho-slug",
+  "despacho": "id de despachos (p. ej. abg-ip)",
+  "tipo": "articulo | evento | reconocimiento | corporativo",
+  "titulo": "… (en español; traduce si el original está en inglés)",
+  "resumen": "1-2 frases informativas (20-600 caracteres)",
+  "fecha": "AAAA-MM-DD de publicación",
+  "url": "https://…",
+  "categoria": "(opcional) misma lista que noticias",
+  "fecha_evento": "(solo eventos) AAAA-MM-DD",
+  "ciudad": "(solo eventos, opcional)",
+  "organiza": true
+}
+```
+
+Van en `entrantes.json` bajo la clave `"competencia"`; `merge.mjs` descarta repetidos y actualiza
+eventos aplazados. Para seguir a un despacho nuevo, añádelo a mano a `despachos` (`id`, `nombre`, `web`,
+`sede`, `perfil`, `fuente_seguimiento`) y pide que se permita su dominio en el acceso de red del entorno.
+
+## Concursos y licitaciones
+
+`data/concursos.json` recoge licitaciones públicas, ayudas/subvenciones y premios sobre propiedad
+industrial e intelectual, y **a quién se adjudican** los contratos (inteligencia competitiva).
+
+Fuentes y método:
+
+- **BOE (API abierta, sin clave)**: `curl -s -H "Accept: application/json" https://www.boe.es/datosabiertos/api/boe/sumario/AAAAMMDD`
+  para cada día desde la última ejecución. Revisa la sección 5 (anuncios) buscando en el título
+  «propiedad industrial», «propiedad intelectual», «patentes», «marcas de/del», «protección registral»,
+  «transferencia de tecnología», «vigilancia tecnológica» y la OEPM. Abre el anuncio
+  (`https://www.boe.es/diario_boe/txt.php?id=BOE-B-…`) para sacar plazo, importe, CPV y adjudicatario.
+  CPV clave: **70332300** (servicios relacionados con la propiedad industrial) y 79110000 (asesoría jurídica).
+  Descarta falsos positivos («marca comercial» de equipos, pólizas, mantenimiento de edificios).
+- **Plataforma de Contratación del Sector Público** (contrataciondelestado.es) y **TED**
+  (ted.europa.eu / api.ted.europa.eu, CPV 70332300): si el acceso de red lo permite. Si no, WebSearch.
+- **EUIPO, EPO y OEPM**: páginas de contratación, ayudas (Fondo para Pymes, subvenciones OEPM) y premios.
+
+Tipos: `licitacion`, `convocatoria` (ayudas/subvenciones), `premio`, `adjudicacion`. Si un plazo se amplía o
+se adjudica un contrato ya registrado, vuelve a meterlo en `entrantes.json` con los datos nuevos: el merge lo
+actualiza. Si el adjudicatario es un despacho de `competencia.json → despachos`, añade también un elemento
+de competencia con `"tipo": "adjudicacion"`.
+
+```json
+{
+  "id": "AAAA-MM-DD-slug",
+  "tipo": "licitacion | convocatoria | premio | adjudicacion",
+  "titulo": "…",
+  "resumen": "1-2 frases (20-600 caracteres)",
+  "organismo": "…",
+  "ambito": "España | UE",
+  "lugar": "(opcional) ciudad",
+  "fecha": "AAAA-MM-DD de publicación",
+  "fecha_limite": "AAAA-MM-DD (fin de plazo; obligatorio salvo que se indique estado)",
+  "estado": "(opcional, solo si no hay fecha_limite) abierta | cerrada",
+  "importe": "(opcional) texto, p. ej. «95.041,32 € (valor estimado)»",
+  "adjudicatario": "(adjudicaciones) …", "ofertas": 4, "fecha_adjudicacion": "AAAA-MM-DD",
+  "fuente": "BOE | EUIPO | OEPM | PLACSP | TED",
+  "url": "https://… (el anuncio oficial)",
+  "categoria": "(opcional) misma lista que noticias"
+}
+```
+
 ## Formato
 
 Noticia (`data/noticias.json` → `items`):
@@ -140,12 +229,12 @@ El `id` empieza por la fecha de la noticia o de inicio del evento. Los campos `a
 
 ```bash
 git fetch origin main && git checkout main && git pull origin main
-# … escribir entrantes.json con { "noticias": [...], "eventos": [...] } …
+# … escribir entrantes.json con { "noticias": [...], "eventos": [...], "competencia": [...], "concursos": [...] } …
 node scripts/merge.mjs --dry-run   # revisar el informe
 node scripts/merge.mjs             # fusiona en data/*.json
 node scripts/validate.mjs          # debe terminar sin errores
 git add data/
-git commit -m "Actualización diaria: N noticias, M eventos (AAAA-MM-DD)"
+git commit -m "Actualización diaria: N noticias, M eventos, K de competencia, L concursos (AAAA-MM-DD)"
 git push origin main
 ```
 
@@ -153,4 +242,5 @@ Si no hay cambios, no hagas commit. Si el push a `main` es rechazado, sube los c
 `actualizacion/AAAA-MM-DD` y abre un Pull Request hacia `main` con el resumen.
 
 Al terminar, responde con un resumen breve: qué has añadido (títulos + fuente), qué se ha fusionado
-como duplicado, qué eventos se han actualizado y cualquier fuente que no hayas podido consultar.
+como duplicado, qué eventos se han actualizado, la actividad destacable de la competencia, los concursos
+con plazo abierto (y las adjudicaciones) y cualquier fuente que no hayas podido consultar.
