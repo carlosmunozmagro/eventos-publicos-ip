@@ -25,7 +25,7 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en
   `entrantes.json` y `scripts/merge.mjs` los fusiona. La misma noticia en otro medio se añade como
   “También en: …”; un evento ya conocido se actualiza (fecha, hora, enlace) en vez de repetirse.
-- **Noticias agrupadas por categoría** (marcas, patentes, diseños…), cada grupo de la más reciente a la más antigua.
+- **Noticias por fecha** (la más reciente primero), con su categoría indicada en cada tarjeta.
 - **Concursos y licitaciones**: licitaciones públicas, ayudas y premios de PI con su plazo (primero las
   abiertas), importe y adjudicatario; botón para añadir el fin de plazo al calendario.
 - **Competencia**: actividad pública de los despachos competidores (artículos, eventos, premios y

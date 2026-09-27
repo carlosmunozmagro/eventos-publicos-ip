@@ -429,13 +429,9 @@
     let nodes;
 
     if (state.view === 'noticias') {
-      // agrupadas por categoría (en el orden de CATEGORIAS), cada grupo de la más reciente a la más antigua
+      // de la más reciente a la más antigua; la sección se indica en la etiqueta de cada tarjeta
       list.classList.add('list--news');
-      nodes = [];
-      for (const [k, v] of Object.entries(CATEGORIAS)) {
-        const grupo = items.filter((i) => i.categoria === k);
-        if (grupo.length) nodes.push(cabecera(v, grupo.length), ...grupo.map(card));
-      }
+      nodes = items.map(card);
     } else if (state.view === 'concursos') {
       // abiertas primero (por plazo más próximo), luego adjudicadas y cerradas (más recientes primero)
       nodes = [];
