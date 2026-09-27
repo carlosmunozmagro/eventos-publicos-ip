@@ -264,7 +264,7 @@
     const finExcl = new Date(parseDate(e.fecha_fin || e.fecha_inicio).getTime() + 864e5).toISOString().slice(0, 10);
     const esc = (s) => String(s || '').replace(/([,;\\])/g, '\\$1').replace(/\n/g, '\\n');
     const ics = [
-      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//IP España//ES', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
+      'BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//PONS IP News//ES', 'CALSCALE:GREGORIAN', 'BEGIN:VEVENT',
       `UID:${e.id}@ip-espana`,
       `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`,
       `DTSTART;VALUE=DATE:${d(e.fecha_inicio)}`,

@@ -1,4 +1,4 @@
-# IP España · Noticias y eventos de Propiedad Intelectual
+# PONS IP News · Noticias y eventos de Propiedad Intelectual
 
 Web app (PWA) con las noticias más relevantes y la agenda de eventos de Propiedad Industrial e
 Intelectual en España. Se actualiza sola mediante una tarea programada de Claude Code que investiga

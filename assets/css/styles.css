@@ -6,8 +6,10 @@
   --text: #13202b;
   --muted: #5b6b79;
   --border: #dde4eb;
-  --brand: #0f3d5e;
-  --accent: #c8102e;          /* rojo España, usado con moderación */
+  --brand: #1b6f76;          /* turquesa PONS IP */
+  --accent: #c8102e;
+  --logo-ink: #0a0a0a;
+  --logo-accent: #1b6f76;
   --focus: #2b7fd1;
   --shadow: 0 1px 2px rgba(16, 32, 48, .06), 0 4px 16px rgba(16, 32, 48, .06);
   --radius: 14px;
@@ -30,7 +32,8 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0b1620; --surface: #122230; --surface-2: #19304a; --text: #e6edf3;
-    --muted: #93a4b4; --border: #24394d; --brand: #7cc0ff; --accent: #ff6b7f;
+    --muted: #93a4b4; --border: #24394d; --brand: #5fc4cc; --accent: #ff6b7f;
+    --logo-ink: #ffffff; --logo-accent: #5fc4cc;
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
     --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
     --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
@@ -40,7 +43,8 @@
 }
 :root[data-theme="dark"] {
   --bg: #0b1620; --surface: #122230; --surface-2: #19304a; --text: #e6edf3;
-  --muted: #93a4b4; --border: #24394d; --brand: #7cc0ff; --accent: #ff6b7f;
+  --muted: #93a4b4; --border: #24394d; --brand: #5fc4cc; --accent: #ff6b7f;
+    --logo-ink: #ffffff; --logo-accent: #5fc4cc;
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 4px 16px rgba(0,0,0,.25);
   --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
   --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
@@ -81,11 +85,11 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
   display: grid; grid-template-columns: 1fr auto; grid-template-areas: "brand theme" "search search";
   gap: 8px 12px; align-items: center;
 }
-.brand { grid-area: brand; display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-.brand img { border-radius: 8px; }
-.brand__text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
-.brand__text strong { font-size: 17px; }
-.brand__text small { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand { grid-area: brand; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-decoration: none; min-width: 0; }
+.brand__logo { display: block; width: 120px; height: 22px; }
+.brand__pons { fill: var(--logo-ink); }
+.brand__ip { fill: var(--logo-accent); }
+.brand__claim { font-size: 11px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--logo-accent); line-height: 1; padding-left: 1px; }
 #theme { grid-area: theme; }
 
 .search { grid-area: search; position: relative; }
