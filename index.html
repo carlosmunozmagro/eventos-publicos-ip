@@ -27,6 +27,7 @@
 
       <nav class="tabs tabs--top" aria-label="Secciones">
         <a href="#noticias" data-view="noticias">Noticias</a>
+        <a href="#pons" data-view="pons">PONS IP</a>
         <a href="#competencia" data-view="competencia">Competencia</a>
         <a href="#concursos" data-view="concursos">Concursos</a>
         <a href="#eventos" data-view="eventos">Eventos</a>
@@ -42,6 +43,9 @@
       <div class="topbar__actions">
       <a class="icon-btn hist-btn" href="#historial" data-view="historial" aria-label="Historial" title="Historial">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 3a9 9 0 1 1-8.95 10h2.02A7 7 0 1 0 8 7.1V10H2V4h2v2.36A8.97 8.97 0 0 1 13 3Zm-1 4h2v5.59l3.7 3.7-1.4 1.42L12 13.4V7Z"/></svg>
+      </a>
+      <a class="icon-btn hist-btn" href="#guardados" data-view="guardados" aria-label="Guardados" title="Guardados">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
       </a>
       <button class="icon-btn" id="theme" type="button" aria-label="Cambiar tema">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
@@ -77,6 +81,15 @@
     </main>
 
     <aside class="aside" aria-label="Información complementaria">
+      <section class="panel panel--pons">
+        <h2>Próximos eventos de PONS IP</h2>
+        <ol id="aside-pons-events" class="mini-list"></ol>
+      </section>
+      <section class="panel panel--muted panel--pons">
+        <h2>Fuente</h2>
+        <p>Publicaciones de <a href="https://ponsip.com/ip-news/" target="_blank" rel="noopener">ponsip.com/ip-news</a>, revisadas a diario con el resto de la web.</p>
+        <p class="muted">La tabla de cifras de Competencia incluye a PONS IP como referencia.</p>
+      </section>
       <section class="panel panel--comp">
         <h2>Agenda de la competencia</h2>
         <ol id="aside-comp-events" class="mini-list"></ol>
@@ -112,6 +125,10 @@
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V4Zm15 4h2v10a2 2 0 0 1-2 2V8ZM7 7v3h7V7H7Zm0 5v2h7v-2H7Zm0 4v1h7v-1H7Z"/></svg>
       <span>Noticias</span>
     </a>
+    <a href="#pons" data-view="pons">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 3h9a5 5 0 0 1 0 10H8v8H4V3Zm4 4v2h5a1 1 0 0 0 0-2H8Z"/></svg>
+      <span>PONS IP</span>
+    </a>
     <a href="#competencia" data-view="competencia">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V11h3.5v9H4Zm6.25 0V4h3.5v16h-3.5ZM16.5 20v-6H20v6h-3.5Z"/></svg>
       <span>Competencia</span>
@@ -124,11 +141,7 @@
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2ZM5 9v10h14V9H5Zm2 2h4v4H7v-4Z"/></svg>
       <span>Eventos</span>
     </a>
-    <a href="#guardados" data-view="guardados">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
-      <span>Guardados</span>
-    </a>
-  </nav>
+</nav>
 
   <template id="tpl-news">
     <article class="card">

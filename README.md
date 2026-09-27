@@ -20,6 +20,8 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **Móvil primero**: barra de pestañas inferior, chips de categoría deslizables, instalable en la
   pantalla de inicio (PWA) y funciona sin conexión con la última versión descargada.
 - **Escritorio**: navegación superior, rejilla de noticias y columna lateral con próximos eventos.
+- **PONS IP**: pestaña propia con las noticias, artículos, eventos, reconocimientos y casos de éxito
+  publicados en ponsip.com, y su posición frente a la competencia en publicaciones de los últimos 90 días.
 - **Historial**: nada se borra. Las noticias de más de 30 días y los eventos ya celebrados pasan
   solos a la sección Historial, agrupados por mes.
 - **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en

@@ -1,6 +1,15 @@
 {
-  "actualizado": "2026-09-27T10:30:00Z",
+  "actualizado": "2026-09-27T15:38:47Z",
   "despachos": [
+    {
+      "id": "pons-ip",
+      "nombre": "PONS IP",
+      "web": "https://ponsip.com/",
+      "sede": "Madrid",
+      "perfil": "Consultora global de propiedad industrial e intelectual, nuevas tecnologías e innovación. Despacho propio: su actividad se muestra en la sección PONS IP y como referencia en las cifras de la competencia.",
+      "fuente_seguimiento": "https://www.ponsip.com/wp-json/wp/v2/posts",
+      "propio": true
+    },
     {
       "id": "elzaburu",
       "nombre": "Elzaburu",
@@ -92,6 +101,16 @@
   ],
   "items": [
     {
+      "id": "2026-09-25-pons-ip-pons-ip-celebra-la-acreditacion-de-tres-nuevos-age",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP celebra la acreditación de tres nuevos Agentes de la Propiedad Industrial por la OEPM",
+      "resumen": "Jorge Vicente, Sergio Caballero Concepción y María del Carmen Redondo Palomo reciben de la Oficina Española de Patentes y Marcas la acreditación que reconoce su cualificación profesional PONS IP, consultora global especializada en Propiedad Industrial e Intelectual, celebra un…",
+      "fecha": "2026-09-25",
+      "url": "https://ponsip.com/ip-news/sin-categorizar/pons-ip-celebra-la-acreditacion-de-tres-nuevos-agentes-de-la-propiedad-industrial-por-la-oepm/",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-09-24-elzaburu-ig-joyeria-cordoba",
       "despacho": "elzaburu",
       "tipo": "articulo",
@@ -121,6 +140,16 @@
       "url": "https://elzaburu.com/100-por-100-aceptacion-imv-financiacion-innovacion/"
     },
     {
+      "id": "2026-09-22-pons-ip-innovation-act-cuando-hacer-id-no-es-suficiente",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Innovation Act: cuando hacer I+D no es suficiente",
+      "resumen": "Quien no tiene visión confunde I+D con Innovación. En España, en ocasiones consideramos que los conceptos son sinónimos, cuando en la práctica son actividades que necesitan perfiles y modelos de gestión diferenciados. La I+D genera conocimiento; la innovación lo convierte en…",
+      "fecha": "2026-09-22",
+      "url": "https://ponsip.com/ip-news/gestion-de-activos-intangibles/innovation-act-cuando-hacer-id-no-es-suficiente/",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-09-17-elzaburu-musica-audiovisual",
       "despacho": "elzaburu",
       "tipo": "articulo",
@@ -142,6 +171,28 @@
       "ciudad": "Lisboa"
     },
     {
+      "id": "2026-09-15-abg-oficina-granada",
+      "despacho": "abg-ip",
+      "tipo": "corporativo",
+      "titulo": "ABG IP abre oficina en Granada, la quinta en España",
+      "resumen": "ABG Intellectual Property se expande a Andalucía con una oficina en Granada, tras Madrid (2003), Barcelona (2007), Bilbao (2015) y Valencia (2024).",
+      "fecha": "2026-09-15",
+      "url": "https://abg-ip.com/ip-firm-andalusia-granada/"
+    },
+    {
+      "id": "2026-09-15-clarke-modet-patrocina-madrid-connect-2026",
+      "despacho": "clarke-modet",
+      "tipo": "evento",
+      "titulo": "ClarkeModet patrocina Madrid Connect 2026, el encuentro deep tech del Parque Científico de Madrid",
+      "resumen": "ClarkeModet figura como patrocinador bronce de Madrid Connect 2026 (Meeting Place Orense 34), que reúne a investigadores, startups, industria e inversores. Inscripción gratuita desde el 15 de septiembre.",
+      "fecha": "2026-09-15",
+      "fecha_evento": "2026-10-28",
+      "ciudad": "Madrid",
+      "organiza": false,
+      "url": "https://www.marketingdirecto.com/marketing-general/eventos-y-formacion/madrid-connect-2026-abre-inscripciones-impulsar-salto-deep-tech-mercado-cientifico",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-09-15-isern-aippi-hamburgo",
       "despacho": "isern",
       "tipo": "evento",
@@ -153,13 +204,26 @@
       "ciudad": "Hamburgo"
     },
     {
-      "id": "2026-09-15-abg-oficina-granada",
-      "despacho": "abg-ip",
-      "tipo": "corporativo",
-      "titulo": "ABG IP abre oficina en Granada, la quinta en España",
-      "resumen": "ABG Intellectual Property se expande a Andalucía con una oficina en Granada, tras Madrid (2003), Barcelona (2007), Bilbao (2015) y Valencia (2024).",
+      "id": "2026-09-15-pons-ip-no-es-un-autor-y-por-favor-no-lo-llamen-obra",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "No es un autor y…, por favor, ¡no lo llamen obra!",
+      "resumen": "Fenómenos como el de Mary of Gold (Finding me again ha tenido 4 MM de bajadas solo en Spotify) o Breaking Rust (proyecto artificial de música country, cuya canción Walk my Walk ha tenido casi 29 MM de bajadas, igualmente en Spotify) han … Leer más",
       "fecha": "2026-09-15",
-      "url": "https://abg-ip.com/ip-firm-andalusia-granada/"
+      "url": "https://ponsip.com/ip-news/actualidad/no-es-un-autor-y-por-favor-no-lo-llamen-obra/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-09-14-pons-ip-pons-ip-se-suma-a-meetechspain-2026-para-conectar",
+      "despacho": "pons-ip",
+      "tipo": "evento",
+      "titulo": "PONS IP se suma a meetechSpain 2026 para conectar innovación tecnológica con el mercado a través de la propiedad industrial",
+      "resumen": "La consultora de IP participará como entidad colaboradora en la cuarta edición del encuentro, que reunirá los días 14 y 15 de octubre en Madrid a Centros Tecnológicos, empresas y agentes del ecosistema español de innovación PONS IP participará como entidad colaboradora en…",
+      "fecha": "2026-09-14",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-se-suma-a-meetechspain-2026-para-conectar-innovacion-tecnologica-con-el-mercado-a-traves-de-la-propiedad-industrial/",
+      "fecha_evento": "2026-10-14",
+      "ciudad": "Madrid",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-09-10-elzaburu-patente-unitaria-100000",
@@ -172,14 +236,14 @@
       "categoria": "patentes"
     },
     {
-      "id": "2026-09-09-ungria-modelo-utilidad",
-      "despacho": "ungria",
+      "id": "2026-09-10-pons-ip-esta-tu-startup-realmente-preparada-para-una-ronda",
+      "despacho": "pons-ip",
       "tipo": "articulo",
-      "titulo": "Cómo registrar un modelo de utilidad en España",
-      "resumen": "Guía sobre requisitos y procedimiento del modelo de utilidad, con protección de hasta diez años.",
-      "fecha": "2026-09-09",
-      "url": "https://www.ungria.com/en/news/head/item/1709",
-      "categoria": "patentes"
+      "titulo": "¿Está tu startup realmente preparada para una ronda de inversión? La Propiedad Intelectual puede tener la respuesta",
+      "resumen": "Participar en escenarios como GOFest permite comprobar algo que resulta cada vez más evidente: los ecosistemas de emprendimiento necesitan mucho más que buenas ideas. Necesitan espacios capaces de conectar innovación, conocimiento…",
+      "fecha": "2026-09-10",
+      "url": "https://ponsip.com/ip-news/colombia/esta-tu-startup-realmente-preparada-para-una-ronda-de-inversion-la-propiedad-intelectual-puede-tener-la-respuesta/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-09-09-tecnopatent-top10-marcas-2025",
@@ -191,6 +255,16 @@
       "url": "https://tecnopatent.com/tecnopatent-entre-los-10-despachos-lideres-en-registro-de-marcas-en-2025/"
     },
     {
+      "id": "2026-09-09-ungria-modelo-utilidad",
+      "despacho": "ungria",
+      "tipo": "articulo",
+      "titulo": "Cómo registrar un modelo de utilidad en España",
+      "resumen": "Guía sobre requisitos y procedimiento del modelo de utilidad, con protección de hasta diez años.",
+      "fecha": "2026-09-09",
+      "url": "https://www.ungria.com/en/news/head/item/1709",
+      "categoria": "patentes"
+    },
+    {
       "id": "2026-09-08-ungria-marca-argentina",
       "despacho": "ungria",
       "tipo": "articulo",
@@ -198,6 +272,37 @@
       "resumen": "Guía práctica para proteger una marca en Argentina como puerta de entrada a Latinoamérica.",
       "fecha": "2026-09-08",
       "url": "https://www.ungria.com/en/news/head/item/1711",
+      "categoria": "marcas"
+    },
+    {
+      "id": "2026-09-04-pons-ip-deepfakes-transparencia-y-la-ley-de-ia-por-que-el",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Deepfakes, transparencia y la Ley de IA: por qué el nuevo Código de Buenas Prácticas de la UE importa a todas las empresas",
+      "resumen": "El rápido crecimiento de la inteligencia artificial generativa ha transformado la forma en que se crea, comparte y consume el contenido digital. Desde imágenes generadas por IA y voces sintéticas…",
+      "fecha": "2026-09-04",
+      "url": "https://ponsip.com/ip-news/brand-intelligence/deepfakes-transparencia-y-la-ley-de-ia-por-que-el-nuevo-codigo-de-buenas-practicas-de-la-ue-importa-a-todas-las-empresas/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-09-04-pons-ip-su-empresa-tiene-un-activo-que-el-banco-no-acepta",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Su empresa tiene un activo que el banco no acepta como garantía. Europa quiere que eso cambie",
+      "resumen": "Patentes, diseños y marcas sostienen casi la mitad del PIB europeo y apenas cuentan cuando una empresa pide financiación. Bruselas quiere revertir la situación y las empresas deben prepararse para ello. Por Manuel Campanero Carrasco, Economista. Director de PONS IP Andalucía Hay…",
+      "fecha": "2026-09-04",
+      "url": "https://ponsip.com/ip-news/brand-intelligence/su-empresa-tiene-un-activo-que-el-banco-no-acepta-como-garantia-europa-quiere-que-eso-cambie/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-09-03-elzaburu-prueba-uso-oposicion",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Prueba de uso en marcas: clave en los procedimientos de oposición",
+      "resumen": "Repaso de cómo la prueba de uso, introducida en España en 2019, condiciona la estrategia en oposiciones ante la OEPM y la EUIPO.",
+      "fecha": "2026-09-03",
+      "url": "https://elzaburu.com/prueba-uso-marca-procedimiento-oposicion/",
       "categoria": "marcas"
     },
     {
@@ -211,14 +316,35 @@
       "categoria": "patentes"
     },
     {
-      "id": "2026-09-03-elzaburu-prueba-uso-oposicion",
-      "despacho": "elzaburu",
-      "tipo": "articulo",
-      "titulo": "Prueba de uso en marcas: clave en los procedimientos de oposición",
-      "resumen": "Repaso de cómo la prueba de uso, introducida en España en 2019, condiciona la estrategia en oposiciones ante la OEPM y la EUIPO.",
-      "fecha": "2026-09-03",
-      "url": "https://elzaburu.com/prueba-uso-marca-procedimiento-oposicion/",
-      "categoria": "marcas"
+      "id": "2026-09-02-clarke-modet-adquiere-passarini",
+      "despacho": "clarke-modet",
+      "tipo": "corporativo",
+      "titulo": "ClarkeModet compra la brasileña Passarini Group para reforzar su área de asuntos regulatorios",
+      "resumen": "Incorpora 40 profesionales y cerca de 300 clientes en más de 20 países (Brasil, Portugal y EE. UU.) para acompañar a farmacéuticas, biotecnológicas y fabricantes de productos sanitarios más allá de las patentes.",
+      "fecha": "2026-09-02",
+      "url": "https://www.infobae.com/america/agencias/2026/09/02/la-firma-espanola-clarkemodet-compra-la-brasilena-passarini-para-reforzar-su-area-de-asuntos-regulatorios/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-09-02-pons-ip-luis-ignacio-vicente-y-guillermo-criado-de-nuevo-e",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "Luis Ignacio Vicente y Guillermo Criado, de nuevo entre los 300 líderes mundiales en estrategia IP",
+      "resumen": "Dos profesionales de PONS IP han sido reconocidos por tercer año consecutivo en el ranking internacional IAM Strategy 300: The World’s Leading IP Strategists 2026, una de las referencias mundiales más prestigiosas en gestión estratégica de la propiedad industrial e intelectual.…",
+      "fecha": "2026-09-02",
+      "url": "https://ponsip.com/ip-news/actualidad/luis-ignacio-vicente-y-guillermo-criado-de-nuevo-entre-los-300-lideres-mundiales-en-estrategia-ip/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-09-01-curell-ecta-oporto",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Reunión de Otoño de ECTA en Oporto",
+      "resumen": "Los socios Mercè Hernández y Emil Edissonov asistirán a la reunión de comités y órganos de gobierno de ECTA.",
+      "fecha": "2026-09-01",
+      "url": "https://curell.com/15-16-octubre-2026-reunion-de-otono-de-ecta-oporto-portugal/",
+      "fecha_evento": "2026-10-15",
+      "ciudad": "Oporto"
     },
     {
       "id": "2026-09-01-elzaburu-nombre-pais-marca",
@@ -231,15 +357,14 @@
       "categoria": "marcas"
     },
     {
-      "id": "2026-09-01-curell-ecta-oporto",
-      "despacho": "curell-sunol",
-      "tipo": "evento",
-      "titulo": "Reunión de Otoño de ECTA en Oporto",
-      "resumen": "Los socios Mercè Hernández y Emil Edissonov asistirán a la reunión de comités y órganos de gobierno de ECTA.",
+      "id": "2026-09-01-pons-ip-pons-ip-suma-a-ivan-sempere-como-subdirector-gener",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP suma a Iván Sempere como subdirector General para acelerar su estrategia global de crecimiento",
+      "resumen": "Con una amplia trayectoria profesional, institucional y académica, Sempere se incorpora a la consultora para impulsar su plan estratégico de crecimiento y presencia en mercados clave. PONS IP, consultora global especializada en propiedad industrial e intelectual, ha anunciado el…",
       "fecha": "2026-09-01",
-      "url": "https://curell.com/15-16-octubre-2026-reunion-de-otono-de-ecta-oporto-portugal/",
-      "fecha_evento": "2026-10-15",
-      "ciudad": "Oporto"
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-suma-a-ivan-sempere-como-subdirector-general-para-acelerar-su-estrategia-global-de-crecimiento/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-08-31-isern-contrato-marcas-aeboe",
@@ -272,6 +397,16 @@
       "categoria": "disenos"
     },
     {
+      "id": "2026-08-18-pons-ip-ley-de-la-musica-en-colombia-nuevos-caminos-para-f",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Ley de la Música en Colombia: nuevos caminos para fortalecer el sector musical",
+      "resumen": "Una canción puede nacer en unas horas, pero convertirla en una actividad capaz de generar valor requiere mucho más que talento. Detrás de la música hay autores, intérpretes, productores, editoras, promotores, distribuidores…",
+      "fecha": "2026-08-18",
+      "url": "https://ponsip.com/ip-news/actualidad/ley-de-la-musica-en-colombia-nuevos-caminos-para-fortalecer-el-sector-musical/",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-08-13-tecnopatent-naming",
       "despacho": "tecnopatent",
       "tipo": "articulo",
@@ -280,6 +415,17 @@
       "fecha": "2026-08-13",
       "url": "https://tecnopatent.com/asesoramiento-legal-para-naming-elige-un-nombre-que-puedas-proteger/",
       "categoria": "marcas"
+    },
+    {
+      "id": "2026-08-07-pons-ip-porcentaje-de-identidad-y-patentes-biotecnologicas",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Porcentaje de identidad y patentes biotecnológicas: la batalla por el alcance de la protección",
+      "resumen": "En el ámbito de la biotecnología moderna, pocas cuestiones generan tantos debates durante la tramitación y procedimientos de validez de una patente como las reivindicaciones de secuencias…",
+      "fecha": "2026-08-07",
+      "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/porcentaje-de-identidad-y-patentes-biotecnologicas-la-batalla-por-el-alcance-de-la-proteccion/",
+      "categoria": "patentes",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-08-06-elzaburu-ciberocupacion-udrp",
@@ -292,6 +438,16 @@
       "categoria": "marcas"
     },
     {
+      "id": "2026-08-04-elzaburu-baterias-patentes",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Baterías y patentes: la carrera tecnológica que definirá la transición energética",
+      "resumen": "Panorama de la actividad de patentes en almacenamiento de energía y baterías.",
+      "fecha": "2026-08-04",
+      "url": "https://elzaburu.com/baterias-patentes-carrera-tecnologica-transicion-energetica/",
+      "categoria": "patentes"
+    },
+    {
       "id": "2026-08-04-isern-foodtech-patentes",
       "despacho": "isern",
       "tipo": "articulo",
@@ -302,14 +458,14 @@
       "categoria": "patentes"
     },
     {
-      "id": "2026-08-04-elzaburu-baterias-patentes",
-      "despacho": "elzaburu",
+      "id": "2026-07-28-pons-ip-la-transparencia-en-el-uso-de-la-ia-ya-es-una-obli",
+      "despacho": "pons-ip",
       "tipo": "articulo",
-      "titulo": "Baterías y patentes: la carrera tecnológica que definirá la transición energética",
-      "resumen": "Panorama de la actividad de patentes en almacenamiento de energía y baterías.",
-      "fecha": "2026-08-04",
-      "url": "https://elzaburu.com/baterias-patentes-carrera-tecnologica-transicion-energetica/",
-      "categoria": "patentes"
+      "titulo": "La transparencia en el uso de la IA ya es una obligación: qué deben hacer las empresas para adaptarse",
+      "resumen": "La inteligencia artificial se ha incorporado con rapidez a áreas como marketing, comunicación, atención al cliente, recursos humanos o innovación. Sin embargo, el despliegue de estas tecnologías en el entorno empresarial entra ahora en una nueva fase regulatoria en Europa. A…",
+      "fecha": "2026-07-28",
+      "url": "https://ponsip.com/ip-news/actualidad/la-transparencia-en-el-uso-de-la-ia-ya-es-una-obligacion-que-deben-hacer-las-empresas-para-adaptarse/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-07-23-elzaburu-oepm-cdti-descuento",
@@ -322,6 +478,17 @@
       "categoria": "patentes"
     },
     {
+      "id": "2026-07-23-pons-ip-cuando-el-problema-llega-en-un-contenedor-como-pro",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Cuando el problema llega en un contenedor: cómo proteger la propiedad intelectual en aduanas",
+      "resumen": "Colombia Después de años construyendo una marca, desarrollando un producto e invirtiendo en innovación, una empresa descubre que un cargamento con mercancías que imitan sus productos está por ingresar a Colombia. O que el software que desarrolló, el libro que publicó, la música…",
+      "fecha": "2026-07-23",
+      "url": "https://ponsip.com/ip-news/marcas/cuando-el-problema-llega-en-un-contenedor-como-proteger-la-propiedad-intelectual-en-aduanas/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-07-21-elzaburu-euipo-lux-rosalia",
       "despacho": "elzaburu",
       "tipo": "articulo",
@@ -332,14 +499,36 @@
       "categoria": "marcas"
     },
     {
-      "id": "2026-07-07-elzaburu-disenos-oepm-2025",
-      "despacho": "elzaburu",
+      "id": "2026-07-09-pons-ip-leaders-league-reconoce-el-liderazgo-de-pons-ip-co",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "Leaders League reconoce el liderazgo de PONS IP con nuevas distinciones en su ranking Best Law Firms & IP Firms",
+      "resumen": "Leaders League, agencia internacional de calificación, estudios de mercado y rankings con origen en Francia, ha publicado su ranking Best Law Firms & IP Firms 2026 en España de las mejores firmas de abogados, agencias y consultoras de propiedad intelectual e industrial de 2026…",
+      "fecha": "2026-07-09",
+      "url": "https://ponsip.com/ip-news/actualidad/leaders-league-reconoce-el-liderazgo-de-pons-ip-con-nuevas-distinciones-en-su-ranking-best-law-firms-ip-firms/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-07-09-pons-ip-pons-ip-refuerza-la-defensa-de-la-marca-bullpadel",
+      "despacho": "pons-ip",
+      "tipo": "caso",
+      "titulo": "PONS IP refuerza la defensa de la marca Bullpadel ante el Tribunal General de la UE",
+      "resumen": "El Tribunal General anula la decisión de la EUIPO al apreciar un error en la valoración global del riesgo de confusión entre las marcas BLUE PADEL y Bullpadel, al no ponderar correctamente que parte de los productos enfrentados eran idénticos. El Tribunal General de la Unión…",
+      "fecha": "2026-07-09",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-refuerza-la-defensa-de-la-marca-bullpadel-ante-el-tribunal-general-de-la-ue/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-07-08-pons-ip-la-economia-del-conocimiento-supera-un-hito-histor",
+      "despacho": "pons-ip",
       "tipo": "articulo",
-      "titulo": "Diseños industriales: el activo de propiedad industrial que más crece en España según el informe OEPM 2025",
-      "resumen": "Según «La OEPM en Cifras 2025», las solicitudes de diseños industriales crecieron un 14,8 %, el mayor aumento entre las modalidades.",
-      "fecha": "2026-07-07",
-      "url": "https://elzaburu.com/diseno-industrial-propiedad-industrial-crece-espana-informe-oepm-2025/",
-      "categoria": "disenos"
+      "titulo": "Sube la inversión en la economía de los intangibles: 10 billones de dólares en 2025 según la OMPI",
+      "resumen": "La inversión en intangibles crece a un ritmo tres veces más rápido que los activos físicos según el último informe de la Oficina Mundial de la Propiedad Intelectual La economía mundial ha alcanzado un punto de inflexión histórico. La inversión en activos intangibles representa…",
+      "fecha": "2026-07-08",
+      "url": "https://ponsip.com/ip-news/actualidad/la-economia-del-conocimiento-supera-un-hito-historico-los-activos-intangibles-ya-pesan-mas-en-el-pib-que-los-activos-fisicos/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-07-07-abg-ip-perspectives-catalunya-v",
@@ -352,6 +541,27 @@
       "fecha_evento": "2026-11-11",
       "ciudad": "Barcelona",
       "organiza": true
+    },
+    {
+      "id": "2026-07-07-elzaburu-disenos-oepm-2025",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Diseños industriales: el activo de propiedad industrial que más crece en España según el informe OEPM 2025",
+      "resumen": "Según «La OEPM en Cifras 2025», las solicitudes de diseños industriales crecieron un 14,8 %, el mayor aumento entre las modalidades.",
+      "fecha": "2026-07-07",
+      "url": "https://elzaburu.com/diseno-industrial-propiedad-industrial-crece-espana-informe-oepm-2025/",
+      "categoria": "disenos"
+    },
+    {
+      "id": "2026-07-06-pons-ip-pons-ip-logra-una-resolucion-favorable-del-tgue-en",
+      "despacho": "pons-ip",
+      "tipo": "caso",
+      "titulo": "PONS IP logra una resolución favorable del TGUE en un litigio sobre la protección de la marca figurativa “V” en el sector del vapeo",
+      "resumen": "La sentencia de 11 de marzo de 2026 (Asunto T‑62/25, V VENILO) aporta importantes criterios sobre la evaluación del carácter distintivo y la similitud en marcas figurativas compuestas por letras. El Tribunal General de la Unión Europea confirmó la existencia de riesgo de…",
+      "fecha": "2026-07-06",
+      "url": "https://ponsip.com/ip-news/marcas/pons-ip-logra-una-resolucion-favorable-del-tgue-en-un-litigio-sobre-la-proteccion-de-la-marca-figurativa-v-en-el-sector-del-vapeo/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-07-06-zbm-innomed-2026",
@@ -381,6 +591,37 @@
       "url": "https://www.zbm-patents.eu/zbm-entre-los-ip-stars-2026-de-managing-ip-2/"
     },
     {
+      "id": "2026-07-01-pons-ip-nuevas-reglas-para-los-disenos-en-la-ue-entra-en-v",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Nuevas reglas para los diseños en la UE: entra en vigor la segunda fase de la reforma",
+      "resumen": "Con la aplicación de la segunda fase de la reforma, el 1 de julio de 2026, concluye el proceso de actualización del marco europeo de protección de los diseños, orientado a adaptar este…",
+      "fecha": "2026-07-01",
+      "url": "https://ponsip.com/ip-news/actualidad/nuevas-reglas-para-los-disenos-en-la-ue-entra-en-vigor-la-segunda-fase-de-la-reforma/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-29-pons-ip-waiq-evoluciona-en-su-4o-edicion-hacia-un-seminari",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "La comunidad WAIQ refuerza en Harvard el debate estratégico sobre IA, cuántica y gobernanza tecnológica en positivo",
+      "resumen": "WAIQ, comunidad de profesionales vinculados a ecosistema deeptech, con el apoyo del Real Colegio Complutense (RCC), la Harvard Law School y PONS Escuela de Negocios ha celebrado en la Universidad de Harvard en Boston la 4º edición del Summer Course “Web3, AI and Quantum…",
+      "fecha": "2026-06-29",
+      "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/waiq-evoluciona-en-su-4o-edicion-hacia-un-seminario-de-expertos-para-impulsar-un-impacto-positivo-de-las-nuevas-tecnologias/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-25-pons-ip-pons-ip-revalida-su-liderazgo-en-marcas-con-la-max",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "PONS IP revalida su liderazgo en Marcas con la máxima calificación en “IP Stars 2026”",
+      "resumen": "PONS IP ha alcanzado la máxima valoración de su actividad de asesoramiento y gestión de Marcas en el Ranking IP Stars 2026. En Patentes, consolida su posicionamiento y refuerza su liderazgo en Europa en la gestión estratégica de activos intangibles y su capacidad para acompañar…",
+      "fecha": "2026-06-25",
+      "url": "https://ponsip.com/ip-news/marcas/pons-ip-revalida-su-liderazgo-en-marcas-con-la-maxima-calificacion-en-ip-stars-2026/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-06-19-curell-ptmg-praga",
       "despacho": "curell-sunol",
       "tipo": "evento",
@@ -390,6 +631,16 @@
       "url": "https://curell.com/7-10-octubre-2026-ptmg-autumn-conference-praga-republica-checa/",
       "fecha_evento": "2026-10-07",
       "ciudad": "Praga"
+    },
+    {
+      "id": "2026-06-19-pons-ip-el-desafio-ya-no-solo-es-proteger-sino-generar-val",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "El desafío ya no solo es proteger, sino generar valor: América Latina y la propiedad intelectual",
+      "resumen": "La propiedad intelectual (IP) ocupa hoy un lugar cada vez más visible en las estrategias de innovación y desarrollo económico. Sin embargo, una pregunta sigue abierta en América Latina y el Caribe ¿Por qué una región…",
+      "fecha": "2026-06-19",
+      "url": "https://ponsip.com/ip-news/actualidad/el-desafio-ya-no-solo-es-proteger-sino-generar-valor-america-latina-y-la-propiedad-intelectual/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-06-18-isern-patentes-biotecnologia",
@@ -421,6 +672,59 @@
       "url": "https://abg-ip.com/spanish-leading-patent-firm-in-europe/"
     },
     {
+      "id": "2026-06-16-pons-ip-esta-tu-innovacion-vegetal-bien-protegida-claves-p",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "¿Está tu innovación vegetal bien protegida? Claves para convertir la I+D en un activo de valor, defendible y explotable",
+      "resumen": "La innovación vegetal no falla por falta de potencial, sino por estrategias de protección incompletas o tardías. Integrar la propiedad industrial desde el inicio permite transformar la I+D en ventaja competitiva y en una fuente real de negocio. Más allá del registro: una…",
+      "fecha": "2026-06-16",
+      "url": "https://ponsip.com/ip-news/actualidad/esta-tu-innovacion-vegetal-bien-protegida-claves-para-convertir-la-id-en-un-activo-de-valor-defendible-y-explotable/",
+      "categoria": "patentes",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-16-pons-ip-financial-times-reconoce-el-liderazgo-europeo-en-p",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "Financial Times reconoce el liderazgo europeo en patentes de PONS IP",
+      "resumen": "PONS IP, consultora global especializada en propiedad industrial, intelectual, nuevas tecnologías e innovación, ha sido reconocida por el diario económico Financial Times como compañía de referencia en España en su prestigioso ranking  “Europe’s Leading Patent Law Firms 2026″…",
+      "fecha": "2026-06-16",
+      "url": "https://ponsip.com/ip-news/actualidad/financial-times-reconoce-el-liderazgo-europeo-en-patentes-de-pons-ip/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-10-pons-ip-pons-ip-y-gfk-espana-lanzan-insightia-nuevo-sistem",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP y GfK España lanzan Insightia, nuevo sistema de inteligencia para la gestión estratégica de marcas",
+      "resumen": "PONS IP, consultora global en Propiedad Industrial e Intelectual, y GfK España, consultora de investigación con más de 50 años de experiencia en el mercado español, han anunciado el lanzamiento de Insightia, una solución pionera en el mercado que integra protección jurídica e…",
+      "fecha": "2026-06-10",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-y-gfk-espana-lanzan-insightia-nuevo-sistema-de-inteligencia-para-la-gestion-estrategica-de-marcas/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-08-pons-ip-la-propiedad-industrial-de-las-plantas-ntg-1-un-re",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "La propiedad industrial de las plantas NTG-1: un reto geoestratégico para Europa",
+      "resumen": "Que el Dr. Mojica tuviera numerosas distinciones nacionales por sus contribuciones a la ciencia desde el año 2016 en relación con la tecnología CRISPR, acuñada por él…",
+      "fecha": "2026-06-08",
+      "url": "https://ponsip.com/ip-news/patentes/la-propiedad-industrial-de-las-plantas-ntg-1-un-reto-geoestrategico-para-europa/",
+      "categoria": "patentes",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-06-05-pons-ip-el-tribunal-de-marca-de-la-ue-en-alicante-activa-l",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "El Tribunal de Marca de la UE en Alicante activa la mediación como vía estructural en litigios de marcas y diseños",
+      "resumen": "La aprobación del nuevo protocolo de derivación a mediación por parte del Tribunal de Instancia de Alicante, sede del Tribunal de Marca de la Unión Europea en España, introduce una novedad relevante en la práctica judicial en materia de propiedad industrial. El texto establece…",
+      "fecha": "2026-06-05",
+      "url": "https://ponsip.com/ip-news/actualidad/el-tribunal-de-marca-de-la-ue-en-alicante-activa-la-mediacion-como-via-estructural-en-litigios-de-marcas-y-disenos/",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-06-05-zbm-best-law-firms-2027",
       "despacho": "zbm",
       "tipo": "reconocimiento",
@@ -428,6 +732,16 @@
       "resumen": "El despacho aparece en varias áreas de práctica de la segunda edición de la clasificación Best Law Firms – España.",
       "fecha": "2026-06-05",
       "url": "https://www.zbm-patents.eu/zbm-en-los-premios-2027-best-law-firms-spain-awards/"
+    },
+    {
+      "id": "2026-06-03-pons-ip-el-nuevo-aliado-del-delegado-de-proteccion-de-dato",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "El nuevo aliado del Delegado de Protección de Datos: la Inteligencia Artificial",
+      "resumen": "La inteligencia artificial («IA») ha invadido prácticamente todos los rincones de las compañías. Todos quieren formar parte del proceso de innovación. Esta creencia en el avance y la novedad implica a su vez, una adaptación del departamento de privacidad y protección de datos.…",
+      "fecha": "2026-06-03",
+      "url": "https://ponsip.com/ip-news/actualidad/el-nuevo-aliado-del-delegado-de-proteccion-de-datos-la-inteligencia-artificial/",
+      "anadido": "2026-09-27"
     },
     {
       "id": "2026-06-02-zbm-iam-patent-1000",
@@ -448,6 +762,17 @@
       "url": "https://abg-ip.com/iam-patent-1000-highlights-abg-intellectual-propertys-distinctive-strategy-driven-patent-practice/"
     },
     {
+      "id": "2026-06-01-pons-ip-iam-patent-1000-reconoce-la-excelencia-cientifico",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "IAM Patent 1000 reconoce la excelencia científico‑técnica en la gestión de patentes de PONS IP",
+      "resumen": "PONS IP vuelve a situarse entre las compañías de servicios de IP de referencia a nivel internacional en el ámbito de las patentes, según la edición 2026 del IAM Patent 1000 – The World’s Leading Patent Professionals, uno de los rankings más rigurosos y reconocidos del sector de…",
+      "fecha": "2026-06-01",
+      "url": "https://ponsip.com/ip-news/actualidad/iam-patent-1000-reconoce-la-excelencia-cientifico-tecnica-en-la-gestion-de-patentes-de-pons-ip/",
+      "categoria": "patentes",
+      "anadido": "2026-09-27"
+    },
+    {
       "id": "2026-05-29-abg-ip-perspectives-euskadi-ix",
       "despacho": "abg-ip",
       "tipo": "evento",
@@ -460,15 +785,25 @@
       "organiza": true
     },
     {
-      "id": "2026-05-26-curell-mesa-redonda-cgpj",
+      "id": "2026-05-28-pons-ip-un-buen-modelo-de-emprendimiento-cientifico-ventur",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Un buen modelo de emprendimiento científico: venture builders, Propiedad Industrial e inversión",
+      "resumen": "Científicos y ciencia son el origen de un proceso que debe buscar el impacto real cubriendo una necesidad de la sociedad. Ese proceso es lo que comúnmente se denomina transferencia de tecnología y conocimiento. Se trata, en efecto, de articular un mecanismo que integre acciones…",
+      "fecha": "2026-05-28",
+      "url": "https://ponsip.com/ip-news/gestion-de-activos-intangibles/un-buen-modelo-de-emprendimiento-cientifico-venture-builders-propiedad-industrial-e-inversion/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-26-curell-aippi-hamburgo",
       "despacho": "curell-sunol",
       "tipo": "evento",
-      "titulo": "Mesa redonda en el Curso de especialización en Propiedad Industrial (CGPJ)",
-      "resumen": "Emil Edissonov moderará la mesa «Conceptos normativos del derecho de marcas y jurisprudencia destacada del TJUE».",
+      "titulo": "Congreso Mundial de AIPPI en Hamburgo",
+      "resumen": "Curell Suñol asistirá al AIPPI World Congress 2026, del 7 al 10 de octubre.",
       "fecha": "2026-05-26",
-      "url": "https://curell.com/30-septiembre-2026-mesa-redonda-curso-de-especializacion-propiedad-industrial-icab-barcelona/",
-      "fecha_evento": "2026-09-30",
-      "ciudad": "Barcelona"
+      "url": "https://curell.com/7-10-octubre-2026-aippi-world-congress-hamburgo-alemania/",
+      "fecha_evento": "2026-10-07",
+      "ciudad": "Hamburgo"
     },
     {
       "id": "2026-05-26-curell-innovacion-bajo-control",
@@ -482,15 +817,109 @@
       "ciudad": "Barcelona"
     },
     {
-      "id": "2026-05-26-curell-aippi-hamburgo",
+      "id": "2026-05-26-curell-mesa-redonda-cgpj",
       "despacho": "curell-sunol",
       "tipo": "evento",
-      "titulo": "Congreso Mundial de AIPPI en Hamburgo",
-      "resumen": "Curell Suñol asistirá al AIPPI World Congress 2026, del 7 al 10 de octubre.",
+      "titulo": "Mesa redonda en el Curso de especialización en Propiedad Industrial (CGPJ)",
+      "resumen": "Emil Edissonov moderará la mesa «Conceptos normativos del derecho de marcas y jurisprudencia destacada del TJUE».",
       "fecha": "2026-05-26",
-      "url": "https://curell.com/7-10-octubre-2026-aippi-world-congress-hamburgo-alemania/",
-      "fecha_evento": "2026-10-07",
-      "ciudad": "Hamburgo"
+      "url": "https://curell.com/30-septiembre-2026-mesa-redonda-curso-de-especializacion-propiedad-industrial-icab-barcelona/",
+      "fecha_evento": "2026-09-30",
+      "ciudad": "Barcelona"
+    },
+    {
+      "id": "2026-05-26-pons-ip-pons-ip-refuerza-el-area-de-patentes-con-una-unida",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP refuerza el Área de Patentes con una Unidad pionera en software, IA y tecnologías cuánticas",
+      "resumen": "Las tecnologías ligadas al software y la IA sumaron más de 500.000 solicitudes de patentes a nivel mundial en 2024, según WIPO. La nueva unidad estará dirigida por Pablo Estebaranz Ruiz, ingeniero electrónico y Agente de Patentes Europeas (EPA)con más de 18 años de experiencia.…",
+      "fecha": "2026-05-26",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-refuerza-el-area-de-patentes-con-una-unidad-pionera-en-software-ia-y-tecnologias-cuanticas/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-26-pons-ip-pons-ip-se-incorpora-a-squa-para-impulsar-la-prote",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP se incorpora a SQuA para impulsar la protección y valorización de la innovación en tecnologías cuánticas en España",
+      "resumen": "España da un paso relevante en la estructuración de su ecosistema de tecnologías cuánticas con la creación de Spanish Quantum Alliance (SQuA), una iniciativa que agrupa a 53 entidades del ámbito empresarial, académico e institucional. PONS IP, única consultora global…",
+      "fecha": "2026-05-26",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-se-incorpora-a-squa-para-impulsar-la-proteccion-y-valorizacion-de-la-innovacion-en-tecnologias-cuanticas-en-espana/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-13-pons-ip-el-tribunal-general-de-la-ue-deniega-a-klarna-el-r",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "El Tribunal General de la UE deniega a Klarna el registro de la marca ‘K’ respecto a servicios financieros",
+      "resumen": "La sentencia dictada hoy por el Tribunal General de la Unión Europea (TGUE) ratifica la denegación del registro de la marca ‘K’ a Karna respecto a servicios financieros, monetarios, bancarios, de seguros y de bienes inmuebles, principalmente, confirmando la incompatibilidad con…",
+      "fecha": "2026-05-13",
+      "url": "https://ponsip.com/ip-news/actualidad/el-tribunal-general-de-la-ue-deniega-a-klarna-el-registro-de-la-marca-k-respecto-a-servicios-financieros/",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-12-pons-ip-pons-ip-reinvindica-la-propiedad-industrial-como-i",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP reinvindica la Propiedad Industrial como “infraestructura estratégica” para el crecimiento empresarial en Innovaday Palencia 2026",
+      "resumen": "PONS IP ha participado en Innovaday Palencia 2026, el encuentro organizado por APD y el Ayuntamiento de Palencia que se ha consolidado como foro de referencia en innovación y transformación empresarial en Castilla y León, poniendo el acento en la integración de la Propiedad…",
+      "fecha": "2026-05-12",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-reinvindica-la-propiedad-industrial-como-infraestructura-estrategica-para-el-crecimiento-empresarial-en-innovaday-palencia-2026/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-11-pons-ip-diez-anos-del-rgpd-consolidacion-de-derechos-exige",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Diez años del RGPD: consolidación de derechos, exigencias de cumplimiento y retos pendientes para la protección de datos en la UE",
+      "resumen": "A pocos días de cumplirse el décimo aniversario de la entrada en vigor del RGPD, nos debemos preguntar, inevitablemente, cuál es el balance de esta norma a día de hoy.  ¿Están ajustadas las cuentas, o existe aún un desequilibrio contable entre los derechos reconocidos en el…",
+      "fecha": "2026-05-11",
+      "url": "https://ponsip.com/ip-news/proteccion-de-datos/diez-anos-del-rgpd-consolidacion-de-derechos-exigencias-de-cumplimiento-y-retos-pendientes-para-la-proteccion-de-datos-en-la-ue/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-07-pons-ip-luz-verde-al-tratado-comercial-entre-la-ue-y-la-in",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Luz verde al Tratado comercial entre la UE y la India: un nuevo escenario de oportunidades para la propiedad industrial",
+      "resumen": "La luz verde política al acuerdo de libre comercio entre la Unión Europea y la India, alcanzada en enero de 2026, marca un punto de inflexión en la relación económica entre ambos bloques. Se trata de uno de los pactos más ambiciosos firmados por la India hasta la fecha y de uno…",
+      "fecha": "2026-05-07",
+      "url": "https://ponsip.com/ip-news/actualidad/luz-verde-al-tratado-comercial-entre-la-ue-y-la-india-un-nuevo-escenario-de-oportunidades-para-la-propiedad-industrial/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-07-pons-ip-pons-ip-cierra-inta-2026-reforzando-su-liderazgo-i",
+      "despacho": "pons-ip",
+      "tipo": "evento",
+      "titulo": "PONS IP cierra INTA 2026 reforzando su liderazgo internacional en propiedad industrial e intelectual",
+      "resumen": "PONS IP ha concluido su participación en la Annual Meeting de la International Trademark Association (INTA) 2026, celebrada del 2 al 6 de mayo en Londres, reforzando su posicionamiento como consultora de referencia en el debate global sobre la Propiedad Industrial e Intelectual.…",
+      "fecha": "2026-05-07",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-cierra-inta-2026-reforzando-su-liderazgo-internacional-en-propiedad-industrial-e-intelectual/",
+      "fecha_evento": "2026-05-02",
+      "ciudad": "Londres",
+      "categoria": "marcas",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-05-05-pons-ip-el-observatorio-de-branding-reivindica-el-valor-de",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "El Observatorio de Branding reivindica el valor del riesgo como motor estratégico para las marcas",
+      "resumen": "13ª Edición Observatorio de Branding Madrid acoge una nueva cita centrada en cómo crear condiciones seguras para decisiones atrevidas, clave para construir estrategias de marca verdaderamente diferenciadoras. Bizum, ElPozo, Lladró y Metro de Madrid protagonizan una edición que…",
+      "fecha": "2026-05-05",
+      "url": "https://ponsip.com/ip-news/actualidad/el-observatorio-de-branding-reivindica-el-valor-del-riesgo-como-motor-estrategico-para-las-marcas/",
+      "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-02-06-clarke-modet-nombra-dos-directivas",
+      "despacho": "clarke-modet",
+      "tipo": "corporativo",
+      "titulo": "ClarkeModet nombra a dos nuevas directivas",
+      "resumen": "Dina Chaves, hasta ahora directora corporativa de Consultoría, asume la dirección global de Negocio Internacional dentro de una reorganización de la cúpula ligada al plan de expansión del grupo.",
+      "fecha": "2026-02-06",
+      "url": "https://www.muypymes.com/2026/02/06/clarkemodet-nombra-directivas",
+      "anadido": "2026-09-27"
     }
   ]
 }

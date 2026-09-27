@@ -17,6 +17,7 @@
     'reconocimiento': 'Premio / ranking',
     'adjudicacion': 'Contrato público',
     'corporativo': 'Movimiento',
+    'caso': 'Caso de éxito',
     'articulo': 'Artículo',
   };
   const TIPOS_CONCURSO = {
@@ -27,7 +28,7 @@
   };
   const ESTADOS = { abierta: 'Plazo abierto', adjudicada: 'Adjudicadas', cerrada: 'Cerradas' };
   const TITULOS = {
-    noticias: 'Noticias', competencia: 'Competencia', concursos: 'Concursos y licitaciones',
+    noticias: 'Noticias', pons: 'PONS IP', competencia: 'Competencia', concursos: 'Concursos y licitaciones',
     eventos: 'Eventos', historial: 'Historial', guardados: 'Guardados',
   };
   const DIAS_ACTUALIDAD = 30;   // noticias más antiguas pasan al Historial
@@ -56,7 +57,10 @@
     noticias: [],
     eventos: [],
     competencia: [],
-    despachos: new Map(),
+    pons: [],             // actividad propia (despacho con "propio": true)
+    propio: null,         // ficha del despacho propio
+    tipoPons: null,
+    despachos: new Map(), // solo competidores
     concursos: [],
     actualizado: null,
     guardados: new Set(store('guardados', [])),
@@ -113,13 +117,18 @@
     ]);
     state.noticias = n.items.slice().sort((a, b) => b.fecha.localeCompare(a.fecha));
     state.eventos = e.items.slice().sort((a, b) => a.fecha_inicio.localeCompare(b.fecha_inicio));
-    state.despachos = new Map(c.despachos.map((d) => [d.id, d]));
+    state.propio = c.despachos.find((d) => d.propio) || null;
+    state.despachos = new Map(c.despachos.filter((d) => !d.propio).map((d) => [d.id, d]));
     // "fuente" (solo en memoria) permite buscar por nombre de despacho
-    state.competencia = c.items.map((i) => ({ ...i, fuente: state.despachos.get(i.despacho)?.nombre || i.despacho }))
+    const todos = c.items.map((i) => ({ ...i, fuente: fichaDe(i.despacho)?.nombre || i.despacho }))
       .sort((a, b) => b.fecha.localeCompare(a.fecha));
+    state.pons = todos.filter((i) => i.despacho === state.propio?.id);
+    state.competencia = todos.filter((i) => i.despacho !== state.propio?.id);
     state.concursos = k.items.map((i) => ({ ...i, estado: estadoConcurso(i) }));
     state.actualizado = [n.actualizado, e.actualizado, c.actualizado, k.actualizado].filter(Boolean).sort().pop();
   }
+
+  const fichaDe = (id) => state.despachos.get(id) || (state.propio?.id === id ? state.propio : null);
 
   function estadoConcurso(c) {
     if (c.estado) return c.estado;
@@ -134,6 +143,8 @@
     const q = plano(state.q).trim();
     const pasa = state.view === 'competencia'
       ? (i) => (!state.tipo || i.tipo === state.tipo) && (!state.despacho || i.despacho === state.despacho)
+      : state.view === 'pons'
+        ? (i) => !state.tipoPons || i.tipo === state.tipoPons
       : state.view === 'concursos'
         ? (i) => !state.tipoConcurso || i.tipo === state.tipoConcurso
         : (i) => !state.categoria || i.categoria === state.categoria;
@@ -154,10 +165,11 @@
         : state.noticias.filter((n) => !esActual(n));
     }
     if (view === 'competencia') return state.competencia;
+    if (view === 'pons') return state.pons;
     if (view === 'concursos') return state.concursos;
     // guardados: lo más reciente primero, sea del tipo que sea
     const fecha = (i) => i.fecha || i.fecha_inicio;
-    return [...state.eventos, ...state.noticias, ...state.competencia, ...state.concursos]
+    return [...state.eventos, ...state.noticias, ...state.pons, ...state.competencia, ...state.concursos]
       .filter((i) => state.guardados.has(i.id))
       .sort((a, b) => fecha(b).localeCompare(fecha(a)));
   }
@@ -227,7 +239,8 @@
 
   function cardCompetencia(c) {
     const node = $('#tpl-comp').content.firstElementChild.cloneNode(true);
-    const desp = state.despachos.get(c.despacho);
+    const desp = fichaDe(c.despacho);
+    if (desp?.propio) node.classList.add('card--propio');
     const b = $('.badge', node);
     b.textContent = TIPOS[c.tipo] || c.tipo;
     b.style.setProperty('--c', `var(--c-t-${c.tipo}, var(--c-institucional))`);
@@ -293,6 +306,7 @@
   function renderChips() {
     if (state.view === 'competencia') return renderChipsCompetencia();
     if (state.view === 'concursos') return renderChipsConcursos();
+    if (state.view === 'pons') return renderChipsPons();
     $('#chips-desp').hidden = true;
     $('#chips').setAttribute('aria-label', 'Filtrar por categoría');
     const presentes = new Set(base().map((i) => i.categoria));
@@ -331,6 +345,22 @@
       .sort((a, b) => cuenta[b.id] - cuenta[a.id] || a.nombre.localeCompare(b.nombre, 'es'));
     fila($('#chips-desp'), 'Filtrar por despacho', [[null, 'Todos los despachos'], ...desp.map((d) => [d.id, `${d.nombre} · ${cuenta[d.id]}`])], 'despacho');
     $('#chips-desp').hidden = false;
+  }
+
+  function renderChipsPons() {
+    $('#chips-desp').hidden = true;
+    const wrap = $('#chips');
+    wrap.replaceChildren();
+    wrap.setAttribute('aria-label', 'Filtrar por tipo de actividad');
+    const cuenta = {};
+    state.pons.forEach((i) => { cuenta[i.tipo] = (cuenta[i.tipo] || 0) + 1; });
+    [[null, 'Todo'], ...Object.entries(TIPOS).filter(([k]) => cuenta[k]).map(([k, v]) => [k, `${v} · ${cuenta[k]}`])].forEach(([val, txt]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip'; b.textContent = txt;
+      b.setAttribute('aria-pressed', String(state.tipoPons === val));
+      b.onclick = () => { state.tipoPons = val; render(); };
+      wrap.append(b);
+    });
   }
 
   function renderChipsConcursos() {
@@ -388,9 +418,37 @@
     box.hidden = false;
   }
 
+  // Ficha de PONS IP con su posición frente a la competencia (publicaciones de los últimos 90 días)
+  function fichaPropia(box) {
+    const d = state.propio;
+    const items = state.pons;
+    const cuenta = (t) => items.filter((c) => c.tipo === t).length;
+    const r90 = (lista) => lista.filter((c) => c.fecha >= hace90()).length;
+    const propios90 = r90(items);
+    const rivales = [...state.despachos.values()].map((x) => r90(state.competencia.filter((c) => c.despacho === x.id)));
+    const puesto = 1 + rivales.filter((n) => n > propios90).length;
+    const media = rivales.length ? rivales.reduce((a, b) => a + b, 0) / rivales.length : 0;
+    box.append(
+      el('div', { className: 'ficha ficha--propia' },
+        el('div', { className: 'ficha__head' },
+          el('h2', { textContent: 'Actividad de ' + d.nombre }),
+          el('a', { href: d.web, target: '_blank', rel: 'noopener', className: 'ficha__web', textContent: new URL(d.web).hostname.replace(/^www\./, '') + ' ↗' })),
+        el('ul', { className: 'stats' },
+          stat(items.length, 'publicaciones'),
+          stat(propios90, 'últimos 90 días'),
+          stat(cuenta('evento'), 'eventos'),
+          stat(cuenta('reconocimiento'), 'premios y rankings'),
+          stat(cuenta('caso'), 'casos de éxito')),
+        el('p', { className: 'ficha__nota muted' },
+          `Frente a la competencia: puesto ${puesto} de ${rivales.length + 1} en publicaciones de los últimos 90 días (media de los competidores: ${media.toFixed(1).replace('.', ',')}). `,
+          el('a', { href: '#competencia', textContent: 'Ver cifras de la competencia →' }))));
+    box.hidden = false;
+  }
+
   function cifrasCompetencia(box) {
-    const filas = [...state.despachos.values()].map((d) => {
-      const items = state.competencia.filter((c) => c.despacho === d.id);
+    const lista = [...state.despachos.values(), ...(state.propio ? [state.propio] : [])];
+    const filas = lista.map((d) => {
+      const items = (d.propio ? state.pons : state.competencia).filter((c) => c.despacho === d.id);
       const contratos = contratosDe(d.id);
       return { d, recientes: items.filter((c) => c.fecha >= hace90()).length, total: items.length,
         premios: items.filter((c) => c.tipo === 'reconocimiento').length,
@@ -399,8 +457,10 @@
     const tabla = el('table', { className: 'tabla' },
       el('thead', {}, el('tr', {}, ...['Despacho', '90 d', 'Total', 'Premios', 'Contr.'].map((t) => el('th', { scope: 'col', textContent: t })))),
       el('tbody', {}, ...filas.map((f) => {
-        const b = el('button', { type: 'button', className: 'link', textContent: f.d.nombre, onclick: () => { state.despacho = f.d.id; render(); } });
-        return el('tr', {},
+        const b = f.d.propio
+          ? el('a', { className: 'link', href: '#pons', textContent: f.d.nombre + ' (nosotros)' })
+          : el('button', { type: 'button', className: 'link', textContent: f.d.nombre, onclick: () => { state.despacho = f.d.id; render(); } });
+        return el('tr', { className: f.d.propio ? 'fila-propia' : '' },
           el('th', { scope: 'row' }, b),
           el('td', { textContent: f.recientes || '–' }), el('td', { textContent: f.total || '–' }),
           el('td', { textContent: f.premios || '–' }),
@@ -446,6 +506,7 @@
     box.replaceChildren();
     box.hidden = true;
     if (state.view === 'competencia') (state.despacho ? fichaDespacho : cifrasCompetencia)(box);
+    else if (state.view === 'pons' && state.propio) fichaPropia(box);
     else if (state.view === 'concursos' && (!state.tipoConcurso || state.tipoConcurso === 'adjudicacion')) quienGana(box);
   }
 
@@ -455,7 +516,7 @@
     for (const id of ['#chips', '#chips-desp', '#when', '#view-intro', '#insight']) $(id).hidden = true;
     const qq = plano(q);
     const grupos = [
-      ['Noticias', state.noticias], ['Competencia', state.competencia],
+      ['Noticias', state.noticias], ['PONS IP', state.pons], ['Competencia', state.competencia],
       ['Concursos y licitaciones', state.concursos], ['Eventos', [...state.eventos].reverse()],
     ].map(([t, lista]) => [t, lista.filter((i) => texto(i).includes(qq))]).filter(([, l]) => l.length);
     const nodes = [];
@@ -521,8 +582,27 @@
     });
   }
 
+  function renderAsidePons() {
+    const ol = $('#aside-pons-events');
+    ol.replaceChildren();
+    const prox = state.pons.filter((c) => c.fecha_evento && c.fecha_evento >= hoy())
+      .sort((a, b) => a.fecha_evento.localeCompare(b.fecha_evento));
+    if (!prox.length) ol.innerHTML = '<li class="muted">Sin eventos próximos.</li>';
+    prox.forEach((c) => {
+      const d = parseDate(c.fecha_evento);
+      const li = document.createElement('li');
+      li.innerHTML = '<div class="datebox"><span class="datebox__day"></span><span class="datebox__month"></span></div><div><a target="_blank" rel="noopener"></a><small></small></div>';
+      $('.datebox__day', li).textContent = d.getDate();
+      $('.datebox__month', li).textContent = fmtMes.format(d).replace('.', '');
+      const a = $('a', li); a.href = c.url; a.textContent = c.titulo;
+      $('small', li).textContent = c.ciudad || '';
+      ol.append(li);
+    });
+  }
+
   function renderAside() {
     if (state.view === 'competencia') return renderAsideCompetencia();
+    if (state.view === 'pons') return renderAsidePons();
     if (state.view === 'concursos') return renderAsideConcursos();
     const ol = $('#aside-events');
     ol.replaceChildren();
@@ -550,6 +630,7 @@
     $('#when').hidden = state.view !== 'historial';
     const intro = $('#view-intro');
     const intros = {
+      pons: 'Noticias, artículos, eventos, reconocimientos y casos de éxito publicados por PONS IP, con su posición frente a la competencia.',
       competencia: `Actividad pública de ${state.despachos.size} despachos competidores: publicaciones, eventos, premios, contratos públicos y movimientos corporativos.`,
       concursos: 'Licitaciones públicas, ayudas y premios relacionados con la propiedad industrial e intelectual, y a quién se adjudican los contratos.',
     };
@@ -585,7 +666,7 @@
         else grupo.sort((a, b) => b.fecha.localeCompare(a.fecha));
         if (grupo.length) nodes.push(cabecera(titulo, grupo.length), ...grupo.map(card));
       }
-    } else if (state.view === 'historial' || state.view === 'competencia') {
+    } else if (state.view === 'historial' || state.view === 'competencia' || state.view === 'pons') {
       // agrupado por mes, del más reciente al más antiguo
       nodes = [];
       let mes = null;
@@ -608,11 +689,13 @@
     const empty = $('#empty');
     empty.hidden = nodes.length > 0;
     const sinFiltros = !state.q && (state.view === 'competencia' ? !state.tipo && !state.despacho
+      : state.view === 'pons' ? !state.tipoPons
       : state.view === 'concursos' ? !state.tipoConcurso : !state.categoria);
     empty.textContent = !sinFiltros ? 'No hay resultados con estos filtros.'
       : state.view === 'guardados' ? 'Aún no has guardado nada. Pulsa el marcador en cualquier noticia o evento.'
       : state.view === 'historial' ? 'Todavía no hay nada en el historial.'
       : state.view === 'competencia' ? 'Todavía no hay actividad registrada de la competencia.'
+      : state.view === 'pons' ? 'Todavía no hay actividad de PONS IP registrada.'
       : state.view === 'concursos' ? 'Todavía no hay concursos ni licitaciones registrados.'
       : state.view === 'eventos' ? 'No hay eventos próximos. Consulta los pasados en el Historial.'
       : `No hay noticias de los últimos ${DIAS_ACTUALIDAD} días. Consulta el Historial.`;

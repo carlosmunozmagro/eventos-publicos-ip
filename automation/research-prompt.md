@@ -119,6 +119,7 @@ Qué registrar (`tipo`):
 | `evento` | Jornadas propias, ponencias, asistencia a congresos (INTA, ECTA, AIPPI, MARQUES…). Requiere `fecha_evento`; `organiza: true` si lo organiza el despacho |
 | `reconocimiento` | Rankings (IAM, WTR, Managing IP, Financial Times, Chambers, Legal 500), premios |
 | `corporativo` | Nuevas oficinas, fichajes de socios, acreditaciones, fusiones, patrocinios |
+| `caso` | Casos de éxito: litigios o expedientes ganados para un cliente (sentencias, oposiciones) |
 | `articulo` | Posts del blog y newsletters. Solo los que aporten algo: análisis de sentencias, cambios normativos, datos de mercado; no las guías genéricas repetidas |
 
 Formato de cada elemento (`items`):
@@ -127,7 +128,7 @@ Formato de cada elemento (`items`):
 {
   "id": "AAAA-MM-DD-despacho-slug",
   "despacho": "id de despachos (p. ej. abg-ip)",
-  "tipo": "articulo | evento | reconocimiento | corporativo",
+  "tipo": "articulo | evento | reconocimiento | corporativo | caso",
   "titulo": "… (en español; traduce si el original está en inglés)",
   "resumen": "1-2 frases informativas (20-600 caracteres)",
   "fecha": "AAAA-MM-DD de publicación",
@@ -142,6 +143,25 @@ Formato de cada elemento (`items`):
 Van en `entrantes.json` bajo la clave `"competencia"`; `merge.mjs` descarta repetidos y actualiza
 eventos aplazados. Para seguir a un despacho nuevo, añádelo a mano a `despachos` (`id`, `nombre`, `web`,
 `sede`, `perfil`, `fuente_seguimiento`) y pide que se permita su dominio en el acceso de red del entorno.
+
+## Actividad de PONS IP (sección propia)
+
+PONS IP figura en `data/competencia.json → despachos` con `"propio": true` (id `pons-ip`). Sus
+publicaciones se guardan igual que las de la competencia (bajo `"competencia"` en `entrantes.json`, con
+`"despacho": "pons-ip"`), pero la web las muestra en la pestaña **PONS IP** y las usa como referencia
+en la tabla de cifras de la competencia.
+
+- Fuente: `curl -s "https://www.ponsip.com/wp-json/wp/v2/posts?per_page=50&after=<AAAA-MM-DD>T00:00:00&_fields=date,link,title,excerpt"`
+  desde la fecha de la última publicación de `pons-ip` registrada. Añade **todas** las publicaciones
+  nuevas (no se filtran como las de la competencia).
+- `tipo`: `reconocimiento` (rankings y premios), `caso` (litigios o expedientes ganados para clientes),
+  `corporativo` (fichajes, acreditaciones, alianzas, nuevos servicios), `evento` (con `fecha_evento` y
+  `ciudad` si el texto los da; si no, usa `articulo`) y `articulo` para el resto.
+- `resumen`: primera frase del extracto sin la firma inicial («Por …, cargo en PONS IP»), máx. 280 caracteres.
+- `categoria` opcional: `marcas` o `patentes` según las categorías del post.
+
+El tipo `caso` (caso de éxito) también vale para la competencia cuando un despacho publique un litigio
+o expediente ganado.
 
 ## Concursos y licitaciones
 

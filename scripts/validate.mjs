@@ -5,7 +5,7 @@ import { noticiaDuplicada, eventoDuplicado, actividadDuplicada, concursoDuplicad
 
 const CATEGORIAS = ['marcas', 'patentes', 'disenos', 'derechos-autor', 'indicaciones-geograficas', 'litigios', 'normativa', 'institucional'];
 const MODALIDADES = ['presencial', 'online', 'hibrido'];
-const TIPOS = ['articulo', 'evento', 'reconocimiento', 'corporativo', 'adjudicacion'];
+const TIPOS = ['articulo', 'evento', 'reconocimiento', 'corporativo', 'caso', 'adjudicacion'];
 const TIPOS_CONCURSO = ['licitacion', 'convocatoria', 'premio', 'adjudicacion'];
 const ESTADOS = ['abierta', 'cerrada', 'adjudicada'];
 const FECHA = /^\d{4}-\d{2}-\d{2}$/;

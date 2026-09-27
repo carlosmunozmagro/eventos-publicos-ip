@@ -32,6 +32,7 @@
   --c-t-corporativo: #8250df;
   --c-t-articulo: #3b5b75;
   --c-t-adjudicacion: #c8102e;
+  --c-t-caso: #0f8a5f;
 
   /* concursos y licitaciones */
   --c-k-licitacion: #007681;
@@ -51,7 +52,7 @@
     --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
     --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
     --c-litigios: #ff6b7f; --c-normativa: #8fb3d1; --c-institucional: #a0aab4;
-    --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f;
+    --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f; --c-t-caso: #4fd1a1;
     --c-k-licitacion: #5fc4cc; --c-k-convocatoria: #4fd1a1; --c-k-premio: #e3b341; --c-k-adjudicacion: #b89aff;
     color-scheme: dark;
   }
@@ -64,7 +65,7 @@
   --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
   --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
   --c-litigios: #ff6b7f; --c-normativa: #8fb3d1; --c-institucional: #a0aab4;
-  --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f;
+  --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f; --c-t-caso: #4fd1a1;
     --c-k-licitacion: #5fc4cc; --c-k-convocatoria: #4fd1a1; --c-k-premio: #e3b341; --c-k-adjudicacion: #b89aff;
   color-scheme: dark;
 }
@@ -316,9 +317,9 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .firm-list a { font-size: 14px; font-weight: 600; text-decoration: none; }
 .firm-list a:hover { text-decoration: underline; }
 .firm-list small { display: block; color: var(--muted); font-size: 12px; }
-.panel--comp, .panel--tender { display: none; }
-body[data-view="competencia"] .panel--comp, body[data-view="concursos"] .panel--tender { display: block; }
-body[data-view="competencia"] .panel--default, body[data-view="concursos"] .panel--default { display: none; }
+.panel--comp, .panel--tender, .panel--pons { display: none; }
+body[data-view="competencia"] .panel--comp, body[data-view="concursos"] .panel--tender, body[data-view="pons"] .panel--pons { display: block; }
+body[data-view="competencia"] .panel--default, body[data-view="concursos"] .panel--default, body[data-view="pons"] .panel--default { display: none; }
 
 /* ---------- Tablet ---------- */
 @media (min-width: 720px) {
@@ -363,3 +364,9 @@ body[data-view="competencia"] .panel--default, body[data-view="concursos"] .pane
   * { animation: none !important; transition: none !important; }
 }
 body:not([data-view="competencia"]) .aside > .panel--default:nth-child(3) { margin-top: 0; }
+
+/* ---------- PONS IP (actividad propia) ---------- */
+.card--propio { border-left: 4px solid var(--brand); }
+.ficha--propia { border-color: color-mix(in srgb, var(--brand) 40%, var(--border)); }
+.ficha--propia .ficha__nota a { color: var(--brand); font-weight: 600; }
+.tabla .fila-propia th, .tabla .fila-propia td { background: color-mix(in srgb, var(--brand) 8%, transparent); font-weight: 700; }
