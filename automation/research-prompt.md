@@ -37,6 +37,22 @@ Usa WebSearch con consultas en español e inglés, por ejemplo: `OEPM noticias <
 `webinar patentes OEPM`, `Unified Patent Court Spain`. Si WebFetch está disponible para un dominio,
 úsalo para confirmar fecha y detalles; si está bloqueado, confírmalo con al menos dos resultados de búsqueda.
 
+### Agenda oficial de la OEPM (fuente principal de eventos)
+
+La agenda de la OEPM se puede leer directamente con `curl` (ordenada de la fecha más lejana a la más
+próxima, 3 eventos por página):
+
+```
+https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/index.html?datetimes=&temas=&searchPage=N
+```
+
+Recorre las páginas `N = 1, 2, 3…` hasta llegar a eventos ya pasados y abre cada
+`/es/detalle-evento/…`: el bloque «Detalles» trae día, horario, precio, idioma y lugar. Usa la URL de
+esa ficha como `url` del evento. Incluye también los webinars de la EUIPO que aparecen ahí.
+Descarta los eventos que no traten de propiedad industrial o intelectual aunque figuren en la agenda.
+
+Nota: `euipo.europa.eu` rechaza las descargas automáticas (403); consúltala con WebSearch.
+
 ## Criterios editoriales
 
 - **Relevancia para España**: organismos españoles, EUIPO, empresas o tribunales españoles, o
