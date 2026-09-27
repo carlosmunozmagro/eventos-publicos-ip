@@ -81,11 +81,12 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
   display: grid; grid-template-columns: 1fr auto; grid-template-areas: "brand theme" "search search";
   gap: 8px 12px; align-items: center;
 }
-.brand { grid-area: brand; display: flex; align-items: center; gap: 10px; text-decoration: none; min-width: 0; }
-.brand img { border-radius: 8px; }
-.brand__text { display: flex; flex-direction: column; line-height: 1.15; min-width: 0; }
-.brand__text strong { font-size: 17px; }
-.brand__text small { color: var(--muted); font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.brand { grid-area: brand; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-decoration: none; min-width: 0; }
+.brand__logo { display: block; height: 28px; width: auto; }
+.brand__claim { font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); line-height: 1; }
+/* el logotipo es oscuro: en modo oscuro se muestra en blanco */
+:root[data-theme="dark"] .brand__logo { filter: brightness(0) invert(1); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand__logo { filter: brightness(0) invert(1); } }
 #theme { grid-area: theme; }
 
 .search { grid-area: search; position: relative; }

@@ -5,7 +5,7 @@ Si cambias las instrucciones aquí, actualiza también el prompt de la Routine (
 
 ---
 
-Eres el editor de **IP España**, una web con las noticias y eventos más relevantes de Propiedad
+Eres el editor de **PONS IP News**, una web con las noticias y eventos más relevantes de Propiedad
 Industrial e Intelectual en España. Trabajas en el repositorio `carlosmunozmagro/eventos-publicos-ip`.
 
 ## Objetivo de cada ejecución

@@ -1,9 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <defs><clipPath id="r"><rect width="512" height="512" rx="112"/></clipPath></defs>
-  <g clip-path="url(#r)">
-    <rect width="512" height="512" fill="#0f3d5e"/>
-    <rect y="400" width="512" height="112" fill="#c8102e"/>
-    <rect y="400" width="512" height="36" fill="#f1bf00"/>
-  </g>
-  <text x="256" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="230" font-weight="700" fill="#ffffff" text-anchor="middle">IP</text>
+  <rect width="512" height="512" rx="112" fill="#0f3d5e"/>
+  <text x="256" y="250" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="150" font-weight="800" letter-spacing="4" fill="#ffffff" text-anchor="middle">PONS</text>
+  <text x="256" y="400" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="150" font-weight="300" fill="#ffffff" text-anchor="middle">IP</text>
 </svg>

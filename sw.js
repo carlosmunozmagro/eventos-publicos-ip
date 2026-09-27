@@ -1,11 +1,11 @@
 // Service worker: estáticos stale-while-revalidate, datos network-first (con respaldo offline).
-const VERSION = 'v2';
+const VERSION = 'v3';
 const STATIC = `ipes-static-${VERSION}`;
 const DATA = 'ipes-data';
 const ASSETS = [
   './', 'index.html', 'manifest.webmanifest',
   'assets/css/styles.css', 'assets/js/app.js',
-  'assets/icons/icon.svg', 'assets/icons/icon-192.png',
+  'assets/icons/icon.svg', 'assets/icons/icon-192.png', 'assets/brand/logo-pons-ip.svg',
 ];
 
 self.addEventListener('install', (e) => {
