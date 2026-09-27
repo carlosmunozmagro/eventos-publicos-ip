@@ -27,9 +27,10 @@
 
       <nav class="tabs tabs--top" aria-label="Secciones">
         <a href="#noticias" data-view="noticias">Noticias</a>
+        <a href="#competencia" data-view="competencia">Competencia</a>
+        <a href="#concursos" data-view="concursos">Concursos</a>
         <a href="#eventos" data-view="eventos">Eventos</a>
         <a href="#historial" data-view="historial">Historial</a>
-        <a href="#competencia" data-view="competencia">Competencia</a>
         <a href="#guardados" data-view="guardados">Guardados</a>
       </nav>
 
@@ -38,9 +39,14 @@
         <input id="q" type="search" placeholder="Buscar marcas, patentes, OEPM…" autocomplete="off" aria-label="Buscar">
       </div>
 
+      <div class="topbar__actions">
+      <a class="icon-btn hist-btn" href="#historial" data-view="historial" aria-label="Historial" title="Historial">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 3a9 9 0 1 1-8.95 10h2.02A7 7 0 1 0 8 7.1V10H2V4h2v2.36A8.97 8.97 0 0 1 13 3Zm-1 4h2v5.59l3.7 3.7-1.4 1.42L12 13.4V7Z"/></svg>
+      </a>
       <button class="icon-btn" id="theme" type="button" aria-label="Cambiar tema">
         <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9Z"/></svg>
       </button>
+      </div>
     </div>
   </header>
 
@@ -72,6 +78,15 @@
         <h2>Despachos seguidos</h2>
         <ul id="aside-despachos" class="firm-list"></ul>
       </section>
+      <section class="panel panel--tender">
+        <h2>Plazos abiertos</h2>
+        <ol id="aside-plazos" class="mini-list"></ol>
+      </section>
+      <section class="panel panel--muted panel--tender">
+        <h2>Fuentes</h2>
+        <p>Anuncios del BOE (contratación y subvenciones), EUIPO y OEPM. Se revisan a diario con el resto de la web.</p>
+        <p class="muted">Cada ficha enlaza al anuncio oficial: confirma siempre plazos y requisitos en los pliegos.</p>
+      </section>
       <section class="panel panel--default">
         <h2>Próximos eventos</h2>
         <ol id="aside-events" class="mini-list"></ol>
@@ -90,17 +105,17 @@
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 4h13v14a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2V4Zm15 4h2v10a2 2 0 0 1-2 2V8ZM7 7v3h7V7H7Zm0 5v2h7v-2H7Zm0 4v1h7v-1H7Z"/></svg>
       <span>Noticias</span>
     </a>
-    <a href="#eventos" data-view="eventos">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2ZM5 9v10h14V9H5Zm2 2h4v4H7v-4Z"/></svg>
-      <span>Eventos</span>
-    </a>
-    <a href="#historial" data-view="historial">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M13 3a9 9 0 1 1-8.95 10h2.02A7 7 0 1 0 8 7.1V10H2V4h2v2.36A8.97 8.97 0 0 1 13 3Zm-1 4h2v5.59l3.7 3.7-1.4 1.42L12 13.4V7Z"/></svg>
-      <span>Historial</span>
-    </a>
     <a href="#competencia" data-view="competencia">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V11h3.5v9H4Zm6.25 0V4h3.5v16h-3.5ZM16.5 20v-6H20v6h-3.5Z"/></svg>
       <span>Competencia</span>
+    </a>
+    <a href="#concursos" data-view="concursos">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 3h7l5 5v12a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm6 1.5V9h4.5L13 4.5ZM8 12v2h8v-2H8Zm0 4v2h5v-2H8Z"/></svg>
+      <span>Concursos</span>
+    </a>
+    <a href="#eventos" data-view="eventos">
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2ZM5 9v10h14V9H5Zm2 2h4v4H7v-4Z"/></svg>
+      <span>Eventos</span>
     </a>
     <a href="#guardados" data-view="guardados">
       <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
@@ -172,6 +187,32 @@
       <div class="card__foot">
         <a class="source firm-web" target="_blank" rel="noopener"></a>
         <div class="actions">
+          <button type="button" class="icon-btn save" aria-pressed="false" aria-label="Guardar">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
+          </button>
+          <button type="button" class="icon-btn share" aria-label="Compartir">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M18 16a3 3 0 0 0-2.4 1.2l-6.7-3.4a3 3 0 0 0 0-1.6l6.7-3.4A3 3 0 1 0 15 7l-6.7 3.4a3 3 0 1 0 0 3.2L15 17a3 3 0 1 0 3-1Z"/></svg>
+          </button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <template id="tpl-tender">
+    <article class="card card--tender">
+      <div class="card__meta">
+        <span class="badge"></span>
+        <span class="estado"></span>
+        <span class="firm"></span>
+        <span class="new" hidden>Nuevo</span>
+      </div>
+      <h3 class="card__title"><a target="_blank" rel="noopener"></a></h3>
+      <dl class="facts"></dl>
+      <p class="card__body"></p>
+      <div class="card__foot">
+        <span class="source"></span>
+        <div class="actions">
+          <button type="button" class="btn ics" hidden>+ Plazo al calendario</button>
           <button type="button" class="icon-btn save" aria-pressed="false" aria-label="Guardar">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg>
           </button>

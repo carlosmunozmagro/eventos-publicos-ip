@@ -31,6 +31,13 @@
   --c-t-reconocimiento: #9a6700;
   --c-t-corporativo: #8250df;
   --c-t-articulo: #3b5b75;
+  --c-t-adjudicacion: #c8102e;
+
+  /* concursos y licitaciones */
+  --c-k-licitacion: #007681;
+  --c-k-convocatoria: #0f8a5f;
+  --c-k-premio: #9a6700;
+  --c-k-adjudicacion: #8250df;
 
   color-scheme: light;
 }
@@ -44,7 +51,8 @@
     --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
     --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
     --c-litigios: #ff6b7f; --c-normativa: #8fb3d1; --c-institucional: #a0aab4;
-    --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1;
+    --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f;
+    --c-k-licitacion: #5fc4cc; --c-k-convocatoria: #4fd1a1; --c-k-premio: #e3b341; --c-k-adjudicacion: #b89aff;
     color-scheme: dark;
   }
 }
@@ -56,7 +64,8 @@
   --c-marcas: #6ea8ff; --c-patentes: #b89aff; --c-disenos: #ff9a5c;
   --c-derechos-autor: #4fd1a1; --c-indicaciones-geograficas: #e3b341;
   --c-litigios: #ff6b7f; --c-normativa: #8fb3d1; --c-institucional: #a0aab4;
-  --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1;
+  --c-t-evento: #5fc4cc; --c-t-reconocimiento: #e3b341; --c-t-corporativo: #b89aff; --c-t-articulo: #8fb3d1; --c-t-adjudicacion: #ff6b7f;
+    --c-k-licitacion: #5fc4cc; --c-k-convocatoria: #4fd1a1; --c-k-premio: #e3b341; --c-k-adjudicacion: #b89aff;
   color-scheme: dark;
 }
 
@@ -94,11 +103,13 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
   gap: 8px 12px; align-items: center;
 }
 .brand { grid-area: brand; display: flex; flex-direction: column; align-items: flex-start; gap: 2px; text-decoration: none; min-width: 0; }
-.brand__logo { display: block; width: 120px; height: 22px; }
+.brand__logo { display: block; width: 141px; height: 22px; overflow: visible; } /* proporción del logotipo: 166 × 26 */
 .brand__pons { fill: var(--logo-ink); }
 .brand__ip { fill: var(--logo-accent); }
 .brand__claim { font-size: 11px; font-weight: 600; letter-spacing: .32em; text-transform: uppercase; color: var(--logo-accent); line-height: 1; padding-left: 1px; }
 #theme { grid-area: theme; }
+.topbar__actions { grid-area: theme; display: flex; align-items: center; gap: 2px; }
+.hist-btn[aria-current="page"] { color: var(--brand); background: var(--surface-2); }
 
 .search { grid-area: search; position: relative; }
 .search svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; color: var(--muted); }
@@ -128,7 +139,7 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .tabs--top { display: none; }
 .tabs--bottom {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-  display: grid; grid-template-columns: 1fr 1fr 1fr 1.3fr 1fr; /* la 4.ª es Competencia, la etiqueta más larga */
+  display: grid; grid-template-columns: 1fr 1.3fr 1.15fr 1fr 1fr; /* Competencia y Concursos son las etiquetas más largas */
   height: calc(var(--bottombar-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--surface); border-top: 1px solid var(--border);
@@ -223,6 +234,20 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .also a { color: var(--brand); font-weight: 600; }
 .month { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 10px 0 -2px; grid-column: 1 / -1; }
 .month:first-child { margin-top: 0; }
+.month__count { font-weight: 600; color: var(--muted); background: var(--surface-2); border-radius: 999px; padding: 0 7px; letter-spacing: 0; }
+.list--news .month:not(:first-child) { margin-top: 14px; }
+
+/* ---------- Concursos ---------- */
+.estado { font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); }
+.estado[data-estado="abierta"] { color: var(--c-k-convocatoria); border-color: currentColor; }
+.estado[data-estado="adjudicada"] { color: var(--c-k-adjudicacion); border-color: currentColor; }
+.card--cerrada { opacity: .75; }
+.card--urgente { border-left: 4px solid var(--accent); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 2px 0 8px; font-size: 14px; }
+.facts:empty { display: none; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 600; min-width: 0; overflow-wrap: anywhere; }
+.ics[hidden] { display: none; }
 
 .empty { text-align: center; color: var(--muted); padding: 40px 0; }
 .skeleton { height: 120px; border-radius: var(--radius); background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 50%, var(--surface) 100%); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
@@ -247,9 +272,9 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .firm-list a { font-size: 14px; font-weight: 600; text-decoration: none; }
 .firm-list a:hover { text-decoration: underline; }
 .firm-list small { display: block; color: var(--muted); font-size: 12px; }
-.panel--comp { display: none; }
-body[data-view="competencia"] .panel--comp { display: block; }
-body[data-view="competencia"] .panel--default { display: none; }
+.panel--comp, .panel--tender { display: none; }
+body[data-view="competencia"] .panel--comp, body[data-view="concursos"] .panel--tender { display: block; }
+body[data-view="competencia"] .panel--default, body[data-view="concursos"] .panel--default { display: none; }
 
 /* ---------- Tablet ---------- */
 @media (min-width: 720px) {
@@ -268,6 +293,7 @@ body[data-view="competencia"] .panel--default { display: none; }
   .tabs--top a:hover { background: var(--surface-2); color: var(--text); }
   .tabs--top a[aria-current="page"] { background: var(--surface-2); color: var(--brand); }
   .search { max-width: 420px; justify-self: end; width: 100%; }
+  .hist-btn { display: none; }
   .layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; padding-top: 28px; }
   .aside { display: block; position: sticky; top: calc(var(--topbar-h) + 28px); align-self: start; }
   body[data-view="eventos"] .layout { grid-template-columns: minmax(0, 1fr); max-width: 980px; }
@@ -275,6 +301,14 @@ body[data-view="competencia"] .panel--default { display: none; }
   .chips { flex-wrap: wrap; overflow: visible; margin-inline: 0; padding-inline: 0; }
   .card { padding: 18px 20px; }
   .card--featured .card__title { font-size: 21px; }
+}
+
+/* 6 pestañas: compactarlas en escritorios estrechos para que el buscador no quede aplastado */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .topbar__inner { gap: 8px 8px; }
+  .tabs--top { margin-left: 12px; gap: 0; }
+  .tabs--top a { padding: 8px 9px; font-size: 14px; }
+  .search { min-width: 200px; }
 }
 
 @media (min-width: 1280px) {

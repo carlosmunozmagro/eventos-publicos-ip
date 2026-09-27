@@ -75,3 +75,9 @@ export function actividadDuplicada(a, b) {
   if (normalizarUrl(a.url) === normalizarUrl(b.url)) return true;
   return a.despacho === b.despacho && similitud(a.titulo, b.titulo) >= UMBRAL_NOTICIA && dias(a.fecha, b.fecha) <= 10;
 }
+
+/** ¿Es el mismo concurso? Mismo enlace, o mismo organismo y tipo con título muy parecido en ±30 días. */
+export function concursoDuplicado(a, b) {
+  if (normalizarUrl(a.url) === normalizarUrl(b.url)) return true;
+  return a.organismo === b.organismo && a.tipo === b.tipo && similitud(a.titulo, b.titulo) >= UMBRAL_NOTICIA && dias(a.fecha, b.fecha) <= 30;
+}

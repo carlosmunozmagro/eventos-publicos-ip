@@ -142,3 +142,22 @@ test('competencia: despacho desconocido → error', () => {
   assert.equal(r.competencia.length, 0);
   assert.equal(r.informe.errores.length, 1);
 });
+
+// ---------- concursos ----------
+const concurso = (o) => ({
+  id: '2026-07-17-bsc', tipo: 'licitacion', titulo: 'Asesoramiento legal en transferencia de tecnología del BSC',
+  resumen: 'Resumen de prueba suficientemente largo.', organismo: 'BSC-CNS', fecha: '2026-07-17', fecha_limite: '2026-08-10',
+  fuente: 'BOE', url: 'https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-24435', ...o,
+});
+
+test('concursos: plazo ampliado → se actualiza el existente, no se duplica', () => {
+  const r = fusionar({ ...vacio, concursos: [concurso()] }, { concursos: [concurso({ id: '2026-07-20-bsc-ampliado', fecha_limite: '2026-08-24' })] }, '2026-09-27');
+  assert.equal(r.concursos.length, 1);
+  assert.equal(r.concursos[0].fecha_limite, '2026-08-24');
+  assert.equal(r.concursos[0].modificado, '2026-09-27');
+});
+
+test('concursos: otro organismo con título parecido → concurso nuevo', () => {
+  const r = fusionar({ ...vacio, concursos: [concurso()] }, { concursos: [concurso({ id: '2026-07-18-upc', organismo: 'UPC', url: 'https://ejemplo.es/upc' })] });
+  assert.equal(r.concursos.length, 2);
+});

@@ -25,6 +25,9 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en
   `entrantes.json` y `scripts/merge.mjs` los fusiona. La misma noticia en otro medio se añade como
   “También en: …”; un evento ya conocido se actualiza (fecha, hora, enlace) en vez de repetirse.
+- **Noticias agrupadas por categoría** (marcas, patentes, diseños…), cada grupo de la más reciente a la más antigua.
+- **Concursos y licitaciones**: licitaciones públicas, ayudas y premios de PI con su plazo (primero las
+  abiertas), importe y adjudicatario; botón para añadir el fin de plazo al calendario.
 - **Competencia**: actividad pública de los despachos competidores (artículos, eventos, premios y
   rankings, movimientos corporativos), filtrable por tipo y por despacho, con su agenda de eventos.
 - Búsqueda, filtros por categoría, etiqueta “Nuevo”, “+ Calendario” (.ics), guardados
@@ -37,6 +40,7 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 | `index.html`, `assets/` | La web app |
 | `manifest.webmanifest`, `sw.js` | PWA (instalable + offline) |
 | `data/noticias.json`, `data/eventos.json` | Contenido |
+| `data/concursos.json` | Licitaciones, ayudas, premios y adjudicaciones de PI |
 | `data/competencia.json` | Despachos competidores seguidos (`despachos`) y su actividad (`items`) |
 | `scripts/merge.mjs` | Fusiona candidatos con los datos existentes, sin borrar y sin duplicar |
 | `scripts/lib/dedup.mjs` | Reglas de detección de duplicados (URL normalizada + parecido de titulares) |
@@ -56,7 +60,8 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 5. En el entorno cloud de Claude, permitir acceso de red a los dominios de las fuentes
    (oepm.es, euipo.europa.eu, epo.org, wipo.int, boe.es, …) para que pueda verificar cada página,
    y a los de los competidores (elzaburu.com, abg-ip.com, curell.com, isern.com, zbm-patents.eu,
-   tecnopatent.com, ungria.com, balderip.com, clarkemodet.com, herrero.es, grauangulo.com).
+   tecnopatent.com, ungria.com, balderip.com, clarkemodet.com, herrero.es, grauangulo.com) y de
+   licitaciones (contrataciondelestado.es, ted.europa.eu, api.ted.europa.eu).
 
 ## Probar en local
 

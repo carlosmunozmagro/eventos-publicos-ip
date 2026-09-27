@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-27T09:30:00Z",
+  "actualizado": "2026-09-27T10:30:00Z",
   "despachos": [
     {
       "id": "elzaburu",
@@ -240,6 +240,16 @@
       "url": "https://curell.com/15-16-octubre-2026-reunion-de-otono-de-ecta-oporto-portugal/",
       "fecha_evento": "2026-10-15",
       "ciudad": "Oporto"
+    },
+    {
+      "id": "2026-08-31-isern-contrato-marcas-aeboe",
+      "despacho": "isern",
+      "tipo": "adjudicacion",
+      "titulo": "ISERN gana el contrato de gestión de la cartera de marcas del BOE",
+      "resumen": "La Agencia Estatal BOE adjudica a ISERN su servicio de marcas por 13.040 € frente a otras tres ofertas (la más cara, 17.050 €), con el precio como único criterio.",
+      "fecha": "2026-08-31",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-28182",
+      "categoria": "marcas"
     },
     {
       "id": "2026-08-28-tecnopatent-perdida-marca",
