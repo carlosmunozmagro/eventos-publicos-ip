@@ -13,7 +13,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="PONS IP News">
-  <link rel="stylesheet" href="assets/css/styles.css?v=9">
+  <link rel="stylesheet" href="assets/css/styles.css?v=12">
 </head>
 <body>
   <a class="skip" href="#main">Saltar al contenido</a>
@@ -60,6 +60,10 @@
         <h1 id="view-title">Noticias</h1>
         <div class="view-head__meta">
           <p id="updated" class="muted"></p>
+          <button class="btn btn--informe" id="informe-btn" type="button" title="Informe PDF por semana, mes o año">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm7 1.5V9h5.5L13 3.5ZM8 13v5h1.5v-1.6h.9a1.7 1.7 0 0 0 0-3.4H8Zm1.5 1.2h.8a.5.5 0 0 1 0 1h-.8v-1Zm3.5-1.2v5h1.6a2.5 2.5 0 0 0 0-5H13Zm1.5 1.3h.1a1.2 1.2 0 0 1 0 2.4h-.1v-2.4Z"/></svg>
+            Informe PDF
+          </button>
           <button class="icon-btn icon-btn--sm" id="refresh" type="button" aria-label="Actualizar datos" title="Actualizar datos">
             <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 4a8 8 0 0 1 7.75 6h-2.1A6 6 0 1 0 18 14h2.08A8 8 0 1 1 12 4Zm5 1h4v4h-4l1.6-1.6A7 7 0 0 0 17 6.1V5Z"/></svg>
           </button>
@@ -244,6 +248,7 @@
     </article>
   </template>
 
-  <script src="assets/js/app.js?v=9" defer></script>
+  <script src="assets/js/app.js?v=12" defer></script>
+  <script src="assets/js/informe.js?v=12" defer></script>
 </body>
 </html>

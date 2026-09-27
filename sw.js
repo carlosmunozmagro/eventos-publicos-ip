@@ -3,12 +3,12 @@
 //  - CSS/JS/imágenes: stale-while-revalidate. index.html los pide con ?v=VERSION, así un HTML nuevo nunca
 //    se combina con CSS/JS antiguos. Al publicar cambios en CSS/JS sube VERSION aquí y el ?v= de index.html.
 //  - data/*.json: red primero (con respaldo offline).
-const VERSION = 'v11';
+const VERSION = 'v12';
 const STATIC = `ipes-static-${VERSION}`;
 const DATA = 'ipes-data';
 const ASSETS = [
   './', 'manifest.webmanifest',
-  `assets/css/styles.css?v=${VERSION.slice(1)}`, `assets/js/app.js?v=${VERSION.slice(1)}`,
+  `assets/css/styles.css?v=${VERSION.slice(1)}`, `assets/js/app.js?v=${VERSION.slice(1)}`, `assets/js/informe.js?v=${VERSION.slice(1)}`,
   'assets/icons/icon.svg', 'assets/icons/icon-192.png', 'assets/brand/logo-pons-ip.svg',
 ];
 

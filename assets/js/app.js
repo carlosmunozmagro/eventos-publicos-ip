@@ -779,6 +779,7 @@
     btn.disabled = true; btn.classList.add('girando');
     try {
       await cargar();
+      document.dispatchEvent(new Event('ipes:datos'));   // el informe PDF recargará sus datos
       pintarActualizado();
       render();
       toast(navigator.onLine ? 'Datos actualizados' : 'Sin conexión: se muestran los datos guardados');

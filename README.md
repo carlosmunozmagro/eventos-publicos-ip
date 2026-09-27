@@ -22,6 +22,10 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **Escritorio**: navegación superior, rejilla de noticias y columna lateral con próximos eventos.
 - **PONS IP**: pestaña propia con las noticias, artículos, eventos, reconocimientos y casos de éxito
   publicados en ponsip.com, y su posición frente a la competencia en publicaciones de los últimos 90 días.
+- **Informe PDF** en Noticias, PONS IP, Competencia, Concursos y Eventos: por semana, mes o año, con
+  cifras clave frente al periodo anterior, gráficos, conclusiones para PONS IP generadas a partir de
+  los datos y anexo con el detalle. Título, conclusiones y notas son editables antes de descargar
+  (se guardan en el navegador). Código en `assets/js/informe.js`.
 - **Historial**: nada se borra. Las noticias de más de 30 días y los eventos ya celebrados pasan
   solos a la sección Historial, agrupados por mes.
 - **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en
@@ -43,7 +47,7 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 
 | Ruta | Qué es |
 |---|---|
-| `index.html`, `assets/` | La web app |
+| `index.html`, `assets/` | La web app (`assets/js/informe.js`: informes PDF) |
 | `manifest.webmanifest`, `sw.js` | PWA (instalable + offline) |
 | `data/noticias.json`, `data/eventos.json` | Contenido |
 | `data/concursos.json` | Licitaciones, ayudas, premios y adjudicaciones de PI |
