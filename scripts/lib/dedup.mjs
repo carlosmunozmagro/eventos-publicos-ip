@@ -69,3 +69,9 @@ export function eventoDuplicado(a, b) {
   if (sim >= 0.85 && dias(a.fecha_inicio, b.fecha_inicio) <= 21) return true;
   return cerca && sim >= UMBRAL_EVENTO;
 }
+
+/** ¿Es la misma publicación de un competidor? Mismo enlace, o mismo despacho con titular muy parecido. */
+export function actividadDuplicada(a, b) {
+  if (normalizarUrl(a.url) === normalizarUrl(b.url)) return true;
+  return a.despacho === b.despacho && similitud(a.titulo, b.titulo) >= UMBRAL_NOTICIA && dias(a.fecha, b.fecha) <= 10;
+}

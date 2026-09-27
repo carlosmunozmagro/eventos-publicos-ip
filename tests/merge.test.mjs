@@ -103,3 +103,42 @@ test('ids repetidos con contenido distinto reciben sufijo', () => {
   const r = fusionar({ ...vacio, noticias: [noticia()] }, { noticias: [noticia({ titulo: 'La EUIPO publica su informe anual de falsificaciones', url: 'https://euipo.europa.eu/informe', fuente: 'EUIPO' })] });
   assert.deepEqual(r.noticias.map((n) => n.id).sort(), ['2026-09-24-base', '2026-09-24-base-2']);
 });
+
+// ---------- competencia ----------
+const actividad = (o) => ({
+  id: '2026-09-15-abg-granada', despacho: 'abg-ip', tipo: 'corporativo',
+  titulo: 'ABG IP abre oficina en Granada, la quinta en España', resumen: 'Resumen de prueba suficientemente largo.',
+  fecha: '2026-09-15', url: 'https://abg-ip.com/ip-firm-andalusia-granada/', ...o,
+});
+const conDespachos = (items = []) => ({ ...vacio, competencia: items, despachos: [{ id: 'abg-ip' }, { id: 'elzaburu' }] });
+
+test('competencia: añade actividad nueva con fecha de alta', () => {
+  const r = fusionar(conDespachos(), { competencia: [actividad()] }, '2026-09-27');
+  assert.equal(r.competencia.length, 1);
+  assert.equal(r.competencia[0].anadido, '2026-09-27');
+});
+
+test('competencia: misma URL → no se duplica', () => {
+  const r = fusionar(conDespachos([actividad()]), { competencia: [actividad({ id: '2026-09-16-copia', url: 'https://www.abg-ip.com/ip-firm-andalusia-granada?utm_source=li' })] });
+  assert.equal(r.competencia.length, 1);
+  assert.equal(r.informe.descartadas.length, 1);
+});
+
+test('competencia: evento aplazado → se actualiza fecha_evento', () => {
+  const ev = actividad({ id: '2026-07-07-abg-cat', tipo: 'evento', titulo: 'IP Perspectives Catalunya V', url: 'https://abg-ip.com/es/events/cat-v/', fecha_evento: '2026-11-11' });
+  const r = fusionar(conDespachos([ev]), { competencia: [{ ...ev, fecha_evento: '2026-11-18' }] }, '2026-09-27');
+  assert.equal(r.competencia.length, 1);
+  assert.equal(r.competencia[0].fecha_evento, '2026-11-18');
+  assert.equal(r.competencia[0].modificado, '2026-09-27');
+});
+
+test('competencia: titular parecido pero de otro despacho NO es duplicado', () => {
+  const r = fusionar(conDespachos([actividad()]), { competencia: [actividad({ id: '2026-09-15-elz', despacho: 'elzaburu', url: 'https://elzaburu.com/granada' })] });
+  assert.equal(r.competencia.length, 2);
+});
+
+test('competencia: despacho desconocido → error', () => {
+  const r = fusionar(conDespachos(), { competencia: [actividad({ despacho: 'inventado' })] });
+  assert.equal(r.competencia.length, 0);
+  assert.equal(r.informe.errores.length, 1);
+});

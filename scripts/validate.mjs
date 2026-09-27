@@ -1,10 +1,11 @@
-// Valida data/noticias.json y data/eventos.json. Uso: node scripts/validate.mjs
+// Valida data/noticias.json, data/eventos.json y data/competencia.json. Uso: node scripts/validate.mjs
 // Sale con código 1 si hay errores (lo usa CI y la tarea programada antes de publicar).
 import { readFileSync } from 'node:fs';
-import { noticiaDuplicada, eventoDuplicado } from './lib/dedup.mjs';
+import { noticiaDuplicada, eventoDuplicado, actividadDuplicada } from './lib/dedup.mjs';
 
 const CATEGORIAS = ['marcas', 'patentes', 'disenos', 'derechos-autor', 'indicaciones-geograficas', 'litigios', 'normativa', 'institucional'];
 const MODALIDADES = ['presencial', 'online', 'hibrido'];
+const TIPOS = ['articulo', 'evento', 'reconocimiento', 'corporativo'];
 const FECHA = /^\d{4}-\d{2}-\d{2}$/;
 const ID = /^\d{4}-\d{2}-\d{2}-[a-z0-9-]+$/;
 const errores = [];
@@ -71,6 +72,48 @@ validar('data/eventos.json', (e, at) => {
   if (e.modalidad !== 'online' && e.ciudad != null && !texto(e.ciudad)) errores.push(`${at}: ciudad vacía`);
   if (e.hora != null && !/^\d{2}:\d{2}(\s*[-–]\s*\d{2}:\d{2})?$/.test(e.hora)) errores.push(`${at}: hora debe ser "HH:MM" o "HH:MM-HH:MM"`);
 });
+
+// Competencia: lista de despachos seguidos + su actividad pública (categoría opcional)
+(function validarCompetencia(archivo = 'data/competencia.json') {
+  let doc;
+  try { doc = JSON.parse(readFileSync(archivo, 'utf8')); } catch (e) { errores.push(`${archivo}: JSON inválido (${e.message})`); return; }
+  if (!doc.actualizado || Number.isNaN(Date.parse(doc.actualizado))) errores.push(`${archivo}: "actualizado" debe ser fecha ISO`);
+  if (!Array.isArray(doc.despachos) || !Array.isArray(doc.items)) { errores.push(`${archivo}: "despachos" e "items" deben ser arrays`); return; }
+  const despachos = new Set();
+  doc.despachos.forEach((d, i) => {
+    const at = `${archivo} despachos[${i}] (${d.id ?? 'sin id'})`;
+    if (!/^[a-z0-9-]+$/.test(d.id || '')) errores.push(`${at}: id debe ser un slug`);
+    if (despachos.has(d.id)) errores.push(`${at}: id duplicado`);
+    despachos.add(d.id);
+    if (!texto(d.nombre)) errores.push(`${at}: nombre obligatorio`);
+    if (!esUrl(d.web)) errores.push(`${at}: web inválida`);
+  });
+  const ids = new Set();
+  doc.items.forEach((it, i) => {
+    const at = `${archivo}[${i}] (${it.id ?? 'sin id'})`;
+    if (!ID.test(it.id || '')) errores.push(`${at}: id debe ser "AAAA-MM-DD-slug"`);
+    if (ids.has(it.id)) errores.push(`${at}: id duplicado`);
+    ids.add(it.id);
+    if (!despachos.has(it.despacho)) errores.push(`${at}: despacho "${it.despacho}" no está en "despachos"`);
+    if (!TIPOS.includes(it.tipo)) errores.push(`${at}: tipo debe ser ${TIPOS.join('/')}`);
+    if (!texto(it.titulo, 5, 200)) errores.push(`${at}: titulo obligatorio (5-200 caracteres)`);
+    if (!texto(it.resumen, 20, 600)) errores.push(`${at}: resumen obligatorio (20-600 caracteres)`);
+    if (!esFecha(it.fecha)) errores.push(`${at}: fecha AAAA-MM-DD obligatoria`);
+    if (!esUrl(it.url)) errores.push(`${at}: url inválida`);
+    if (it.categoria != null && !CATEGORIAS.includes(it.categoria)) errores.push(`${at}: categoria "${it.categoria}" no válida`);
+    if (it.fecha_evento != null && !esFecha(it.fecha_evento)) errores.push(`${at}: fecha_evento debe ser AAAA-MM-DD`);
+    if (it.tipo === 'evento' && !esFecha(it.fecha_evento)) errores.push(`${at}: los eventos necesitan fecha_evento`);
+    if (it.anadido != null && !esFecha(it.anadido)) errores.push(`${at}: anadido debe ser AAAA-MM-DD`);
+    if (it.modificado != null && !esFecha(it.modificado)) errores.push(`${at}: modificado debe ser AAAA-MM-DD`);
+  });
+  const orden = doc.items.filter((i) => esFecha(i.fecha)).sort((a, b) => a.fecha.localeCompare(b.fecha));
+  for (let i = 0; i < orden.length; i++) {
+    for (let j = i + 1; j < orden.length && Date.parse(orden[j].fecha) - Date.parse(orden[i].fecha) <= 10 * 864e5; j++) {
+      if (actividadDuplicada(orden[i], orden[j])) errores.push(`${archivo}: posible duplicado "${orden[i].id}" ≈ "${orden[j].id}"`);
+    }
+  }
+  console.log(`✓ ${archivo}: ${doc.despachos.length} despachos, ${doc.items.length} elementos`);
+})();
 
 if (errores.length) {
   console.error(`\n✗ ${errores.length} error(es):\n  - ` + errores.join('\n  - '));
