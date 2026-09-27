@@ -554,7 +554,15 @@
       $('#empty').textContent = 'No se han podido cargar los datos. Revisa tu conexión.';
     }
 
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+    if ('serviceWorker' in navigator) {
+      // Si se activa una versión nueva con la página abierta, recargar una vez para no mezclar versiones
+      const habiaVersion = !!navigator.serviceWorker.controller;
+      let recargado = false;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (habiaVersion && !recargado) { recargado = true; location.reload(); }
+      });
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    }
   }
 
   init();

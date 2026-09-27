@@ -139,16 +139,19 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .tabs--top { display: none; }
 .tabs--bottom {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
-  display: grid; grid-template-columns: 1fr 1.3fr 1.15fr 1fr 1fr; /* Competencia y Concursos son las etiquetas más largas */
+  display: flex; flex-wrap: nowrap; /* una sola fila, haya las pestañas que haya */
   height: calc(var(--bottombar-h) + env(safe-area-inset-bottom));
   padding-bottom: env(safe-area-inset-bottom);
   background: var(--surface); border-top: 1px solid var(--border);
 }
 .tabs--bottom a {
+  flex: 1 1 auto; min-width: 0; padding: 0 2px; /* reparte el espacio según la longitud de cada etiqueta */
   display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px;
-  font-size: 12px; font-weight: 600; color: var(--muted); min-width: 0;
+  font-size: 12px; font-weight: 600; color: var(--muted);
+  -webkit-tap-highlight-color: transparent; touch-action: manipulation;
 }
-.tabs--bottom span { white-space: nowrap; font-size: 11px; }
+.tabs--bottom span { max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 11px; }
+@media (max-width: 339px) { .tabs--bottom a { padding: 0; } .tabs--bottom span { font-size: 10px; letter-spacing: -.02em; } }
 .tabs--bottom a[aria-current="page"] { color: var(--brand); }
 .tabs--bottom a[aria-current="page"] svg { transform: translateY(-1px); }
 
