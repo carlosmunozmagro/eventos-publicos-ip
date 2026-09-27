@@ -243,7 +243,9 @@
       "resumen": "Participar en escenarios como GOFest permite comprobar algo que resulta cada vez más evidente: los ecosistemas de emprendimiento necesitan mucho más que buenas ideas. Necesitan espacios capaces de conectar innovación, conocimiento…",
       "fecha": "2026-09-10",
       "url": "https://ponsip.com/ip-news/colombia/esta-tu-startup-realmente-preparada-para-una-ronda-de-inversion-la-propiedad-intelectual-puede-tener-la-respuesta/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "guía genérica"
     },
     {
       "id": "2026-09-09-tecnopatent-top10-marcas-2025",
@@ -486,7 +488,9 @@
       "fecha": "2026-07-23",
       "url": "https://ponsip.com/ip-news/marcas/cuando-el-problema-llega-en-un-contenedor-como-proteger-la-propiedad-intelectual-en-aduanas/",
       "categoria": "marcas",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "guía genérica"
     },
     {
       "id": "2026-07-21-elzaburu-euipo-lux-rosalia",
@@ -608,7 +612,9 @@
       "resumen": "WAIQ, comunidad de profesionales vinculados a ecosistema deeptech, con el apoyo del Real Colegio Complutense (RCC), la Harvard Law School y PONS Escuela de Negocios ha celebrado en la Universidad de Harvard en Boston la 4º edición del Summer Course “Web3, AI and Quantum…",
       "fecha": "2026-06-29",
       "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/waiq-evoluciona-en-su-4o-edicion-hacia-un-seminario-de-expertos-para-impulsar-un-impacto-positivo-de-las-nuevas-tecnologias/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "crónica de comunidad, sin novedad de PI"
     },
     {
       "id": "2026-06-25-pons-ip-pons-ip-revalida-su-liderazgo-en-marcas-con-la-max",
@@ -640,7 +646,9 @@
       "resumen": "La propiedad intelectual (IP) ocupa hoy un lugar cada vez más visible en las estrategias de innovación y desarrollo económico. Sin embargo, una pregunta sigue abierta en América Latina y el Caribe ¿Por qué una región…",
       "fecha": "2026-06-19",
       "url": "https://ponsip.com/ip-news/actualidad/el-desafio-ya-no-solo-es-proteger-sino-generar-valor-america-latina-y-la-propiedad-intelectual/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "opinión genérica"
     },
     {
       "id": "2026-06-18-isern-patentes-biotecnologia",
@@ -680,7 +688,9 @@
       "fecha": "2026-06-16",
       "url": "https://ponsip.com/ip-news/actualidad/esta-tu-innovacion-vegetal-bien-protegida-claves-para-convertir-la-id-en-un-activo-de-valor-defendible-y-explotable/",
       "categoria": "patentes",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "guía genérica"
     },
     {
       "id": "2026-06-16-pons-ip-financial-times-reconoce-el-liderazgo-europeo-en-p",
@@ -741,7 +751,9 @@
       "resumen": "La inteligencia artificial («IA») ha invadido prácticamente todos los rincones de las compañías. Todos quieren formar parte del proceso de innovación. Esta creencia en el avance y la novedad implica a su vez, una adaptación del departamento de privacidad y protección de datos.…",
       "fecha": "2026-06-03",
       "url": "https://ponsip.com/ip-news/actualidad/el-nuevo-aliado-del-delegado-de-proteccion-de-datos-la-inteligencia-artificial/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "protección de datos, fuera de PI"
     },
     {
       "id": "2026-06-02-zbm-iam-patent-1000",
@@ -792,7 +804,9 @@
       "resumen": "Científicos y ciencia son el origen de un proceso que debe buscar el impacto real cubriendo una necesidad de la sociedad. Ese proceso es lo que comúnmente se denomina transferencia de tecnología y conocimiento. Se trata, en efecto, de articular un mecanismo que integre acciones…",
       "fecha": "2026-05-28",
       "url": "https://ponsip.com/ip-news/gestion-de-activos-intangibles/un-buen-modelo-de-emprendimiento-cientifico-venture-builders-propiedad-industrial-e-inversion/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "opinión genérica"
     },
     {
       "id": "2026-05-26-curell-aippi-hamburgo",
@@ -876,7 +890,9 @@
       "resumen": "A pocos días de cumplirse el décimo aniversario de la entrada en vigor del RGPD, nos debemos preguntar, inevitablemente, cuál es el balance de esta norma a día de hoy.  ¿Están ajustadas las cuentas, o existe aún un desequilibrio contable entre los derechos reconocidos en el…",
       "fecha": "2026-05-11",
       "url": "https://ponsip.com/ip-news/proteccion-de-datos/diez-anos-del-rgpd-consolidacion-de-derechos-exigencias-de-cumplimiento-y-retos-pendientes-para-la-proteccion-de-datos-en-la-ue/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "protección de datos, fuera de PI"
     },
     {
       "id": "2026-05-07-pons-ip-luz-verde-al-tratado-comercial-entre-la-ue-y-la-in",
@@ -909,7 +925,9 @@
       "resumen": "13ª Edición Observatorio de Branding Madrid acoge una nueva cita centrada en cómo crear condiciones seguras para decisiones atrevidas, clave para construir estrategias de marca verdaderamente diferenciadoras. Bizum, ElPozo, Lladró y Metro de Madrid protagonizan una edición que…",
       "fecha": "2026-05-05",
       "url": "https://ponsip.com/ip-news/actualidad/el-observatorio-de-branding-reivindica-el-valor-del-riesgo-como-motor-estrategico-para-las-marcas/",
-      "anadido": "2026-09-27"
+      "anadido": "2026-09-27",
+      "relevante": false,
+      "motivo_no_comparable": "crónica de evento de branding, sin novedad de PI"
     },
     {
       "id": "2026-02-06-clarke-modet-nombra-dos-directivas",

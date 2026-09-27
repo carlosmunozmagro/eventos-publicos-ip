@@ -128,6 +128,8 @@
     state.actualizado = [n.actualizado, e.actualizado, c.actualizado, k.actualizado].filter(Boolean).sort().pop();
   }
 
+  // Publicaciones que cuentan en la comparativa (mismo criterio editorial para PONS IP y la competencia)
+  const comparable = (i) => i.relevante !== false;
   const fichaDe = (id) => state.despachos.get(id) || (state.propio?.id === id ? state.propio : null);
 
   function estadoConcurso(c) {
@@ -259,6 +261,10 @@
       ].filter(Boolean).join(' · ');
     }
     $('.card__body', node).textContent = c.resumen;
+    if (!comparable(c)) {
+      node.classList.add('card--no-comp');
+      $('.card__body', node).after(el('p', { className: 'no-comp muted', textContent: 'No cuenta en la comparativa' + (c.motivo_no_comparable ? ' · ' + c.motivo_no_comparable : '') }));
+    }
     const web = $('.firm-web', node);
     if (desp) { web.href = desp.web; web.textContent = new URL(desp.web).hostname.replace(/^www\./, ''); } else web.remove();
     saveBtn($('.save', node), c.id);
@@ -422,8 +428,9 @@
   function fichaPropia(box) {
     const d = state.propio;
     const items = state.pons;
+    const comparables = items.filter(comparable);
     const cuenta = (t) => items.filter((c) => c.tipo === t).length;
-    const r90 = (lista) => lista.filter((c) => c.fecha >= hace90()).length;
+    const r90 = (lista) => lista.filter((c) => c.fecha >= hace90() && comparable(c)).length;
     const propios90 = r90(items);
     const rivales = [...state.despachos.values()].map((x) => r90(state.competencia.filter((c) => c.despacho === x.id)));
     const puesto = 1 + rivales.filter((n) => n > propios90).length;
@@ -435,12 +442,13 @@
           el('a', { href: d.web, target: '_blank', rel: 'noopener', className: 'ficha__web', textContent: new URL(d.web).hostname.replace(/^www\./, '') + ' ↗' })),
         el('ul', { className: 'stats' },
           stat(items.length, 'publicaciones'),
-          stat(propios90, 'últimos 90 días'),
-          stat(cuenta('evento'), 'eventos'),
+          stat(comparables.length, 'comparables'),
+          stat(propios90, 'comparables 90 días'),
           stat(cuenta('reconocimiento'), 'premios y rankings'),
           stat(cuenta('caso'), 'casos de éxito')),
         el('p', { className: 'ficha__nota muted' },
-          `Frente a la competencia: puesto ${puesto} de ${rivales.length + 1} en publicaciones de los últimos 90 días (media de los competidores: ${media.toFixed(1).replace('.', ',')}). `,
+          `Frente a la competencia: puesto ${puesto} de ${rivales.length + 1} en publicaciones de los últimos 90 días (media de los competidores: ${media.toFixed(1).replace('.', ',')}). `
+          + `Se aplica el mismo filtro que a la competencia: ${items.length - comparables.length} publicaciones (guías genéricas o temas fuera de PI) se muestran pero no cuentan. `,
           el('a', { href: '#competencia', textContent: 'Ver cifras de la competencia →' }))));
     box.hidden = false;
   }
@@ -448,7 +456,7 @@
   function cifrasCompetencia(box) {
     const lista = [...state.despachos.values(), ...(state.propio ? [state.propio] : [])];
     const filas = lista.map((d) => {
-      const items = (d.propio ? state.pons : state.competencia).filter((c) => c.despacho === d.id);
+      const items = (d.propio ? state.pons : state.competencia).filter((c) => c.despacho === d.id && comparable(c));
       const contratos = contratosDe(d.id);
       return { d, recientes: items.filter((c) => c.fecha >= hace90()).length, total: items.length,
         premios: items.filter((c) => c.tipo === 'reconocimiento').length,

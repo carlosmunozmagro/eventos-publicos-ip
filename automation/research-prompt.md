@@ -157,6 +157,10 @@ en la tabla de cifras de la competencia.
 - `tipo`: `reconocimiento` (rankings y premios), `caso` (litigios o expedientes ganados para clientes),
   `corporativo` (fichajes, acreditaciones, alianzas, nuevos servicios), `evento` (con `fecha_evento` y
   `ciudad` si el texto los da; si no, usa `articulo`) y `articulo` para el resto.
+- **Mismo filtro que la competencia** para que la comparativa sea justa: las publicaciones que no
+  pasarían el criterio de `articulo` de la competencia (guías genéricas, opinión sin novedad, temas fuera
+  de PI como protección de datos) se añaden igualmente, pero con `"relevante": false` y
+  `"motivo_no_comparable": "…"`. Se ven en la pestaña PONS IP pero no cuentan en cifras ni en el puesto.
 - `resumen`: primera frase del extracto sin la firma inicial («Por …, cargo en PONS IP»), máx. 280 caracteres.
 - `categoria` opcional: `marcas` o `patentes` según las categorías del post.
 

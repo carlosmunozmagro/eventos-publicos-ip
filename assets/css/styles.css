@@ -370,3 +370,5 @@ body:not([data-view="competencia"]) .aside > .panel--default:nth-child(3) { marg
 .ficha--propia { border-color: color-mix(in srgb, var(--brand) 40%, var(--border)); }
 .ficha--propia .ficha__nota a { color: var(--brand); font-weight: 600; }
 .tabla .fila-propia th, .tabla .fila-propia td { background: color-mix(in srgb, var(--brand) 8%, transparent); font-weight: 700; }
+.no-comp { margin: 6px 0 0; font-size: 12px; font-style: italic; }
+.card--no-comp.card--propio { border-left-color: var(--border); }
