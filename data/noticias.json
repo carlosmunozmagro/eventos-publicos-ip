@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-27T08:51:07Z",
+  "actualizado": "2026-09-28T05:51:23Z",
   "items": [
     {
       "id": "2026-09-24-euipo-primera-solicitud-intervencion-ig-artesanal",
@@ -15,6 +15,38 @@
         "IG artesanales"
       ],
       "destacado": true
+    },
+    {
+      "etiquetas": [
+        "DesignEuropa",
+        "EUIPO",
+        "diseño industrial"
+      ],
+      "destacado": false,
+      "id": "2026-09-23-showee-premio-publico-designeuropa-2026",
+      "titulo": "La española Showee gana el Premio del Público de los DesignEuropa Awards 2026",
+      "resumen": "En su décima edición, los premios de diseño de la EUIPO estrenaron el Premio del Público, que ganó Showee con un sistema de ducha inteligente «todo en uno» para personas mayores y con discapacidad.",
+      "fecha": "2026-09-23",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/La-empresa-espanola-Showee-se-alza-con-el-Premio-del-Publico-en-los-DesignEuropa-Awards-2026/",
+      "categoria": "disenos",
+      "anadido": "2026-09-28"
+    },
+    {
+      "etiquetas": [
+        "OEPM",
+        "premios",
+        "industria"
+      ],
+      "destacado": false,
+      "id": "2026-09-22-convocados-premios-nacionales-industria",
+      "titulo": "Convocados los Premios Nacionales de Industria «Bien hecho en España»",
+      "resumen": "El Ministerio de Industria abre la segunda edición de los premios, con la OEPM en el jurado; se entregarán en el Congreso Nacional de Industria (Avilés, 24-25 de febrero de 2027) en cinco categorías, entre ellas Innovación y Transformación Digital.",
+      "fecha": "2026-09-22",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/Convocados-los-Premios-Nacionales-de-Industria/",
+      "categoria": "institucional",
+      "anadido": "2026-09-28"
     },
     {
       "etiquetas": [
@@ -57,6 +89,22 @@
     },
     {
       "etiquetas": [
+        "OEPM",
+        "OMPI",
+        "falsificaciones"
+      ],
+      "destacado": false,
+      "id": "2026-09-15-oepm-conferencia-observancia-falsificaciones",
+      "titulo": "La OEPM participa en la II Conferencia Internacional sobre Observancia de la Propiedad Intelectual",
+      "resumen": "Foro organizado por la OMPI y la SAMR china en Changsha con 16 países, Interpol, Europol y OLAF para compartir buenas prácticas contra falsificaciones y piratería; la OEPM presentó sus campañas de sensibilización.",
+      "fecha": "2026-09-15",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/La-OEPM-se-suma-a-la-lucha-global-contra-las-falsificaciones-en-la-II-Conferencia-Internacional-sobre-Observancia-de-la-Propiedad-Intelectual/",
+      "categoria": "institucional",
+      "anadido": "2026-09-28"
+    },
+    {
+      "etiquetas": [
         "BOE",
         "subvenciones",
         "Andema",
@@ -77,6 +125,38 @@
           "url": "https://forbes.es/ultima-hora/1014616/industria-aprueba-325-millones-en-ayudas-directas-para-reforzar-la-seguridad-y-la-propiedad-industrial/"
         }
       ]
+    },
+    {
+      "etiquetas": [
+        "OMPI",
+        "Índice Global de Innovación",
+        "clústeres"
+      ],
+      "destacado": false,
+      "id": "2026-09-08-ompi-clusteres-innovacion-barcelona-madrid",
+      "titulo": "Barcelona y Madrid, entre los 50 principales clústeres de innovación del mundo según la OMPI",
+      "resumen": "La OMPI adelanta el ranking de clústeres del Índice Global de Innovación 2026: Barcelona sube al puesto 44 y Madrid baja al 48. El índice completo se presenta el 29 de septiembre.",
+      "fecha": "2026-09-08",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/Espana-cuenta-con-dos-clusteres-de-innovacion-entre-los-cincuenta-mas-importantes-del-mundo/",
+      "categoria": "patentes",
+      "anadido": "2026-09-28"
+    },
+    {
+      "etiquetas": [
+        "EUIPO",
+        "IGAI",
+        "Córdoba"
+      ],
+      "destacado": false,
+      "id": "2026-07-29-joyeria-de-cordoba-primera-igai-espana",
+      "titulo": "La «Joyería de Córdoba», primera indicación geográfica de productos artesanales e industriales de España",
+      "resumen": "La EUIPO concede la primera IG artesanal e industrial con origen en España, que protege la filigrana cordobesa en toda la UE.",
+      "fecha": "2026-07-29",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/La-Joyeria-de-Cordoba-se-convierte-en-la-primera-Indicacion-Geografica-de-productos-Artesanales-e-Industriales-de-Espana/",
+      "categoria": "indicaciones-geograficas",
+      "anadido": "2026-09-28"
     }
   ]
 }

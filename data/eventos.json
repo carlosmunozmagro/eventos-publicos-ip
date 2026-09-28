@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-27T09:02:15Z",
+  "actualizado": "2026-09-28T05:51:23Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -32,30 +32,32 @@
     {
       "id": "2026-09-30-isif-26-feria-innovacion",
       "titulo": "ISIF'26 – Feria Internacional de Innovación",
-      "descripcion": "Feria internacional de invenciones e innovación con participación difundida por la OEPM.",
+      "descripcion": "Feria de inventos en el marco de TEKNOFEST 2026, con inventores, universidades, startups, inversores y profesionales de la PI de todo el mundo. En inglés.",
       "fecha_inicio": "2026-09-30",
       "fecha_fin": "2026-10-04",
       "hora": null,
       "modalidad": "presencial",
-      "ciudad": null,
-      "organizador": "ISIF",
-      "url": "https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/",
+      "ciudad": "Şanlıurfa (Turquía)",
+      "organizador": "ISIF · TEKNOFEST",
+      "url": "https://www.oepm.es/es/detalle-evento/30-09-2026-4-10-2026-Feria-de-Innovacion-ISIF26/",
       "categoria": "patentes",
-      "gratuito": null
+      "gratuito": null,
+      "modificado": "2026-09-28"
     },
     {
       "id": "2026-09-30-oepm-sistema-madrid-pymes",
-      "titulo": "El Sistema de Madrid para las pymes: una forma sencilla de proteger las marcas en los mercados",
-      "descripcion": "Sesión sobre el registro internacional de marcas mediante el Sistema de Madrid, orientada a pymes.",
+      "titulo": "El Sistema de Madrid para las pymes: una forma sencilla de proteger las marcas en los mercados internacionales",
+      "descripcion": "Webinario en directo en español: cómo solicitar la protección transfronteriza de una marca, costes, renovación y cuándo recurrir a un representante local.",
       "fecha_inicio": "2026-09-30",
       "fecha_fin": "2026-09-30",
-      "hora": null,
+      "hora": "16:00",
       "modalidad": "online",
       "ciudad": null,
       "organizador": "OEPM · OMPI",
-      "url": "https://www.oepm.es/es/sobre-OEPM/noticias-y-eventos/eventos/",
+      "url": "https://www.oepm.es/es/detalle-evento/30-9-2026-El-Sistema-de-Madrid-para-las-pymes-Una-forma-sencilla-de-proteger-las-marcas-en-los-mercados-internacionales/",
       "categoria": "marcas",
-      "gratuito": true
+      "gratuito": true,
+      "modificado": "2026-09-28"
     },
     {
       "id": "2026-10-01-inta-taller-pi-financiacion-valoracion",
