@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-28T05:51:23Z",
+  "actualizado": "2026-09-29T05:50:15Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -120,6 +120,21 @@
       "anadido": "2026-09-27"
     },
     {
+      "id": "2026-10-10-invenexpo-peralta",
+      "titulo": "INVENEXPO: Feria Internacional de Inventos de Peralta",
+      "descripcion": "Feria para inventores, ingenieros, startups e investigadores. La OEPM tendrá stand institucional y dará dos ponencias: propiedad industrial y sus servicios y subvenciones.",
+      "fecha_inicio": "2026-10-10",
+      "fecha_fin": "2026-10-11",
+      "hora": "10:00",
+      "modalidad": "presencial",
+      "ciudad": "Peralta (Navarra)",
+      "organizador": "INVENEXPO · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/10-10-2026-11-10-2026-INVENEXPO-La-Feria-Internacional-de-Inventos-de-Peralta/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-09-29"
+    },
+    {
       "id": "2026-10-14-euipo-musica-y-pi-estudiantes",
       "titulo": "Música y PI: evento virtual para estudiantes y universidades",
       "descripcion": "Sesión de la EUIPO «Música y propiedad intelectual: protege tu creatividad y da forma a tu futuro», con la experiencia de un músico y consejos de un experto en PI.",
@@ -180,6 +195,20 @@
       "anadido": "2026-09-27"
     },
     {
+      "id": "2026-10-22-epo-transferencia-tecnologia-europa",
+      "titulo": "Webinar EPO: el reto de la transferencia de tecnología en Europa",
+      "descripcion": "Cómo convertir la investigación en éxito comercial: el papel de las oficinas de transferencia de tecnología de universidades, organismos públicos y hospitales. En inglés.",
+      "fecha_inicio": "2026-10-22",
+      "fecha_fin": "2026-10-22",
+      "hora": "13:00-14:30",
+      "modalidad": "online",
+      "organizador": "EPO · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/22-10-2026-El-reto-de-la-transferencia-de-tecnologia-en-Europa-convertir-la-investigacion-en-exito-comercial/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-09-29"
+    },
+    {
       "id": "2026-11-03-euipo-directrices-inter-partes-marcas-ue",
       "titulo": "Webinar EUIPO: cambios en las Directrices para procedimientos inter partes de marcas UE",
       "descripcion": "Análisis de las últimas actualizaciones de las Directrices de examen de marcas de la UE en procedimientos inter partes. En inglés.",
@@ -223,6 +252,20 @@
       "categoria": "patentes",
       "gratuito": null,
       "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-11-12-epo-dia-del-usuario-2026",
+      "titulo": "Día del Usuario de la EPO 2026",
+      "descripcion": "Jornada online de la Oficina Europea de Patentes sobre su transformación digital, novedades en servicios en línea, sesiones para pymes, universidades y centros de investigación, y datos y tendencias de patentes. En inglés.",
+      "fecha_inicio": "2026-11-12",
+      "fecha_fin": "2026-11-12",
+      "hora": "10:00-16:00",
+      "modalidad": "online",
+      "organizador": "EPO",
+      "url": "https://www.oepm.es/es/detalle-evento/12-11-2026-Dia-del-Usuario-de-EPO/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-09-29"
     },
     {
       "id": "2026-11-12-xix-jornadas-tribunal-marcas-ue",

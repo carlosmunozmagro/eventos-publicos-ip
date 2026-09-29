@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-27T15:38:47Z",
+  "actualizado": "2026-09-29T05:50:15Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,17 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-28-pons-ip-ia-solicitudes-patente-salud-digital",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "La Inteligencia Artificial, protagonista de casi la mitad de las solicitudes de patente en salud digital",
+      "resumen": "La salud digital se ha convertido en uno de los principales ámbitos de competencia tecnológica: IA, dispositivos médicos inteligentes, sensórica avanzada y plataformas digitales concentran las solicitudes de patente, y Europa afronta el reto de reforzar su soberanía tecnológica.",
+      "fecha": "2026-09-28",
+      "url": "https://ponsip.com/ip-news/ia/la-inteligencia-artificial-protagonista-de-casi-la-mitad-de-las-solicitudes-de-patente-en-salud-digital/",
+      "categoria": "patentes",
+      "anadido": "2026-09-29"
+    },
     {
       "id": "2026-09-25-pons-ip-pons-ip-celebra-la-acreditacion-de-tres-nuevos-age",
       "despacho": "pons-ip",
