@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T05:50:15Z",
+  "actualizado": "2026-09-30T05:50:43Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,37 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-09-29-pons-ip-andalucia-investors-day",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP reivindica la propiedad industrial como palanca de crecimiento en el «Andalucía Investors Day»",
+      "resumen": "Iván Sempere, subdirector general de PONS IP, participó en la octava edición del foro organizado por El Confidencial en Sevilla ante más de 300 asistentes.",
+      "fecha": "2026-09-29",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-reivindica-la-propiedad-industrial-como-palanca-de-crecimiento-en-la-8o-edicion-del-andalucia-investors-day/",
+      "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-09-29-pons-ip-gii-2026-geografia-conocimiento",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Índice Mundial de Innovación 2026: las patentes dibujan una nueva geografía global del conocimiento",
+      "resumen": "Europa conserva una posición sólida y España mantiene a Barcelona y Madrid entre los cien principales clústeres, con el reto de transformar más ciencia en patentes, transferencia y empresas escalables.",
+      "fecha": "2026-09-29",
+      "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/indice-mundial-de-innovacion-2026-las-patentes-dibujan-una-nueva-geografia-global-del-conocimiento/",
+      "categoria": "patentes",
+      "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-09-28-elzaburu-nuevos-agentes-propiedad-industrial",
+      "despacho": "elzaburu",
+      "tipo": "corporativo",
+      "titulo": "Bosco de la Vega y Cristina Arroyo, nuevos agentes de la propiedad industrial de Elzaburu",
+      "resumen": "Recibieron el 25 de septiembre sus títulos de agentes de la propiedad industrial en el acto de entrega celebrado en la sede de la OEPM.",
+      "fecha": "2026-09-28",
+      "url": "https://elzaburu.com/bosco-de-la-vega-cristina-arroyo-nuevos-agentes-propiedad-industrial/",
+      "anadido": "2026-09-30"
+    },
     {
       "id": "2026-09-28-pons-ip-ia-solicitudes-patente-salud-digital",
       "despacho": "pons-ip",

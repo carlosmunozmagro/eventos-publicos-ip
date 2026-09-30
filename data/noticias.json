@@ -1,6 +1,28 @@
 {
-  "actualizado": "2026-09-28T05:51:23Z",
+  "actualizado": "2026-09-30T05:50:43Z",
   "items": [
+    {
+      "etiquetas": [
+        "OMPI",
+        "Índice Global de Innovación",
+        "España"
+      ],
+      "destacado": true,
+      "id": "2026-09-29-indice-mundial-innovacion-2026-espana-28",
+      "titulo": "Índice Mundial de Innovación 2026: España sube al puesto 28",
+      "resumen": "La OMPI presenta el GII 2026, liderado por Suiza, Suecia, EE. UU., Corea y Singapur. España mejora un puesto (del 29 al 28), rinde mejor en resultados de innovación (22.º) que en recursos (31.º) y mantiene a Barcelona y Madrid entre los 50 principales clústeres del mundo.",
+      "fecha": "2026-09-29",
+      "fuente": "OMPI",
+      "url": "https://www.wipo.int/pressroom/en/articles/2026/article_0014.html",
+      "categoria": "patentes",
+      "anadido": "2026-09-30",
+      "otras_fuentes": [
+        {
+          "fuente": "PONS IP",
+          "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/indice-mundial-de-innovacion-2026-las-patentes-dibujan-una-nueva-geografia-global-del-conocimiento/"
+        }
+      ]
+    },
     {
       "id": "2026-09-24-euipo-primera-solicitud-intervencion-ig-artesanal",
       "titulo": "Primera solicitud de intervención aduanera para una indicación geográfica artesanal e industrial",

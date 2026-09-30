@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-29T05:50:15Z",
+  "actualizado": "2026-09-30T05:50:43Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -281,6 +281,48 @@
       "categoria": "litigios",
       "gratuito": null,
       "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-11-18-epo-etsi-foro-normas-patentes-competitividad",
+      "titulo": "Foro EPO-ETSI sobre normas, patentes y competitividad",
+      "descripcion": "Foro de la Oficina Europea de Patentes y el Instituto Europeo de Normas de Telecomunicaciones sobre estándares, patentes esenciales e innovación. Aforo presencial limitado y retransmisión abierta con inscripción. En inglés.",
+      "fecha_inicio": "2026-11-18",
+      "fecha_fin": "2026-11-18",
+      "hora": "09:00-18:30",
+      "modalidad": "hibrido",
+      "organizador": "EPO · ETSI",
+      "url": "https://www.oepm.es/es/detalle-evento/18-11-2026-Foro-sobre-normas-patentes-y-competitividad-de-EPO/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-11-19-epo-conferencia-jurisprudencia-salas-recurso",
+      "titulo": "Conferencia sobre jurisprudencia de las Salas de Recurso de la EPO",
+      "descripcion": "Novedades en la jurisprudencia y la práctica de las Salas de Recurso de la Oficina Europea de Patentes, para profesionales de patentes, jueces y oficinas nacionales. En inglés.",
+      "fecha_inicio": "2026-11-19",
+      "fecha_fin": "2026-11-19",
+      "hora": "14:00-16:40",
+      "modalidad": "online",
+      "organizador": "EPO",
+      "url": "https://www.oepm.es/es/detalle-evento/19-11-2026-Conferencia-sobre-jurisprudencia-de-las-Salas-de-Recurso-de-EPO/",
+      "categoria": "litigios",
+      "gratuito": true,
+      "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-11-25-upc-pmac-jornada-arbitraje",
+      "titulo": "Jornada de Arbitraje del PMAC (Tribunal Unificado de Patentes)",
+      "descripcion": "El Centro de Mediación y Arbitraje de Patentes del TUP, con la EPO y las oficinas de Portugal y Eslovenia, analiza el arbitraje de litigios internacionales: SEP y FRAND, licencias globales, transferencia de tecnología y ciencias de la vida.",
+      "fecha_inicio": "2026-11-25",
+      "fecha_fin": "2026-11-25",
+      "hora": "09:00-17:00",
+      "modalidad": "online",
+      "organizador": "PMAC · TUP · EPO",
+      "url": "https://www.oepm.es/es/detalle-evento/25-11-2026-Jornada-de-Arbitraje-del-PMAC/",
+      "categoria": "litigios",
+      "gratuito": true,
+      "anadido": "2026-09-30"
     },
     {
       "id": "2026-12-08-euipo-seguimiento-jurisprudencia-q3-q4",
