@@ -26,7 +26,9 @@
     'premio': 'Premio / concurso',
     'adjudicacion': 'Adjudicación',
   };
-  const ESTADOS = { abierta: 'Plazo abierto', adjudicada: 'Adjudicadas', cerrada: 'Cerradas' };
+  const ESTADOS = { abierta: 'En curso · plazo abierto', pendiente: 'En curso · pendientes de adjudicar', adjudicada: 'Adjudicadas', cerrada: 'Cerradas' };
+  // Filtro de estado en Concursos: «en curso» agrupa plazo abierto y pendientes de adjudicar
+  const FILTRO_ESTADO = { curso: ['abierta', 'pendiente'], adjudicada: ['adjudicada'], cerrada: ['cerrada'] };
   const TITULOS = {
     noticias: 'Noticias', pons: 'PONS IP', competencia: 'Competencia', concursos: 'Concursos y licitaciones',
     eventos: 'Eventos', historial: 'Historial', guardados: 'Guardados',
@@ -52,6 +54,8 @@
     tipo: null,
     despacho: null,
     tipoConcurso: null,
+    estadoConcurso: null, // null | 'curso' | 'adjudicada' | 'cerrada'
+    ciudad: null,         // filtro de Eventos: null | 'online' | nombre de ciudad
     cifrasAbiertas: false,
     q: '',
     noticias: [],
@@ -124,7 +128,7 @@
       .sort((a, b) => b.fecha.localeCompare(a.fecha));
     state.pons = todos.filter((i) => i.despacho === state.propio?.id);
     state.competencia = todos.filter((i) => i.despacho !== state.propio?.id);
-    state.concursos = k.items.map((i) => ({ ...i, estado: estadoConcurso(i) }));
+    state.concursos = k.items.map((i) => ({ ...i, estado: estadoConcurso(i, k.items) }));
     state.actualizado = [n.actualizado, e.actualizado, c.actualizado, k.actualizado].filter(Boolean).sort().pop();
   }
 
@@ -132,10 +136,17 @@
   const comparable = (i) => i.relevante !== false;
   const fichaDe = (id) => state.despachos.get(id) || (state.propio?.id === id ? state.propio : null);
 
-  function estadoConcurso(c) {
+  // Una licitación con plazo vencido sigue «en curso» (pendiente de adjudicar) hasta que se publica
+  // su adjudicación: misma entidad y título parecido entre los elementos de tipo «adjudicacion»
+  const palabras = (t) => new Set(plano(t).split(/[^a-z0-9]+/).filter((w) => w.length > 3));
+  const parecido = (a, b) => { const A = palabras(a), B = palabras(b); let c = 0; A.forEach((w) => B.has(w) && c++); return c / Math.max(1, Math.min(A.size, B.size)); };
+  function estadoConcurso(c, todos = []) {
     if (c.estado) return c.estado;
     if (c.tipo === 'adjudicacion') return 'adjudicada';
-    return c.fecha_limite && c.fecha_limite >= hoy() ? 'abierta' : 'cerrada';
+    if (todos.some((a) => a.tipo === 'adjudicacion' && a.organismo === c.organismo && parecido(a.titulo, c.titulo) >= 0.5)) return 'adjudicada';
+    if (c.fecha_limite && c.fecha_limite >= hoy()) return 'abierta';
+    if (c.tipo === 'licitacion') return 'pendiente';
+    return c.fecha_limite ? 'cerrada' : 'abierta';
   }
 
   const texto = (o) => plano([o.titulo, o.resumen, o.descripcion, o.fuente, o.organizador, o.organismo, o.adjudicatario, o.ciudad, o.lugar, ...(o.etiquetas || [])]
@@ -148,11 +159,14 @@
       : state.view === 'pons'
         ? (i) => !state.tipoPons || i.tipo === state.tipoPons
       : state.view === 'concursos'
-        ? (i) => !state.tipoConcurso || i.tipo === state.tipoConcurso
+        ? (i) => (!state.tipoConcurso || i.tipo === state.tipoConcurso) && (!state.estadoConcurso || FILTRO_ESTADO[state.estadoConcurso].includes(i.estado))
+      : state.view === 'eventos'
+        ? (i) => (!state.categoria || i.categoria === state.categoria) && enCiudad(i)
         : (i) => !state.categoria || i.categoria === state.categoria;
     return items.filter((i) => pasa(i) && (!q || texto(i).includes(q)));
   }
 
+  const enCiudad = (e) => !state.ciudad || (state.ciudad === 'online' ? e.modalidad === 'online' : e.ciudad === state.ciudad);
   const esPasado = (e) => (e.fecha_fin || e.fecha_inicio) < hoy();
   const esActual = (n) => n.fecha >= haceDias(DIAS_ACTUALIDAD);
   const esNuevo = (i) => i.anadido && i.anadido >= haceDias(DIAS_NUEVO);
@@ -279,7 +293,7 @@
     b.textContent = TIPOS_CONCURSO[c.tipo] || c.tipo;
     b.style.setProperty('--c', `var(--c-k-${c.tipo}, var(--c-institucional))`);
     const est = $('.estado', node);
-    est.textContent = { abierta: 'Abierta', adjudicada: 'Adjudicada', cerrada: 'Cerrada' }[c.estado];
+    est.textContent = { abierta: 'En curso · plazo abierto', pendiente: 'En curso · pendiente de adjudicar', adjudicada: 'Adjudicada', cerrada: 'Cerrada' }[c.estado];
     est.dataset.estado = c.estado;
     $('.firm', node).textContent = c.organismo;
     if (esNuevo(c)) $('.new', node).hidden = false;
@@ -313,7 +327,7 @@
     if (state.view === 'competencia') return renderChipsCompetencia();
     if (state.view === 'concursos') return renderChipsConcursos();
     if (state.view === 'pons') return renderChipsPons();
-    $('#chips-desp').hidden = true;
+    if (state.view === 'eventos') renderChipsCiudad(); else $('#chips-desp').hidden = true;
     $('#chips').setAttribute('aria-label', 'Filtrar por categoría');
     const presentes = new Set(base().map((i) => i.categoria));
     const wrap = $('#chips');
@@ -369,8 +383,43 @@
     });
   }
 
+  // Segunda fila en Eventos: ciudades de los eventos próximos (y «Online»), con su número
+  function renderChipsCiudad() {
+    const prox = state.eventos.filter((e) => !esPasado(e));
+    const cuenta = new Map();
+    prox.filter((e) => e.modalidad !== 'online' && e.ciudad).forEach((e) => cuenta.set(e.ciudad, (cuenta.get(e.ciudad) || 0) + 1));
+    const online = prox.filter((e) => e.modalidad === 'online').length;
+    const ops = [[null, 'Todas las ciudades'], ...(online ? [['online', `Online · ${online}`]] : []),
+      ...[...cuenta.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], 'es')).map(([c, n]) => [c, `${c} · ${n}`])];
+    if (state.ciudad && !ops.some(([v]) => v === state.ciudad)) state.ciudad = null;
+    const wrap = $('#chips-desp');
+    wrap.replaceChildren();
+    wrap.setAttribute('aria-label', 'Filtrar por ciudad');
+    ops.forEach(([val, txt]) => {
+      const b = document.createElement('button');
+      b.type = 'button'; b.className = 'chip chip--ciudad'; b.textContent = txt;
+      b.setAttribute('aria-pressed', String(state.ciudad === val));
+      b.onclick = () => { state.ciudad = val; render(); };
+      wrap.append(b);
+    });
+    wrap.hidden = ops.length <= 1;
+  }
+
   function renderChipsConcursos() {
-    $('#chips-desp').hidden = true;
+    // Segunda fila: estado (en curso, adjudicados, cerrados) con su número
+    const cuentaEst = (k) => state.concursos.filter((c) => FILTRO_ESTADO[k].includes(c.estado)).length;
+    const est = $('#chips-desp');
+    est.replaceChildren();
+    est.setAttribute('aria-label', 'Filtrar por estado');
+    [[null, 'Todos los estados'], ['curso', `En curso · ${cuentaEst('curso')}`], ['adjudicada', `Adjudicados · ${cuentaEst('adjudicada')}`], ['cerrada', `Cerrados · ${cuentaEst('cerrada')}`]]
+      .forEach(([val, txt]) => {
+        const b = document.createElement('button');
+        b.type = 'button'; b.className = 'chip'; b.textContent = txt;
+        b.setAttribute('aria-pressed', String(state.estadoConcurso === val));
+        b.onclick = () => { state.estadoConcurso = val; render(); };
+        est.append(b);
+      });
+    est.hidden = false;
     const wrap = $('#chips');
     wrap.replaceChildren();
     wrap.setAttribute('aria-label', 'Filtrar por tipo');
@@ -515,7 +564,7 @@
     box.hidden = true;
     if (state.view === 'competencia') (state.despacho ? fichaDespacho : cifrasCompetencia)(box);
     else if (state.view === 'pons' && state.propio) fichaPropia(box);
-    else if (state.view === 'concursos' && (!state.tipoConcurso || state.tipoConcurso === 'adjudicacion')) quienGana(box);
+    else if (state.view === 'concursos' && (!state.tipoConcurso || state.tipoConcurso === 'adjudicacion') && state.estadoConcurso !== 'curso' && state.estadoConcurso !== 'cerrada') quienGana(box);
   }
 
   // Búsqueda: con texto en el buscador se busca en todas las secciones a la vez
@@ -630,6 +679,9 @@
 
   function render() {
     document.body.dataset.view = state.view;
+    // El informe PDF hereda estos filtros
+    document.body.dataset.ciudad = state.view === 'eventos' && state.ciudad ? state.ciudad : '';
+    document.body.dataset.estadoConcurso = state.view === 'concursos' && state.estadoConcurso ? state.estadoConcurso : '';
     $$('[data-view]').forEach((a) => (a.dataset.view === state.view ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
     const q = state.q.trim();
     if (q) return renderBusqueda(q);
@@ -640,7 +692,7 @@
     const intros = {
       pons: 'Noticias, artículos, eventos, reconocimientos y casos de éxito publicados por PONS IP, con su posición frente a la competencia.',
       competencia: `Actividad pública de ${state.despachos.size} despachos competidores: publicaciones, eventos, premios, contratos públicos y movimientos corporativos.`,
-      concursos: 'Licitaciones públicas, ayudas y premios relacionados con la propiedad industrial e intelectual, y a quién se adjudican los contratos.',
+      concursos: 'Licitaciones públicas, ayudas y premios de propiedad industrial e intelectual: en curso (plazo abierto o pendientes de adjudicar), adjudicados con su adjudicatario e importe, y cerrados.',
     };
     intro.hidden = !intros[state.view];
     intro.textContent = intros[state.view] || '';
@@ -698,7 +750,8 @@
     empty.hidden = nodes.length > 0;
     const sinFiltros = !state.q && (state.view === 'competencia' ? !state.tipo && !state.despacho
       : state.view === 'pons' ? !state.tipoPons
-      : state.view === 'concursos' ? !state.tipoConcurso : !state.categoria);
+      : state.view === 'concursos' ? !state.tipoConcurso && !state.estadoConcurso
+      : state.view === 'eventos' ? !state.categoria && !state.ciudad : !state.categoria);
     empty.textContent = !sinFiltros ? 'No hay resultados con estos filtros.'
       : state.view === 'guardados' ? 'Aún no has guardado nada. Pulsa el marcador en cualquier noticia o evento.'
       : state.view === 'historial' ? 'Todavía no hay nada en el historial.'

@@ -1,6 +1,22 @@
 {
-  "actualizado": "2026-09-27T10:30:00Z",
+  "actualizado": "2026-10-01T21:24:55Z",
   "items": [
+    {
+      "id": "2026-09-30-bsc-valorizacion-tecnologica-x4hpc",
+      "tipo": "licitacion",
+      "titulo": "Análisis de mercado, valorización tecnológica y estrategias de comercialización de tecnologías del BSC-CNS (proyecto X4HPC)",
+      "resumen": "Servicios de valorización y comercialización de las tecnologías del Barcelona Supercomputing Center y las instituciones del proyecto X4HPC, en 4 lotes. Criterios: experiencia del equipo en tecnologías de origen científico (30 %) y en procesos de transferencia de tecnología (30 %), formación del personal y precio. Duración: 30 meses.",
+      "organismo": "Barcelona Supercomputing Center (BSC-CNS)",
+      "ambito": "España",
+      "lugar": "Barcelona",
+      "fecha": "2026-09-30",
+      "fecha_limite": "2026-10-22",
+      "importe": "278.000,00 € (valor estimado, 4 lotes)",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-B-2026-31637",
+      "categoria": "patentes",
+      "anadido": "2026-10-01"
+    },
     {
       "id": "2026-08-31-aeboe-gestion-cartera-marcas",
       "tipo": "adjudicacion",

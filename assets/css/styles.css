@@ -286,6 +286,8 @@ h1, h2, h3 { line-height: 1.25; margin: 0; }
 .estado { font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border); }
 .estado[data-estado="abierta"] { color: var(--c-k-convocatoria); border-color: currentColor; }
 .estado[data-estado="adjudicada"] { color: var(--c-k-adjudicacion); border-color: currentColor; }
+.estado[data-estado="pendiente"] { color: #9a6700; border-color: currentColor; }
+.card--pendiente { border-left: 4px solid #d4a72c; }
 .card--cerrada { opacity: .75; }
 .card--urgente { border-left: 4px solid var(--accent); }
 .facts { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; margin: 2px 0 8px; font-size: 14px; }
@@ -466,3 +468,16 @@ body.con-informe { overflow: hidden; }
   .r-annex { break-before: page; }
   .report a { text-decoration: none; color: inherit; }
 }
+
+/* Informe: resumen ejecutivo, listas de detalle y metodología */
+.r-block--summary { margin-top: 4px; margin-bottom: 14px; }
+.r-summary { margin: 0; font-size: 14px; line-height: 1.55; }
+.r-detail { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+.r-detail li { break-inside: avoid; }
+.r-detail__title { margin: 0; font-weight: 700; font-size: 13px; }
+.r-detail__meta { margin: 1px 0 0; font-size: 11.5px; color: var(--r-muted); }
+.r-detail__text { margin: 2px 0 0; font-size: 12px; }
+.r-method p { margin: 0; font-size: 11.5px; color: var(--r-muted); }
+.r-block h2 + .r-bars + .r-table, .r-bars + .r-table { margin-top: 10px; }
+.informe select[hidden], .informe .segmented[hidden] { display: none; }
+.informe button:disabled, .informe select:disabled { opacity: .45; cursor: not-allowed; }

@@ -23,21 +23,26 @@ Routine de Claude Code (diaria)         GitHub                       Usuarios
 - **PONS IP**: pestaña propia con las noticias, artículos, eventos, reconocimientos y casos de éxito
   publicados en ponsip.com, y su posición frente a la competencia en publicaciones de los últimos 90 días.
 - **Informe PDF** en Noticias, PONS IP, Competencia, Concursos y Eventos: por semana, mes o año, con
-  cifras clave frente al periodo anterior, gráficos, conclusiones para PONS IP generadas a partir de
-  los datos y anexo con el detalle. Título, conclusiones y notas son editables antes de descargar
-  (se guardan en el navegador). Código en `assets/js/informe.js`.
+  resumen ejecutivo, cifras clave frente al periodo anterior, evolución de los últimos 6 periodos,
+  gráficos y tablas por sección, conclusiones para PONS IP generadas a partir de los datos, detalle de
+  cada elemento con su resumen y nota de metodología. En Concursos, informe «Solo pendientes» (plazo
+  abierto y pendientes de adjudicar, a fecha de hoy); en Eventos, filtro por ciudad. Título, resumen,
+  conclusiones y notas son editables antes de descargar (se guardan en el navegador). Código en
+  `assets/js/informe.js`.
 - **Historial**: nada se borra. Las noticias de más de 30 días y los eventos ya celebrados pasan
   solos a la sección Historial, agrupados por mes.
 - **Sin duplicados**: la tarea programada no escribe directamente en `data/`; deja los candidatos en
   `entrantes.json` y `scripts/merge.mjs` los fusiona. La misma noticia en otro medio se añade como
   “También en: …”; un evento ya conocido se actualiza (fecha, hora, enlace) en vez de repetirse.
 - **Noticias por fecha** (la más reciente primero), con su categoría indicada en cada tarjeta.
-- **Concursos y licitaciones**: licitaciones públicas, ayudas y premios de PI con su plazo (primero las
-  abiertas), importe y adjudicatario; botón para añadir el fin de plazo al calendario. Plegable «¿Quién gana los contratos
+- **Concursos y licitaciones**: licitaciones públicas, ayudas y premios de PI agrupados por estado
+  (en curso con plazo abierto, en curso pendientes de adjudicar, adjudicados y cerrados) y filtrables
+  por estado y por tipo, importe y adjudicatario; botón para añadir el fin de plazo al calendario. Plegable «¿Quién gana los contratos
   de PI?» con adjudicatarios, número de contratos e importes (BOE desde 2024).
 - **Competencia**: actividad pública de los despachos competidores (artículos, eventos, premios y
   rankings, contratos públicos, movimientos corporativos), filtrable por tipo y por despacho, con su agenda de
   eventos. «Ver cifras» compara a todos los despachos; al elegir uno se muestra su ficha.
+- **Eventos por ciudad**: filtro por ciudad (y «Online») con el número de eventos próximos de cada una.
 - **Búsqueda global**: al escribir en el buscador se busca en todas las secciones a la vez.
 - **Actualizar** (↻ junto a la fecha) y aviso cuando no hay conexión.
 - Búsqueda, filtros por categoría, etiqueta “Nuevo”, “+ Calendario” (.ics), guardados

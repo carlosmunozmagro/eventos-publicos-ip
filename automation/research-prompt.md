@@ -177,7 +177,7 @@ Fuentes y método:
 - **BOE (API abierta, sin clave)**: `curl -s -H "Accept: application/json" https://www.boe.es/datosabiertos/api/boe/sumario/AAAAMMDD`
   para cada día desde la última ejecución. Revisa la sección 5 (anuncios) buscando en el título
   «propiedad industrial», «propiedad intelectual», «patentes», «marcas de/del», «protección registral»,
-  «transferencia de tecnología», «vigilancia tecnológica» y la OEPM. Abre el anuncio
+  «transferencia de tecnología», «valorización tecnológica», «comercialización de tecnologías», «vigilancia tecnológica» y la OEPM. Busca «marca»/«marcas» como palabra completa (no «comarca»). Abre el anuncio
   (`https://www.boe.es/diario_boe/txt.php?id=BOE-B-…`) para sacar plazo, importe, CPV y adjudicatario.
   CPV clave: **70332300** (servicios relacionados con la propiedad industrial), **79120000** (asesoramiento
   sobre patentes y derechos de autor) y 79110000 (asesoría jurídica).
