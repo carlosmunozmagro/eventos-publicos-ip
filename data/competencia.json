@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-30T05:50:43Z",
+  "actualizado": "2026-10-02T05:49:25Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,28 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-01-elzaburu-moda-marcas-no-tradicionales",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Más allá del diseño industrial: cómo proteger la moda mediante marcas no tradicionales",
+      "resumen": "Elzaburu analiza cómo complementar el diseño industrial con marcas no tradicionales para proteger los activos intangibles en el sector de la moda.",
+      "fecha": "2026-10-01",
+      "url": "https://elzaburu.com/diseno-industrial-moda-marcas-no-tradicionales/",
+      "categoria": "marcas",
+      "anadido": "2026-10-02"
+    },
+    {
+      "id": "2026-10-01-pons-ip-madrid-conecta-pi-financiacion-intangibles",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Madrid conecta propiedad industrial, financiación e innovación para impulsar el valor de los activos intangibles",
+      "resumen": "Crónica del workshop de INTA con la OEPM en Madrid, que destacó el papel de marcas, patentes y diseños como motores de inversión, crecimiento y competitividad.",
+      "fecha": "2026-10-01",
+      "url": "https://ponsip.com/ip-news/actualidad/madrid-conecta-propiedad-industrial-financiacion-e-innovacion-para-impulsar-el-valor-de-los-activos-intangibles/",
+      "categoria": "marcas",
+      "anadido": "2026-10-02"
+    },
     {
       "id": "2026-09-29-pons-ip-andalucia-investors-day",
       "despacho": "pons-ip",

@@ -1,6 +1,22 @@
 {
-  "actualizado": "2026-09-30T05:50:43Z",
+  "actualizado": "2026-10-02T05:49:25Z",
   "items": [
+    {
+      "etiquetas": [
+        "OEPM",
+        "convenio",
+        "BOE"
+      ],
+      "destacado": false,
+      "id": "2026-10-02-boe-convenio-oepm-grupo-gransolar",
+      "titulo": "El BOE publica el convenio de la OEPM con Grupo Gransolar en materia de propiedad industrial",
+      "resumen": "Marco de cooperación para impulsar el conocimiento y el uso de los derechos de propiedad industrial en Grupo Gransolar y la protección de su innovación, con un canal de comunicación bidireccional con la OEPM.",
+      "fecha": "2026-10-02",
+      "fuente": "BOE",
+      "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20516",
+      "categoria": "institucional",
+      "anadido": "2026-10-02"
+    },
     {
       "etiquetas": [
         "OMPI",
