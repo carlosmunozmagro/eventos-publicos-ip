@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-02T05:49:25Z",
+  "actualizado": "2026-10-03T05:52:22Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-02-curell-curso-agentes-propiedad-industrial-coapi",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Ponencia en el Curso de Preparación para Agentes de la Propiedad Industrial (COAPI)",
+      "resumen": "El socio Nèstor Corominas impartirá en la 8.ª edición del curso del COAPI las sesiones sobre modelos de utilidad y sobre las patentes como fuente de información tecnológica.",
+      "fecha": "2026-10-02",
+      "url": "https://curell.com/3-noviembre-2026-nestor-corominas-imparte-clase-en-el-curso-de-preparacion-para-agentes-de-la-propiedad-industrial-online/",
+      "categoria": "patentes",
+      "fecha_evento": "2026-11-03",
+      "ciudad": "Online",
+      "anadido": "2026-10-03"
+    },
     {
       "id": "2026-10-01-elzaburu-moda-marcas-no-tradicionales",
       "despacho": "elzaburu",

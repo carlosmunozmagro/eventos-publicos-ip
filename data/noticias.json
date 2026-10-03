@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-02T05:49:25Z",
+  "actualizado": "2026-10-03T05:52:22Z",
   "items": [
     {
       "etiquetas": [
@@ -16,6 +16,23 @@
       "url": "https://www.boe.es/diario_boe/txt.php?id=BOE-A-2026-20516",
       "categoria": "institucional",
       "anadido": "2026-10-02"
+    },
+    {
+      "etiquetas": [
+        "OEPM",
+        "China",
+        "CNIPA",
+        "Internacionalización"
+      ],
+      "destacado": false,
+      "id": "2026-10-01-oepm-cnipa-mecanismo-puntos-contacto",
+      "titulo": "La OEPM y la CNIPA china ponen en marcha un mecanismo piloto de puntos de contacto en propiedad intelectual",
+      "resumen": "La OEPM y la Administración Nacional de Propiedad Intelectual de China designan cada una un funcionario de enlace para asesorar a las empresas españolas que operan en China y a las chinas que operan en España sobre la protección de su propiedad intelectual. El proyecto piloto dura un año, del 1 de octubre de 2026 al 30 de septiembre de 2027.",
+      "fecha": "2026-10-01",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/La-Oficina-Espanola-de-Patentes-y-Marcas-OEPM-y-la-Administracion-Nacional-de-Propiedad-Intelectual-de-China-CNIPA-ponen-en-marcha-el-proyecto-piloto-del-Mecanismo-de-Puntos-de-Contacto-OEPM-CNIPA/",
+      "categoria": "institucional",
+      "anadido": "2026-10-03"
     },
     {
       "etiquetas": [
@@ -36,6 +53,10 @@
         {
           "fuente": "PONS IP",
           "url": "https://ponsip.com/ip-news/propiedad-industrial-e-intelectual/indice-mundial-de-innovacion-2026-las-patentes-dibujan-una-nueva-geografia-global-del-conocimiento/"
+        },
+        {
+          "fuente": "OEPM",
+          "url": "https://www.oepm.es/es/detalle-noticia/Espana-avanza-un-puesto-en-el-Indice-Mundial-de-Innovacion-2026/"
         }
       ]
     },
