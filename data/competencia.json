@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-06T05:49:17Z",
+  "actualizado": "2026-10-09T05:51:45Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,28 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-09-isern-arabia-saudita-sistema-madrid",
+      "despacho": "isern",
+      "tipo": "articulo",
+      "titulo": "Arabia Saudita se incorpora al Sistema de Madrid: qué cambia para registrar tu marca",
+      "resumen": "Desde el 8 de octubre de 2026 Arabia Saudita puede designarse en una solicitud internacional de marca del Sistema de Madrid o en la ampliación de un registro existente; ISERN explica cómo elegir entre la vía internacional y la nacional y qué plazos tener en cuenta.",
+      "fecha": "2026-10-09",
+      "url": "https://isern.com/registrar-marca-en-arabia-saudita/",
+      "categoria": "marcas",
+      "anadido": "2026-10-09"
+    },
+    {
+      "id": "2026-10-08-elzaburu-nombres-alimentos-origen-vegetal",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Hamburguesa vegana sí, queso vegano no: ¿qué nombres pueden utilizar los alimentos de origen vegetal?",
+      "resumen": "Carlos Morán y Enrique Armijo analizan los litigios sobre denominaciones de productos vegetales, como el caso Heura, resuelto a su favor por la Audiencia Provincial de Barcelona, frente al caso Mommus Foods, en el que se consideró ilícito el uso de referencias a quesos.",
+      "fecha": "2026-10-08",
+      "url": "https://elzaburu.com/actualidad/blog/nombres-alimentos-origen-vegetal-vegano/",
+      "categoria": "litigios",
+      "anadido": "2026-10-09"
+    },
     {
       "id": "2026-10-05-pons-ip-america-latina-innovacion-global-colombia",
       "despacho": "pons-ip",
