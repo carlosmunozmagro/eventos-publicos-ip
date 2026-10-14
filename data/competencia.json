@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-09T05:51:45Z",
+  "actualizado": "2026-10-14T05:49:08Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,28 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-13-elzaburu-emiratos-marcas-bebidas-alcoholicas",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Emiratos Árabes Unidos admite el registro de marcas para bebidas alcohólicas",
+      "resumen": "La oficina de marcas de Emiratos Árabes Unidos admite desde mediados de septiembre de 2026 solicitudes en la clase 33 de Niza (vinos, licores y bebidas alcohólicas), algo que antes no era posible; una novedad relevante para el sector vitivinícola.",
+      "fecha": "2026-10-13",
+      "url": "https://elzaburu.com/actualidad/blog/emiratos-arabes-unidos-admite-registro-marcas-bebidas-alcoholicas/",
+      "categoria": "marcas",
+      "anadido": "2026-10-14"
+    },
+    {
+      "id": "2026-10-13-pons-ip-firma-invisible-marcas-joyas",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "La firma invisible: así identifica el sistema de marcas quién fabricó una joya",
+      "resumen": "Toda joya de oro, plata o platino que se vende en España lleva grabado el punzón de identificación de origen: una marca registrada en la OEPM, obligatoria desde la Ley 17/1985, que identifica a su fabricante o importador.",
+      "fecha": "2026-10-13",
+      "url": "https://ponsip.com/ip-news/actualidad/la-firma-invisible-asi-identifica-el-sistema-de-marcas-quien-fabrico-una-joya/",
+      "categoria": "marcas",
+      "anadido": "2026-10-14"
+    },
     {
       "id": "2026-10-09-isern-arabia-saudita-sistema-madrid",
       "despacho": "isern",
