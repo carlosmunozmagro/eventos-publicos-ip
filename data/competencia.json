@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-14T05:49:08Z",
+  "actualizado": "2026-10-15T05:50:36Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,16 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-14-pons-ip-master-propiedad-industrial-edicion-internacional-barcelona",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "De Madrid a Barcelona: el máster que ha formado a generaciones de especialistas en propiedad industrial estrena edición internacional",
+      "resumen": "El Máster en Propiedad Industrial, Intelectual e Innovación Tecnológica de PONS Escuela de Negocios e ISDE inaugura su XXI edición en Madrid y lanza en Barcelona su primera edición internacional, íntegramente en inglés, con la colaboración de PONS IP y ACCIÓ.",
+      "fecha": "2026-10-14",
+      "url": "https://ponsip.com/ip-news/actualidad/de-madrid-a-barcelona-el-master-que-ha-formado-a-generaciones-de-especialistas-en-propiedad-industrial-estrena-una-edicion-internacional/",
+      "anadido": "2026-10-15"
+    },
     {
       "id": "2026-10-13-elzaburu-emiratos-marcas-bebidas-alcoholicas",
       "despacho": "elzaburu",

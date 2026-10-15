@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-09-30T05:50:43Z",
+  "actualizado": "2026-10-15T05:50:36Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -207,6 +207,21 @@
       "categoria": "patentes",
       "gratuito": true,
       "anadido": "2026-09-29"
+    },
+    {
+      "id": "2026-10-22-iii-congreso-internacional-diseno-elche",
+      "titulo": "III Congreso Internacional de Diseño",
+      "descripcion": "Profesionales del diseño, la empresa y el ámbito jurídico, con participación de la EUIPO y la OEPM, debaten sobre inteligencia artificial y propiedad intelectual, protección y contratos de diseño, falsificaciones y diseño y marketing. Sede: Ilustre Colegio de Abogados de Elche (ICAE). Precio: 75 €.",
+      "fecha_inicio": "2026-10-22",
+      "fecha_fin": "2026-10-23",
+      "hora": "09:00-19:30",
+      "modalidad": "presencial",
+      "ciudad": "Elche",
+      "organizador": "Congreso Internacional de Diseño · EUIPO · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/22-10-2026-y-23-10-2026-III-Congreso-Internacional-de-Diseno/",
+      "categoria": "disenos",
+      "gratuito": false,
+      "anadido": "2026-10-15"
     },
     {
       "id": "2026-11-03-euipo-directrices-inter-partes-marcas-ue",
