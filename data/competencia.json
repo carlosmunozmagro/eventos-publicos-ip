@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-15T05:50:36Z",
+  "actualizado": "2026-10-16T06:01:03Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,28 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-15-elzaburu-pct-argentina-adhesion",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "El PCT se amplía: Argentina avanza hacia su adhesión al sistema internacional de patentes",
+      "resumen": "Elzaburu analiza el avance parlamentario de la adhesión de Argentina al Tratado de Cooperación en materia de Patentes (PCT), pendiente desde hace más de cinco décadas, y lo que supondría para las estrategias de protección de invenciones.",
+      "fecha": "2026-10-15",
+      "url": "https://elzaburu.com/actualidad/blog/pct-argentina-avanza-adhesion-sistema-internacional-patentes/",
+      "categoria": "patentes",
+      "anadido": "2026-10-16"
+    },
+    {
+      "id": "2026-10-14-elzaburu-marcas-yemen-sana-aden",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Protección de las marcas en Yemen: Registro de Saná y Registro de Adén",
+      "resumen": "Yemen cuenta con dos oficinas de marcas independientes, en Saná y en Adén; Elzaburu recomienda, según el criterio actual de sus corresponsales, solicitar la protección en ambos registros.",
+      "fecha": "2026-10-14",
+      "url": "https://elzaburu.com/actualidad/blog/proteccion-de-las-marcas-en-yemen-registro-de-sana-y-registro-de-aden/",
+      "categoria": "marcas",
+      "anadido": "2026-10-16"
+    },
     {
       "id": "2026-10-14-pons-ip-master-propiedad-industrial-edicion-internacional-barcelona",
       "despacho": "pons-ip",
