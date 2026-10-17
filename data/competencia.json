@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-16T06:01:03Z",
+  "actualizado": "2026-10-17T05:54:18Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-16-pons-ip-patentar-no-basta-libertad-operacion",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Patentar no basta: ¿por qué la libertad de operación es crítica cuando hablamos de llevar la innovación al mercado?",
+      "resumen": "En el mundo de la innovación tecnológica existe una creencia ampliamente extendida: si una empresa obtiene una patente sobre su invención, automáticamente puede fabricarla, comercializarla y explotarla sin restricciones; esta idea es incorrecta y puede generar riesgos importantes.",
+      "fecha": "2026-10-16",
+      "url": "https://ponsip.com/ip-news/desarrollo-tecnologico-e-innovacion/patentar-no-basta-por-que-la-libertad-de-operacion-es-critica-cuando-hablamos-de-llevar-la-innovacion-al-mercado/",
+      "categoria": "patentes",
+      "relevante": false,
+      "motivo_no_comparable": "guía divulgativa sin novedad normativa ni jurisprudencial",
+      "anadido": "2026-10-17"
+    },
     {
       "id": "2026-10-15-elzaburu-pct-argentina-adhesion",
       "despacho": "elzaburu",
