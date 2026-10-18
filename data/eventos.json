@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-15T05:50:36Z",
+  "actualizado": "2026-10-18T05:50:26Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -222,6 +222,21 @@
       "categoria": "disenos",
       "gratuito": false,
       "anadido": "2026-10-15"
+    },
+    {
+      "id": "2026-10-30-latin-america-ip-sme-helpdesk-ip-horror-stories",
+      "titulo": "Latin America IP SME Helpdesk: IP Horror Stories",
+      "descripcion": "Seminario en línea, en inglés, del Latin America IP SME Helpdesk (Consejo Europeo de Innovación y Agencia Ejecutiva para las Pymes) con casos reales de errores en la gestión de derechos de propiedad industrial. Gratuito, con inscripción previa.",
+      "fecha_inicio": "2026-10-30",
+      "fecha_fin": "2026-10-30",
+      "hora": "10:30",
+      "modalidad": "online",
+      "ciudad": null,
+      "organizador": "Latin America IP SME Helpdesk · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/30-10-2026-Latin-America-IP-SME-Helpdesk-IP-Horror-Stories/",
+      "categoria": "institucional",
+      "gratuito": true,
+      "anadido": "2026-10-18"
     },
     {
       "id": "2026-11-03-euipo-directrices-inter-partes-marcas-ue",
