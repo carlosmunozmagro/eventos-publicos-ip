@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-17T05:54:18Z",
+  "actualizado": "2026-10-21T05:50:38Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,39 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-21-elzaburu-nuevas-extensiones-dominio-marca",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Más allá del .com: cómo las nuevas extensiones de dominio también construyen marca",
+      "resumen": "Con más de 400 millones de dominios registrados en el mundo al cierre del segundo trimestre de 2026, Elzaburu analiza cómo las nuevas extensiones de dominio pasan a formar parte de la estrategia de identidad y protección de marca de las empresas.",
+      "fecha": "2026-10-21",
+      "url": "https://elzaburu.com/actualidad/blog/com-nuevas-extensionesdominio-marca/",
+      "categoria": "marcas",
+      "anadido": "2026-10-21"
+    },
+    {
+      "id": "2026-10-20-elzaburu-surinam-registro-marcas-servicios",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Surinam abre el registro de marcas para servicios",
+      "resumen": "Surinam adopta la Clasificación de Niza y permite registrar marcas de servicios, hasta ahora limitadas a productos; Elzaburu destaca su interés para turismo, hostelería, transporte y otros sectores de servicios con presencia en el Caribe.",
+      "fecha": "2026-10-20",
+      "url": "https://elzaburu.com/actualidad/blog/surinam-registro-marcas-servicios/",
+      "categoria": "marcas",
+      "anadido": "2026-10-21"
+    },
+    {
+      "id": "2026-10-20-pons-ip-nueva-ley-marcas-china-2027",
+      "despacho": "pons-ip",
+      "tipo": "articulo",
+      "titulo": "Nueva Ley de Marcas en China: las claves que las empresas deben revisar antes de 2027",
+      "resumen": "PONS IP lanza una guía sobre la nueva Ley de Marcas china, que entra en vigor el 1 de enero de 2027: refuerza las medidas contra las solicitudes de mala fe, incorpora nuevos tipos de signos registrables y da más peso al uso efectivo de las marcas.",
+      "fecha": "2026-10-20",
+      "url": "https://ponsip.com/ip-news/actualidad/nueva-ley-de-marcas-en-china-las-claves-que-las-empresas-deben-revisar-antes-de-2027/",
+      "categoria": "marcas",
+      "anadido": "2026-10-21"
+    },
     {
       "id": "2026-10-16-pons-ip-patentar-no-basta-libertad-operacion",
       "despacho": "pons-ip",
