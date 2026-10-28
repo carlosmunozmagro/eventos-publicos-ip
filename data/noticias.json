@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-20T05:50:56Z",
+  "actualizado": "2026-10-28T06:50:42Z",
   "items": [
     {
       "etiquetas": [
@@ -34,6 +34,24 @@
       "url": "https://www.wipo.int/documents/d/madrid-system/information-notices-en-2026-madrid_2026_35_e.pdf-1",
       "categoria": "marcas",
       "anadido": "2026-10-09"
+    },
+    {
+      "etiquetas": [
+        "OEPM",
+        "IBEPI",
+        "Activos intangibles",
+        "Financiación",
+        "Iberoamérica"
+      ],
+      "destacado": false,
+      "id": "2026-10-06-oepm-conferencia-ibepi-financiacion-activos-intangibles",
+      "titulo": "La OEPM reúne a OMPI, EUIPO y EPO en una conferencia del IBEPI sobre financiación respaldada por activos intangibles",
+      "resumen": "En el marco de la XXX Cumbre Iberoamericana, la OEPM celebró una Conferencia de Alto Nivel del IBEPI sobre cómo usar marcas, patentes y diseños como garantía para obtener financiación. El ministro Jordi Hereu, João Negrão (EUIPO) y António Campinos (EPO) reclamaron una metodología de valoración aceptada internacionalmente.",
+      "fecha": "2026-10-06",
+      "fuente": "OEPM",
+      "url": "https://www.oepm.es/es/detalle-noticia/La-OEPM-convoca-a-los-actores-del-ecosistema-global-de-innovacion-a-una-Conferencia-de-Alto-Nivel-centrada-en-la-financiacion-respaldada-por-activos-intangibles/",
+      "categoria": "institucional",
+      "anadido": "2026-10-28"
     },
     {
       "etiquetas": [
