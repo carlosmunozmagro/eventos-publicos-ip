@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-21T05:50:38Z",
+  "actualizado": "2026-10-30T06:51:33Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,19 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-10-29-curell-master-propiedad-intelectual-industrial-icab",
+      "despacho": "curell-sunol",
+      "tipo": "evento",
+      "titulo": "Docencia en el Máster en Propiedad Intelectual e Industrial del ICAB",
+      "resumen": "El socio Nèstor Corominas impartirá el Módulo III, dedicado a los diseños industriales, de la edición 2026-2027 del máster que organiza el Ilustre Colegio de la Abogacía de Barcelona.",
+      "fecha": "2026-10-29",
+      "url": "https://curell.com/16-febrero-2027-nestor-corominas-imparte-clase-el-master-en-propiedad-intelectual-e-industrial-del-icab-barcelona/",
+      "categoria": "disenos",
+      "fecha_evento": "2027-02-16",
+      "ciudad": "Barcelona",
+      "anadido": "2026-10-30"
+    },
     {
       "id": "2026-10-21-elzaburu-nuevas-extensiones-dominio-marca",
       "despacho": "elzaburu",
