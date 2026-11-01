@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-18T05:50:26Z",
+  "actualizado": "2026-11-01T06:49:25Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -269,21 +269,6 @@
       "anadido": "2026-09-27"
     },
     {
-      "id": "2026-11-11-abg-ip-perspectives-catalunya-v",
-      "titulo": "IP Perspectives Catalunya V",
-      "descripcion": "Seminario de ABG IP sobre patente unitaria y TUP, protección internacional de marcas y estrategia de PI en startups de salud, con Loop Diagnostics.",
-      "fecha_inicio": "2026-11-11",
-      "fecha_fin": "2026-11-11",
-      "hora": null,
-      "modalidad": "presencial",
-      "ciudad": "Barcelona",
-      "organizador": "ABG Intellectual Property",
-      "url": "https://www.oepm.es/es/detalle-evento/11-11-2026-IP-Perspectives-Catalunya-V-ABG-Intellectual-Property/",
-      "categoria": "patentes",
-      "gratuito": null,
-      "anadido": "2026-09-27"
-    },
-    {
       "id": "2026-11-12-epo-dia-del-usuario-2026",
       "titulo": "Día del Usuario de la EPO 2026",
       "descripcion": "Jornada online de la Oficina Europea de Patentes sobre su transformación digital, novedades en servicios en línea, sesiones para pymes, universidades y centros de investigación, y datos y tendencias de patentes. En inglés.",
@@ -353,6 +338,22 @@
       "categoria": "litigios",
       "gratuito": true,
       "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-11-11-abg-ip-perspectives-catalunya-v",
+      "titulo": "IP Perspectives Catalunya V",
+      "descripcion": "Seminario de ABG IP sobre patente unitaria y TUP, protección internacional de marcas y estrategia de PI en startups de salud, con Loop Diagnostics. Aplazado del 11 de noviembre al 2 de diciembre.",
+      "fecha_inicio": "2026-12-02",
+      "fecha_fin": "2026-12-02",
+      "hora": null,
+      "modalidad": "presencial",
+      "ciudad": "Barcelona",
+      "organizador": "ABG Intellectual Property",
+      "url": "https://www.oepm.es/es/detalle-evento/02-12-2026-IP-Perspectives-Catalunya-V-ABG-Intellectual-Property/",
+      "categoria": "patentes",
+      "gratuito": null,
+      "anadido": "2026-09-27",
+      "modificado": "2026-11-01"
     },
     {
       "id": "2026-12-08-euipo-seguimiento-jurisprudencia-q3-q4",
