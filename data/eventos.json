@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-01T06:49:25Z",
+  "actualizado": "2026-11-05T06:49:20Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -298,6 +298,21 @@
       "anadido": "2026-09-27"
     },
     {
+      "id": "2026-11-13-ciclo-ia-patentabilidad-software-murcia",
+      "titulo": "Ciclo «IA: Claves Prácticas»: patentabilidad del software basado en IA",
+      "descripcion": "Sexta sesión del ciclo, dirigida a pymes, startups, investigadores y desarrolladores: qué desarrollos de software e IA pueden patentarse y cómo protegerlos. Con Almudena Fernández (OEPM), Maitane Valdecantos (AUDENS) y Bleecker Technologies. Mercado de Correos, Murcia.",
+      "fecha_inicio": "2026-11-13",
+      "fecha_fin": "2026-11-13",
+      "hora": "09:30-11:30",
+      "modalidad": "presencial",
+      "ciudad": "Murcia",
+      "organizador": "Ciclo IA: Claves Prácticas · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/13-11-2026-CICLO-IA.-Patentabilidad-del-software-basado-en-IA/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-11-05"
+    },
+    {
       "id": "2026-11-18-epo-etsi-foro-normas-patentes-competitividad",
       "titulo": "Foro EPO-ETSI sobre normas, patentes y competitividad",
       "descripcion": "Foro de la Oficina Europea de Patentes y el Instituto Europeo de Normas de Telecomunicaciones sobre estándares, patentes esenciales e innovación. Aforo presencial limitado y retransmisión abierta con inscripción. En inglés.",
@@ -369,6 +384,21 @@
       "categoria": "litigios",
       "gratuito": true,
       "anadido": "2026-09-27"
+    },
+    {
+      "id": "2026-12-14-epo-plataformas-tecnologicas-ia-medicina",
+      "titulo": "Plataformas tecnológicas: IA y medicina",
+      "descripcion": "Conferencia en línea, en inglés, basada en el informe «Technology Insight» de la EPO: tendencias, países y solicitantes líderes en patentes de IA aplicada al diagnóstico, la terapia, los fármacos, la robótica médica y la logística hospitalaria, y metodología del análisis.",
+      "fecha_inicio": "2026-12-14",
+      "fecha_fin": "2026-12-14",
+      "hora": "13:00-14:00",
+      "modalidad": "online",
+      "ciudad": null,
+      "organizador": "EPO · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/14-12-2026-Plataformas-tecnologicas-IA-y-medicina/",
+      "categoria": "patentes",
+      "gratuito": true,
+      "anadido": "2026-11-05"
     }
   ]
 }

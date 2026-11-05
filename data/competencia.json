@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-10-30T06:51:33Z",
+  "actualizado": "2026-11-05T06:49:20Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,18 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-04-pons-ip-informe-cotec-inversion-defensa",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "La inversión en Defensa multiplica su impacto en innovación, empleo e industria, según el nuevo informe de Fundación COTEC",
+      "resumen": "Fundación Cotec presenta en el CDTI el informe «El valor de la inversión en Defensa», elaborado por un grupo de trabajo de 41 entidades del que forma parte PONS IP.",
+      "fecha": "2026-11-04",
+      "url": "https://ponsip.com/ip-news/actualidad/la-inversion-en-defensa-multiplica-su-impacto-en-innovacion-empleo-e-industria-segun-el-nuevo-informe-de-fundacion-cotec/",
+      "relevante": false,
+      "motivo_no_comparable": "estudio sobre inversión en defensa, fuera del ámbito de la PI",
+      "anadido": "2026-11-05"
+    },
     {
       "id": "2026-10-29-curell-master-propiedad-intelectual-industrial-icab",
       "despacho": "curell-sunol",
