@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05T06:49:20Z",
+  "actualizado": "2026-11-06T06:50:50Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,27 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-05-elzaburu-tjue-ingresos-entidades-gestion",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "El TJUE fija límites al uso de los ingresos de las entidades de gestión de derechos de autor",
+      "resumen": "Elzaburu analiza la sentencia del TJUE de 22 de octubre de 2026 (asunto C-840/24, VG Wort), que delimita en qué medida las entidades de gestión pueden destinar ingresos de copia privada y préstamo público a fines culturales o sociales, con posibles efectos para las entidades españolas.",
+      "fecha": "2026-11-05",
+      "url": "https://elzaburu.com/actualidad/blog/tjue-limites-uso-ingresos-entidades-gestion-derechos-autor/",
+      "categoria": "derechos-autor",
+      "anadido": "2026-11-06"
+    },
+    {
+      "id": "2026-11-05-pons-ip-best-lawyers-colombia-caro-amaya",
+      "despacho": "pons-ip",
+      "tipo": "reconocimiento",
+      "titulo": "Best Lawyers reconoce a Claudia Caro y Juan Camilo Amaya en Propiedad Intelectual en Colombia",
+      "resumen": "La 17.ª edición de The Best Lawyers in Colombia incluye a Claudia Caro, directora de PONS IP Colombia, y por primera vez a Juan Camilo Amaya, subdirector de la oficina, en la práctica de propiedad intelectual.",
+      "fecha": "2026-11-05",
+      "url": "https://ponsip.com/ip-news/colombia/best-lawyers-reconoce-a-claudia-caro-y-juan-camilo-amaya-en-propiedad-intelectual-en-colombia/",
+      "anadido": "2026-11-06"
+    },
     {
       "id": "2026-11-04-pons-ip-informe-cotec-inversion-defensa",
       "despacho": "pons-ip",
