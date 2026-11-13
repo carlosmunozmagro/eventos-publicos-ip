@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-06T06:50:50Z",
+  "actualizado": "2026-11-13T06:54:40Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,28 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-12-elzaburu-valor-marcas-futbol-2026",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "El valor de las marcas de fútbol en 2026: alcance económico y relevancia jurídica",
+      "resumen": "A partir del informe Football 50 2026 de Brand Finance, que valora en 23.900 millones de euros las 50 marcas de clubes más valiosas (con el Real Madrid primero, con 2.400 millones), Elzaburu analiza qué significa jurídicamente el valor de una marca.",
+      "fecha": "2026-11-12",
+      "url": "https://elzaburu.com/actualidad/blog/valor-marcas-futbol-2026/",
+      "categoria": "marcas",
+      "anadido": "2026-11-13"
+    },
+    {
+      "id": "2026-11-12-pons-ip-propiedad-industrial-desarrollo-cuantico",
+      "despacho": "pons-ip",
+      "tipo": "corporativo",
+      "titulo": "PONS IP sitúa la propiedad industrial y la transferencia de conocimiento en el centro del desarrollo cuántico de España",
+      "resumen": "PONS IP ha colaborado en el «Libro Blanco de Tecnologías Cuánticas para la Estrategia 2025-2030» de DigitalES y ha coordinado, con Multiverse Computing, el informe del Grupo de Trabajo de Cuántica de Fundación Cotec sobre la dinamización de este ecosistema en España.",
+      "fecha": "2026-11-12",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-situa-la-propiedad-industrial-y-la-transferencia-de-conocimiento-en-el-centro-del-desarrollo-cuantico-de-espana/",
+      "categoria": "patentes",
+      "anadido": "2026-11-13"
+    },
     {
       "id": "2026-11-05-elzaburu-tjue-ingresos-entidades-gestion",
       "despacho": "elzaburu",
