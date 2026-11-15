@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-05T06:49:20Z",
+  "actualizado": "2026-11-15T06:49:02Z",
   "items": [
     {
       "id": "2026-09-28-oepm-pi-sector-alimentario",
@@ -339,6 +339,21 @@
       "categoria": "litigios",
       "gratuito": true,
       "anadido": "2026-09-30"
+    },
+    {
+      "id": "2026-11-20-iii-congreso-pi-publicidad-moda-cosmetica",
+      "titulo": "III Congreso Internacional sobre Propiedad Industrial y Publicidad en el sector de Moda y Cosmética",
+      "descripcion": "Tercera edición del congreso que reúne a académicos, abogados y profesionales de empresa sobre la protección de marcas y diseños, la comunicación comercial y los retos del mercado digital en la moda y la cosmética. En línea, gratuito y con inscripción previa.",
+      "fecha_inicio": "2026-11-20",
+      "fecha_fin": "2026-11-20",
+      "hora": "09:30",
+      "modalidad": "online",
+      "ciudad": null,
+      "organizador": "Congreso Internacional sobre PI y Publicidad en Moda y Cosmética · OEPM",
+      "url": "https://www.oepm.es/es/detalle-evento/20-11-2026-III-Congreso-Internacional-sobre-Propiedad-Industrial-y-Publicidad-en-el-sector-de-Moda-y-Cosmetica/",
+      "categoria": "marcas",
+      "gratuito": true,
+      "anadido": "2026-11-15"
     },
     {
       "id": "2026-11-25-upc-pmac-jornada-arbitraje",
