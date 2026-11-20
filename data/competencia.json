@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-13T06:54:40Z",
+  "actualizado": "2026-11-20T06:56:16Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,17 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-19-elzaburu-toblerone-marca-forma-euipo",
+      "despacho": "elzaburu",
+      "tipo": "articulo",
+      "titulo": "Toblerone ante la EUIPO: ¿puede protegerse como marca la forma de una tableta de chocolate?",
+      "resumen": "Elzaburu analiza la decisión de la División de Anulación de la EUIPO de 8 de julio de 2026, que rechaza la nulidad solicitada por Millano contra la marca tridimensional de la UE que protege la forma de Toblerone, y los límites de las marcas de forma.",
+      "fecha": "2026-11-19",
+      "url": "https://elzaburu.com/actualidad/blog/toblerone-protegerse-marca-forma-tableta/",
+      "categoria": "marcas",
+      "anadido": "2026-11-20"
+    },
     {
       "id": "2026-11-12-elzaburu-valor-marcas-futbol-2026",
       "despacho": "elzaburu",
