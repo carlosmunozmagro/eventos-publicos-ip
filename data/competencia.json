@@ -1,5 +1,5 @@
 {
-  "actualizado": "2026-11-20T06:56:16Z",
+  "actualizado": "2026-11-21T06:55:10Z",
   "despachos": [
     {
       "id": "pons-ip",
@@ -100,6 +100,18 @@
     }
   ],
   "items": [
+    {
+      "id": "2026-11-20-pons-ip-forum-europeo-ia-alicante",
+      "despacho": "pons-ip",
+      "tipo": "evento",
+      "titulo": "PONS IP coloca la protección de los intangibles en el centro del debate sobre la Gobernanza de la IA en Alicante",
+      "resumen": "PONS IP participó como entidad colaboradora del V Forum Europeo de Inteligencia Artificial, celebrado el 19 y 20 de noviembre en la sede de la EUIPO y ADDA en Alicante, con cerca de 1.500 asistentes.",
+      "fecha": "2026-11-20",
+      "url": "https://ponsip.com/ip-news/actualidad/pons-ip-coloca-la-proteccion-de-los-intangibles-en-el-centro-del-debate-sobre-la-gobernanza-de-la-ia-en-alicante/",
+      "fecha_evento": "2026-11-19",
+      "ciudad": "Alicante",
+      "anadido": "2026-11-21"
+    },
     {
       "id": "2026-11-19-elzaburu-toblerone-marca-forma-euipo",
       "despacho": "elzaburu",
